@@ -1,0 +1,25 @@
+[![Zebulon Edward Bubbel portrait](https://res.cloudinary.com/dfceth4sr/image/upload/v1652737120/thispersondoesnotexist.com_1_m7kfm1.jpg "")](https://www.thispersondoesnotexist.com/)
+
+# Zebulon Edward Bubbel
+
+Front-End Developer  
+Budapest, HUN
+
+[zebulon_edward_bubbel@epam.com](mailto:zebulon_e_bubbel@epam.com)
+[+36 1 234 5678](tel:+3612345678)
+<https://zebulonedwardbubbel.github.io>
+[@zebulonedwardbubbel on GitHub](https://github.com/zebulonedwardbubbel)
+[Zebulon Edward Bubbel on LinkedIn](https://www.linkedin.com/in/zebulonedwardbubbel)
+
+---
+
+## Summary Statement
+
+Zebulon is a detail-oriented Front-end Developer with over 6 years' experience of developing web applications in a digital marketing environment.  
+Specializes in [HTML][1], [CSS][2], and [JavaScript][3], taking care of performance optimization and accessibility.  
+Driven to deliver responsive, semantically correct, usable solutions, with a quality mindset.  
+Good team player, has a zeal for learning new technologies.
+
+[1]: <https://developer.mozilla.org/en-US/docs/Web/HTML> "HyperText Markup Language"
+[2]: <https://developer.mozilla.org/en-US/docs/Web/CSS> "Cascading Style Sheets"
+[3]: <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
