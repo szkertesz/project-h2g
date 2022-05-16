@@ -2,6 +2,6 @@
 
 > **professional development and onboarding**
 
-This is the place for code & else used and created troughout the program.
+This is the place for code & else used and created throughout the program.
 
 
