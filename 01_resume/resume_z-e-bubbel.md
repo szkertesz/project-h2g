@@ -15,7 +15,7 @@ Budapest, HUN
 
 ## Summary Statement
 
-Zebulon is a detail-oriented Front-end Developer with over 6 years' experience of developing web applications in a digital marketing environment.  
+Zebulon is a detail-oriented Front-end Developer with over 6 years' experience of developing web applications in a digital marketing environment. 
 Specializes in [HTML][1], [CSS][2], and [JavaScript][3], taking care of performance optimization and accessibility.  
 Driven to deliver responsive, semantically correct, usable solutions, with a quality mindset.  
 Good team player, has a zeal for learning new technologies.
@@ -23,3 +23,25 @@ Good team player, has a zeal for learning new technologies.
 [1]: <https://developer.mozilla.org/en-US/docs/Web/HTML> "HyperText Markup Language"
 [2]: <https://developer.mozilla.org/en-US/docs/Web/CSS> "Cascading Style Sheets"
 [3]: <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
+
+## Work Experience
+
+1. Front-End Developer
+
+    Aug, 2018 – Apr, 2022
+    [Mito](https://mito.hu/), Budapest, HUN
+
+    - Developed and maintained landing pages', microsites' and web applications' frontend for marketing campaigns
+    - Validated creative concepts, made time estimates of implementation
+    - Implemented analytic measurement plans using Google Analytics
+    - Collaborated with Front-end Developers on building UI for an application designed for an insurance company -- built accessible UI patterns, applied semantic HTML, customised styling
+    - Developed modules of a HR and in-house meeting room schedule monitor application using Vue.js and Nuxt framework
+
+2. Junior Front-End Developer
+
+    Feb, 2016 – Jul, 2018
+    [Mito](https://mito.hu/), Budapest, HUN
+
+    - built responsive HTML email templates and CSS animated HTML banners for marketing campaigns
+    - implemented responsiveness in pre-existing web projects
+    - created HTML/CSS/JS landing pages from PSD / Sketch designs
