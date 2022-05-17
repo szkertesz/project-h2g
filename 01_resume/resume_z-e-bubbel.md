@@ -24,9 +24,34 @@ Good team player, has a zeal for learning new technologies.
 [2]: <https://developer.mozilla.org/en-US/docs/Web/CSS> "Cascading Style Sheets"
 [3]: <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
 
+## Skills
+
+### Technologies
+
+- HTML
+- JavaScript (ES5, ES6)
+- CSS
+- SASS/SCSS
+- BEM & IT-CSS methodology
+- SVG
+- Vue.js
+
+### Tools
+
+- Visual Studio Code
+- MacOS environment
+- Webpack
+- Gulp
+- PostCSS
+- Nuxt (Vue.js framework)
+- GitLab
+- Atlassian Jira & Confluence
+- Figma
+- Sketch
+
 ## Work Experience
 
-1. Front-End Developer
+1. ### Front-End Developer
 
     Aug, 2018 – Apr, 2022
     [Mito](https://mito.hu/), Budapest, HUN
@@ -37,7 +62,7 @@ Good team player, has a zeal for learning new technologies.
     - Collaborated with Front-end Developers on building UI for an application designed for an insurance company -- built accessible UI patterns, applied semantic HTML, customised styling
     - Developed modules of a HR and in-house meeting room schedule monitor application using Vue.js and Nuxt framework
 
-2. Junior Front-End Developer
+2. ### Junior Front-End Developer
 
     Feb, 2016 – Jul, 2018
     [Mito](https://mito.hu/), Budapest, HUN
@@ -45,3 +70,9 @@ Good team player, has a zeal for learning new technologies.
     - built responsive HTML email templates and CSS animated HTML banners for marketing campaigns
     - implemented responsiveness in pre-existing web projects
     - created HTML/CSS/JS landing pages from PSD / Sketch designs
+
+## Education
+
+- Eötvös Loránd University, Faculty of Social Sciences, Sociology - BA, Absolutorium (Not completed)
+- Corvinus University of Budapest, Public Administration - BA
+
