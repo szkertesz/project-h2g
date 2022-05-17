@@ -76,3 +76,10 @@ Good team player, has a zeal for learning new technologies.
 - Eötvös Loránd University, Faculty of Social Sciences, Sociology - BA, Absolutorium (Not completed)
 - Corvinus University of Budapest, Public Administration - BA
 
+## Languages
+
+| LANGUAGE | TYPE | LEVEL |
+|---|---|:---:|
+|English|Speaking|B1|
+|English|Writing|B2|
+
