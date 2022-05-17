@@ -71,7 +71,7 @@ Good team player, has a zeal for learning new technologies.
     - implemented responsiveness in pre-existing web projects
     - created HTML/CSS/JS landing pages from PSD / Sketch designs
 
-## Educationasdf
+## Education
 
 - Eötvös Loránd University, Faculty of Social Sciences, Sociology - BA, Absolutorium (Not completed)
 - Corvinus University of Budapest, Public Administration - BA
