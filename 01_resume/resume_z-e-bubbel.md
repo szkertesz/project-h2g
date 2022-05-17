@@ -5,7 +5,7 @@
 Front-End Developer  
 Budapest, HUN
 
-[zebulon_edward_bubbel@epam.com](mailto:zebulon_e_bubbel@epam.com)  
+[zebulon_edward_bubbel@citromail.hu](mailto:zebulon_e_bubbel@citromail.hu)  
 [+36 1 234 5678](tel:+3612345678)  
 <https://zebulonedwardbubbel.github.io>  
 [@zebulonedwardbubbel on GitHub](https://github.com/zebulonedwardbubbel)  
