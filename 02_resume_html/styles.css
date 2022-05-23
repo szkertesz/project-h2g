@@ -20,4 +20,22 @@ body {
     --s3: calc(var(--s2) * var(--ratio)); /* 3.375rem = 54px */
     --s4: calc(var(--s3) * var(--ratio)); /* 5.0625rem = 81px */
     --s5: calc(var(--s4) * var(--ratio)); /* 7.59375rem = 121.5px */
+
+    --line-height: var(--ratio);
+    --line-height-small: calc(0.75 * var(--ratio));
+
+    --color-dark: #050505;
+    --color-darkish: #404040;
+    --color-lightish: #e6e6e6;
+    --color-light: #fafafa;
+    --color-mid: grey;
 }
+
+:focus {
+    outline: 2px dashed get-color('primary');
+    outline-offset: 0.25rem;
+  }
+  
+  main:focus {
+    outline: none;
+  }
