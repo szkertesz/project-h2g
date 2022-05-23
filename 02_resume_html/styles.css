@@ -1,0 +1,23 @@
+/*
+ * reset
+ * https://piccalil.li/blog/a-modern-css-reset/
+ */
+ *,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role="list"],ol[role="list"]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+/* end of reset */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+:root {
+    --ratio: 1.5;
+    --s0: 1rem;
+    --s1: calc(var(--s0) * var(--ratio)); /* 1.5rem = 24px */
+    --s2: calc(var(--s1) * var(--ratio)); /* 2.25rem = 36px */
+    --s3: calc(var(--s2) * var(--ratio)); /* 3.375rem = 54px */
+    --s4: calc(var(--s3) * var(--ratio)); /* 5.0625rem = 81px */
+    --s5: calc(var(--s4) * var(--ratio)); /* 7.59375rem = 121.5px */
+}
