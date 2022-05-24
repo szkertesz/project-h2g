@@ -95,31 +95,33 @@ body {
     outline-offset: 0.125rem;
 }
 
-[role="document"] {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
+@media (min-width: 50em) {
+    [role="document"] {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
         "header header header"
         "toc    main   main"
         "footer footer footer";
         /* align-items: flex-start; */
-}
-
-.c-header {
-    grid-area: header;
+    }
+    .c-header {
+        grid-area: header;
+    }
+    .c-vcard__toc {
+        grid-area: toc;
+        align-self: flex-start;
+    }
+    .c-main {
+        grid-area: main;
+    }
+    .c-footer {
+        grid-area: footer;
+    }
 }
 
 .c-vcard__toc {
-    grid-area: toc;
-    align-self: flex-start;
     position: sticky;
     top: 0;
 }
 
-.c-main {
-    grid-area: main;
-}
-
-.c-footer {
-    grid-area: footer;
-}
