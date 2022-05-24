@@ -29,7 +29,6 @@ html:focus-within {
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
-    line-height: 1.5;
 }
 a:not([class]) {
     text-decoration-skip-ink: auto;
@@ -59,16 +58,7 @@ select {
     }
 }
 /* end of reset */
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-        "Segoe UI Symbol";
-}
-
+/* some custom proprties */
 :root {
     --ratio: 1.5;
     --s0: 1rem;
@@ -81,6 +71,9 @@ body {
     --line-height: var(--ratio);
     --line-height-small: calc(0.75 * var(--ratio));
 
+    --font-family-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
     --color-dark: #050505;
     --color-darkish: #404040;
     --color-lightish: #e6e6e6;
@@ -88,11 +81,45 @@ body {
     --color-mid: grey;
 }
 
-:focus {
-    outline: 2px dashed get-color("primary");
-    outline-offset: 0.25rem;
+html {
+    scroll-behavior: smooth;
 }
 
-main:focus {
-    outline: none;
+body {
+    font-family: var(--font-family-primary);
+    line-height: var(--line-height);
+}
+
+:focus {
+    outline: 3px dashed var(--color-mid);
+    outline-offset: 0.125rem;
+}
+
+[role="document"] {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "header header header"
+        "toc    main   main"
+        "footer footer footer";
+        /* align-items: flex-start; */
+}
+
+.c-header {
+    grid-area: header;
+}
+
+.c-vcard__toc {
+    grid-area: toc;
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
+}
+
+.c-main {
+    grid-area: main;
+}
+
+.c-footer {
+    grid-area: footer;
 }
