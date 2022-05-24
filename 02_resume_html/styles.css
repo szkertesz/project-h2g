@@ -245,6 +245,7 @@ ol, ul {
     position: relative;
     padding: var(--s0);
     border: var(--border-thick);
+    margin-top: var(--offset-m);
 }
 .c-toc h2 {
     position: absolute;
@@ -265,6 +266,7 @@ ol, ul {
         position: sticky;
         top: var(--offset-m);
         padding: var(--s1);
+        margin-top: 0;
     }
     .c-toc li {
         padding: 0;
