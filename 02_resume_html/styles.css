@@ -101,7 +101,7 @@ ol, ul {
     --color-mid: grey;
 }
 
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 50em) {
     :root {
         --offset-s: var(--s1);
         --offset-m: var(--s2);
@@ -149,7 +149,7 @@ ol, ul {
 }
 
 /* grid rules */
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 50em) {
     .c-layout {
         margin: 0 auto;
         max-width: 60em;
@@ -189,6 +189,7 @@ ol, ul {
 .c-vcard__content > * + *,
 .c-content-list > * + *,
 .c-entry > * + *,
+.c-row > div > * + *,
 .c-section > * + * {
     margin-top: var(--offset-s);
 }
@@ -196,6 +197,17 @@ ol, ul {
 /*
  * component level styles
  */
+
+/* rows */
+@media (min-width: 50em) {
+    .c-row {
+        display: grid;
+        grid-gap: var(--offset-s);
+    }
+    .c-row--2col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 /* sectioning elements */
 .c-section ul {
@@ -221,7 +233,7 @@ ol, ul {
     display: flex;
     flex-direction: column;
 }
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 50em) {
     .c-vcard {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -253,7 +265,7 @@ ol, ul {
 .c-toc li {
     padding: 0.5rem;
 }
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 50em) {
     .c-toc {
         position: sticky;
         top: var(--offset-m);
