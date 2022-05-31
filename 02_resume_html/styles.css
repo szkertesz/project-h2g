@@ -1,0 +1,292 @@
+/*
+ * reset
+ * https://piccalil.li/blog/a-modern-css-reset/
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+html:focus-within {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+}
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+/* end of reset */
+
+/* extension / overrides of the reset above */
+address {
+    font-style: normal;
+}
+ol, ul {
+    margin: 0;
+}
+
+/* some custom proprties */
+:root {
+    --ratio: 1.5;
+    --s0: 1rem;
+    --s1: calc(var(--s0) * var(--ratio)); /* 1.5rem = 24px */
+    --s2: calc(var(--s1) * var(--ratio)); /* 2.25rem = 36px */
+    --s3: calc(var(--s2) * var(--ratio)); /* 3.375rem = 54px */
+    --s4: calc(var(--s3) * var(--ratio)); /* 5.0625rem = 81px */
+    --s5: calc(var(--s4) * var(--ratio)); /* 7.59375rem = 121.5px */
+
+    --offset-s: var(--s0);
+    --offset-m: var(--s1);
+    --offset-l: var(--s2);
+
+    --breakpoint-desktop: 50em;
+
+    --line-height: var(--ratio);
+    --line-height-small: calc(0.75 * var(--ratio));
+    --font-family-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+    --h2-size: var(--s2);
+    --h3-size: var(--s1);
+
+    --border-thick: 5px solid var(--color-dark);
+
+    --color-dark: #050505;
+    --color-darkish: #404040;
+    --color-lightish: #e6e6e6;
+    --color-light: #fafafa;
+    --color-mid: grey;
+}
+
+@media (min-width: 50em) {
+    :root {
+        --offset-s: var(--s1);
+        --offset-m: var(--s2);
+        --offset-l: var(--s3);
+        --h2-size: var(--s3);
+        --h3-size: var(--s2);
+    }
+}
+
+/*
+ * element level styles (without class assignments)
+ */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-family-primary);
+    line-height: var(--line-height);
+}
+:focus {
+    outline: 3px dashed var(--color-mid);
+    outline-offset: 0.125rem;
+}
+h1, h2, h3, h4 {
+    font-weight: 900;
+    line-height: var(--line-height-small);
+}
+h1 {
+    font-size: var(--h2-size);
+}
+h2 {
+    font-size: var(--h2-size);
+}
+h3 {
+    font-size: var(--h3-size);
+}
+h4 {
+    font-size: var(--h4-size);
+}
+a {
+    color: var(--color-mid);
+}
+ol, ul {
+    padding-inline-start: var(--s1);
+}
+
+/* grid rules */
+@media (min-width: 50em) {
+    .c-layout {
+        margin: 0 auto;
+        max-width: 60em;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "header header header"
+        "toc    main   main"
+        "footer footer footer";
+        grid-gap: var(--offset-m);
+    }
+    .c-header {
+        grid-area: header;
+    }
+    .c-toc {
+        grid-area: toc;
+        align-self: flex-start;
+    }
+    .c-main {
+        grid-area: main;
+    }
+    .c-footer {
+        grid-area: footer;
+    }
+}
+
+/* spacing, offsets */
+.c-layout {
+    padding: var(--offset-s);
+}
+.c-layout > *:not(:last-child) {
+    margin-bottom: calc(var(--offset-l) - var(--offset-s));
+}
+.c-section  + .c-section {
+    margin-top: var(--offset-l);
+}
+.c-vcard__content > * + *,
+.c-content-list > * + *,
+.c-entry > * + *,
+.c-row > div > * + *,
+.c-section > * + * {
+    margin-top: var(--offset-s);
+}
+
+/*
+ * component level styles
+ */
+
+/* rows */
+@media (min-width: 50em) {
+    .c-row {
+        display: grid;
+        grid-gap: var(--offset-s);
+    }
+    .c-row--2col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* sectioning elements */
+.c-section ul {
+    list-style: square;
+}
+.c-section table {
+    width: 100%;
+}
+.c-section table th {
+    text-align: left;
+}
+
+/* v-card element in the header w/ personal data */
+.c-vcard__photo {
+    display: grid;
+    place-content: center;
+}
+.c-vcard__photo img {
+    border-radius: 50%;
+    width: 200px;
+}
+.c-vcard__contact {
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 50em) {
+    .c-vcard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: var(--offset-m);
+    }
+    .c-vcard__content {
+        grid-column: span 2;
+    }
+}
+
+/* table of content / navigation */
+.c-toc {
+    position: relative;
+    padding: var(--s0);
+    border: var(--border-thick);
+    margin-top: var(--offset-m);
+}
+.c-toc h2 {
+    position: absolute;
+    padding: 0.5rem;
+    font-size: var(--h4-size);
+    background-color: #fff;
+    right: var(--offset-s);
+    top: -1.325rem;
+}
+.c-toc ol {
+    padding-inline-start: 0;
+}
+.c-toc li {
+    padding: 0.5rem;
+}
+@media (min-width: 50em) {
+    .c-toc {
+        position: sticky;
+        top: var(--offset-m);
+        padding: var(--s1);
+        margin-top: 0;
+    }
+    .c-toc li {
+        padding: 0;
+    }
+}
+/* misc arbitrary styles */
+.c-content-list {
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+.c-entry__header div {
+    margin-top: var(--offset-s);
+    display: flex;
+    color: var(--color-darkish);
+}
+.c-entry__header div > * + * {
+    margin-left: var(--offset-s);
+}
