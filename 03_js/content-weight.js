@@ -7,6 +7,7 @@ const contentWeight = (bottleWeight, scale) => {
     const divisionValue = Number(scaleParts[0]);
     const scaleRelation = scaleParts[scaleParts.length - 1];
     const divisionUnit = bottleWeight / (divisionValue + 1);
+
     if (scaleRelation === 'larger') {
         return divisionUnit * divisionValue;
     } else {
