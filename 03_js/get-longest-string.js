@@ -1,10 +1,18 @@
 const getLongestString = array => {
     // solution #1
-    let currentLongest = '';
-    for (const item of array) {
-        typeof item === 'string' && item.length > currentLongest ? currentLongest = item : currentLongest = currentLongest
-    }
-    return currentLongest;
+    // let currentLongest = '';
+    // for (const item of array) {
+    //     typeof item === 'string' && item.length > currentLongest ? currentLongest = item : currentLongest = currentLongest
+    // }
+    // return currentLongest;
+
+    // solution #2
+    return array.reduce((longest, current) => {
+        if (typeof current === 'string' && current.length > longest.length) {
+            longest = current
+        }
+        return longest
+    }, '')
 }
 
 console.log(getLongestString([[1, 2, 3, 4, 5], 'alma'])); // 'alma'
