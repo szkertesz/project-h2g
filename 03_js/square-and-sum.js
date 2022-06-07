@@ -1,5 +1,5 @@
 "use strict";
-7
+
 const formattedElement = (number) => [...number.toString()].reduce((total, current) => total + Number(current), 0)
 const squareAndSum = (array) => {
     const formattedArray = [];

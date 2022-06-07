@@ -1,5 +1,7 @@
 const getUUIDBlocks = uuid => {
     const clearUuidArr = Array.from(uuid.replace(/\-/g, ''));
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+    // Array.from(arrayLike, (element, index) => { /* ... */ } )
     return Array.from({length: clearUuidArr.length / 2}, (v, i) => [clearUuidArr[2 * i], clearUuidArr[2 * i + 1]].join(''))
 }
 
