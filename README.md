@@ -8,4 +8,4 @@ This is the place for code & else used and created throughout the program.
 
 1. [Markdown](01_resume/resume_z-e-bubbel.md)
 2. [HTML & CSS](02_resume_html/resume_z-e-bubbel.html)
-3. [JS Array & String Methods](03_JS)
+3. [JS Array & String Methods](03_js)
