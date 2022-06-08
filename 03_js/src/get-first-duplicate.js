@@ -1,4 +1,4 @@
-const getFirstDuplicate = text => {
+export const getFirstDuplicate = text => {
     // solution #1
     const countOccurence = (char) => {
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf#using_indexof_to_count_occurrences_of_a_letter_in_a_string
@@ -10,6 +10,9 @@ const getFirstDuplicate = text => {
         }
         return count;
     }
+    if (text === undefined) {
+        return ''
+    }
     let length = text.length
     for (let index = 0; index < length; index++) {
         if (countOccurence(text[index]) === 2) {
@@ -19,7 +22,7 @@ const getFirstDuplicate = text => {
     return ''
 }
 
-console.log(getFirstDuplicate('abccb')); // 'b'
-console.log(getFirstDuplicate('aabccb')); // 'a'
-console.log(getFirstDuplicate('abcdefghijklmnoj')); // 'j'
-console.log(getFirstDuplicate('abc')); // ''
+// console.log(getFirstDuplicate('abccb')); // 'b'
+// console.log(getFirstDuplicate('aabccb')); // 'a'
+// console.log(getFirstDuplicate('abcdefghijklmnoj')); // 'j'
+// console.log(getFirstDuplicate('abc')); // ''

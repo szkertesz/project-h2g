@@ -18,6 +18,12 @@
 // }
 
 // Refactoring
+/**
+ * 
+ * @param {*} number 
+ * @returns 
+ */
+
 const sumDigits = number => Array.from(number.toString()).reduce((total, current) => total + Number(current), 0)
 
 const squareAndSum = (array) => {
