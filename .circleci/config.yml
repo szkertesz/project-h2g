@@ -10,16 +10,12 @@ jobs:
       - run:
           name: install
           working_directory: 03_js
-          comand: npm i
+          command: npm i
       - run:
           name: test
           working_directory: 03_js
-          comand: npm run test:ci
+          command: npm run test:ci
 workflows:
   test:
     jobs:
-      - test
-  test:
-    jobs:
-      - test-dev
       - test
