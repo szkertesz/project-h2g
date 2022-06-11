@@ -24,9 +24,10 @@
  * @returns 
  */
 
-const sumDigits = number => Array.from(number.toString()).reduce((total, current) => total + Number(current), 0)
+export const sumDigits = number => Array.from(number.toString()).reduce((total, current) => total + Number(current), 0)
 
-const squareAndSum = (array) => {
+export const squareAndSum = (array) => {
+    if (array === '' || array === undefined) return [];
     return array.map(element => {
         if (element < 0) {
             element = Math.pow(element, 2)
@@ -36,4 +37,4 @@ const squareAndSum = (array) => {
     });
 }
 
-console.log(squareAndSum([-1, 1, 12, -4, -5, 999])); // [1, 1, 3, 7, 7, 9]
+// console.log(squareAndSum([-1, 1, 12, -4, -5, 999])); // [1, 1, 3, 7, 7, 9]

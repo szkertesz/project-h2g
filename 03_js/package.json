@@ -4,8 +4,8 @@
   "description": "",
   "main": "array-sum.js",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test:ci": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose",
+    "test:ci": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --verbose"
   },
   "author": "",
   "license": "ISC",

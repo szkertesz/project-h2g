@@ -15,7 +15,7 @@ describe('getFirstDuplicate', () => {
 
         expect(actual).toEqual(expected)
     })
-    it ('should return empty string when undefined is given', () => {
+    test ('should return empty string when undefined is given', () => {
         const text = undefined
         const actual = getFirstDuplicate(text)
         const expected = ''
