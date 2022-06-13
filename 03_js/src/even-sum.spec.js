@@ -1,6 +1,18 @@
 import {evenSum} from './even-sum'
 
 describe('evenSum', () => {
+    it('should return -1', () => {
+        const array = undefined
+        const actual = evenSum(array)
+        const expected = -1
+        expect(actual).toEqual(expected)
+    });
+    it('should return -1', () => {
+        const array = 0
+        const actual = evenSum(array)
+        const expected = -1
+        expect(actual).toEqual(expected)
+    });
     it('should return 0', () => {
         const array = []
         const actual = evenSum(array)

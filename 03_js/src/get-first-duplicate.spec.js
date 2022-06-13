@@ -1,14 +1,14 @@
 import { getFirstDuplicate } from './get-first-duplicate.js'
 
 describe('getFirstDuplicate', () => {
-    it ('should', () => {
+    it ('should return b if \'abccb\' is given', () => {
         const text = 'abccb'
         const actual = getFirstDuplicate(text)
         const expected = 'b'
 
         expect(actual).toEqual(expected)
     })
-    it ('should return emty string', () => {
+    it ('should return empty string if \'abc\' is given', () => {
         const text = 'abc'
         const actual = getFirstDuplicate(text)
         const expected = ''

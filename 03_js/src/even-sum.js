@@ -1,4 +1,10 @@
 export const evenSum = (array) => {
+    if (!array) {
+        return -1
+    }
+    if (!Array.isArray(array)) {
+        return -1
+    }
     const flatArr = array.flat(Infinity)
     return flatArr.reduce((sum, current) => {
         return current % 2 === 0 ? sum + current : sum

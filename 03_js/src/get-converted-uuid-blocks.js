@@ -1,4 +1,7 @@
 export const getConvertedUUIDBlocks = uuid => {
+    if(!uuid) {
+        return -1
+    }
     const clearUuidArr = Array.from(uuid.replace(/\-/g, ''));
     return Array.from({ length: clearUuidArr.length / 2 }, (v, i) => parseInt([clearUuidArr[2 * i], clearUuidArr[2 * i + 1]].join(''), 16))
 }
