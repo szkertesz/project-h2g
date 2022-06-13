@@ -7,10 +7,16 @@ jobs:
       - image: 'cimg/node:lts'
     steps:
       - checkout
+      - restore_cache:
+          key: v1-deps-{{ checksum "03_js/package-lock.json" }}
       - run:
           name: install
           working_directory: 03_js
           command: npm i
+      - save_cache:
+          key:  v1-deps-{{ checksum "03_js/package-lock.json" }}
+          paths:
+            - 03_js/node_modules
       - run:
           name: test
           working_directory: 03_js
