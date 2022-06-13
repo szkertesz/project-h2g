@@ -1,10 +1,10 @@
 import {contentWeight} from './content-weight'
 
 describe('contentWeight', () => {
-    it('should return \'bottleweight should be a positive integer\'', () => {
+    it('should throw error w/ \'bottleweight should be a positive integer\' message', () => {
         const bottleWeight = -1
         const scale = '2 times larger'
-        function actual() {
+        const actual = () => {
             contentWeight(bottleWeight, scale)
         }
         const expectedErr = new Error('bottleweight should be a positive integer')
