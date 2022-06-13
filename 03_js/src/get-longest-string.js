@@ -1,4 +1,7 @@
-const getLongestString = array => {
+export const getLongestString = array => {
+    if (array.length < 1) {
+        return -1
+    }
     // solution #1
     // let currentLongest = '';
     // for (const item of array) {
@@ -15,6 +18,6 @@ const getLongestString = array => {
     }, '')
 }
 
-console.log(getLongestString([[1, 2, 3, 4, 5], 'alma'])); // 'alma'
-console.log(getLongestString(['abc', 'a', 'ab'])); // 'abc'
-console.log(getLongestString([1, 2, 3])); // ''
+// console.log(getLongestString([[1, 2, 3, 4, 5], 'alma'])); // 'alma'
+// console.log(getLongestString(['abc', 'a', 'ab'])); // 'abc'
+// console.log(getLongestString([1, 2, 3])); // ''
