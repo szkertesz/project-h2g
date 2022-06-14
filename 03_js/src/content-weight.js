@@ -12,6 +12,10 @@ export const contentWeight = (bottleWeight, scale) => {
         throw new Error('bottleweight should be a positive integer')
     }
 
+    if (!scale) {
+    throw new Error('scale argument should be specified')
+    }
+
     if (scaleRelation === 'larger') {
         return divisionUnit * divisionValue;
     } else {
@@ -20,7 +24,13 @@ export const contentWeight = (bottleWeight, scale) => {
 }
 
 try {
-    contentWeight(-120, '2 times smaller'); // 40
+    contentWeight(-120, '2 times smaller'); // error
+} catch(err) {
+    console.log('\x1b[41m', err.message)
+}
+
+try {
+    contentWeight(120, ''); // error
 } catch(err) {
     console.log('\x1b[41m', err.message)
 }
