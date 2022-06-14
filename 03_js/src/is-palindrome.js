@@ -1,6 +1,6 @@
 export const isPalindrome = (text) => {
-    if (typeof text !== 'string') {
-        return -1
+    if (!text) {
+        return false
     }
     // solution #1
     // const clearText = text.replace(/\s+/g, '');

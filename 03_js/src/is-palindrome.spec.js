@@ -22,7 +22,7 @@ describe('isPalindrome', () => {
     it('should return -1 if the input is undefined', () => {
         const text = undefined
         const actual = isPalindrome(text)
-        const expected = -1
+        const expected = false
         expect(actual).toEqual(expected)
     });
 });
