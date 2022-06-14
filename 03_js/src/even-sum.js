@@ -1,9 +1,9 @@
 export const evenSum = (array) => {
     if (!array) {
-        return -1
+        return 0
     }
     if (!Array.isArray(array)) {
-        return -1
+        return 0
     }
     const flatArr = array.flat(Infinity)
     return flatArr.reduce((sum, current) => {
@@ -13,10 +13,10 @@ export const evenSum = (array) => {
 
 export const evenSum2 = (array) => {
     if (!array) {
-        return -1
+        return 0
     }
     if (!Array.isArray(array)) {
-        return -1
+        return 0
     }
     return array.reduce((sum, current) => {
         return Array.isArray(current) ?
