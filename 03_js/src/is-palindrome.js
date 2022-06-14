@@ -12,12 +12,12 @@ export const isPalindrome = (text) => {
 
     // solution #1 refactored
     const clearText = text.replace(/\s+/g, '');
-    return clearText && clearText === clearText.split('').reverse().join('') ? true : false;
+    return clearText && clearText === clearText.split('').reverse().join('');
 }
 
-// console.log(isPalindrome('')); // false
-// console.log(isPalindrome('     ')); // false
-// console.log(isPalindrome('anna')); // true
-// console.log(isPalindrome('anna    ')); // true
-// console.log(isPalindrome('indul a gorog aludni')); // true
-// console.log(isPalindrome('alma')); // false
+console.log(isPalindrome('')); // false
+console.log(isPalindrome('     ')); // false
+console.log(isPalindrome('anna')); // true
+console.log(isPalindrome('anna    ')); // true
+console.log(isPalindrome('indul a gorog aludni')); // true
+console.log(isPalindrome('alma')); // false

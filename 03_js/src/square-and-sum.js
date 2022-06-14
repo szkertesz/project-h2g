@@ -27,7 +27,7 @@
 export const sumDigits = number => Array.from(number.toString()).reduce((total, current) => total + Number(current), 0)
 
 export const squareAndSum = (array) => {
-    if (array === '' || array === undefined) return [];
+    if (!array) return [];
     return array.map(element => {
         if (element < 0) {
             element = Math.pow(element, 2)
