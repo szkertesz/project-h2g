@@ -1,40 +1,17 @@
 import React from "react";
+import Item from './Item'
+import { Alert } from "./Alert.interface";
 
-type Alert = {
-    id: string,
-    start: number,
-    end: number,
-    timestamp: number,
-    stopIds: [],
-    routeIds: [],
-    url: object,
-    header: object,
-    description: Desc
-}
 
-type Desc = {
-    someTranslation: string,
-    translations: Translations
-}
-
-type Translations = {
-    en: string,
-    hu: string
-}
-
-type Props = {
-    alerts: any[]
+interface Props {
+    alerts: Alert[]
 }
 
 function List({alerts}: Props) {
-    const renderHTML = (rawHTML: string) => React.createElement('div', { dangerouslySetInnerHTML: { __html: rawHTML } });
-
     return <ul>
         {alerts.map((alert: Alert) => {
-           return <li>
-                <article>
-                    {renderHTML(alert.description.translations.hu)}
-                </article>
+           return <li key={alert.id}>
+                <Item description={alert.description} />
             </li>
         })}
     </ul>

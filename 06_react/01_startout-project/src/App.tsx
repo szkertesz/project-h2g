@@ -1,11 +1,12 @@
 import { useState,  useEffect } from 'react';
 import './App.css';
+import { Alert } from './components/Alert.interface';
 
 import List from './components/List'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [alertsLoaded, setAlertsLoaded] = useState<object[]>([]);
+  const [alertsLoaded, setAlertsLoaded] = useState<Alert[]>([]);
   const now = Date.now();
 
   const getData = async() => {
@@ -15,15 +16,16 @@ function App() {
     const alertsData = await response.json();
     const alerts = alertsData.data.references.alerts
     // convert the `alerts`property of AlertsData object to an array
-    const alertsArray = Object.keys(alerts).map(key => alerts[key]);
-    console.log(alertsArray)
+    const alertsArray = Object.keys(alerts).map(
+        (key) => alerts[key]
+    ) as Alert[];
     setAlertsLoaded(alertsArray)
+    setIsLoading(false)
   }
 
   useEffect(() => {
-    setIsLoading(true)
     getData()
-    setIsLoading(false)
+    return () => {}
   }, [])
 
   if (isLoading) {
