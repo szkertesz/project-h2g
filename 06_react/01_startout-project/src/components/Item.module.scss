@@ -1,0 +1,9 @@
+.article__content {
+    p {
+        margin: 0;
+
+        & + p {
+            margin-top: 1rem;
+        }
+    }
+}

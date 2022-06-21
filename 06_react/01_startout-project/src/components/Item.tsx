@@ -1,6 +1,9 @@
 import React from 'react';
+import Card from '../ui/Card';
 import { Description } from './Description.interface';
+import classes from './Item.module.scss'
 
+// Function Component Version
 // function List(props: { description: Description }) {
 //     const renderHTML = (rawHTML: string) => {
 //         return React.createElement('article', {
@@ -10,18 +13,19 @@ import { Description } from './Description.interface';
 //     return <li>{renderHTML(props.description.translations.hu)}</li>;
 // };
 
-
-// export default Item
-
+// Class Component version
 class Item extends React.Component<{description: Description}> {
     render() {
         const renderHTML = (rawHTML: string) => {
-            return React.createElement('article', {
+            return React.createElement('div', {
                 dangerouslySetInnerHTML: { __html: rawHTML },
+                className: classes.article__content
             });
         }
         return (
-            <li>{renderHTML(this.props.description.translations.hu)}</li>
+            <Card>
+               { renderHTML(this.props.description.translations.hu)}
+            </Card>
         )
     };
 }
