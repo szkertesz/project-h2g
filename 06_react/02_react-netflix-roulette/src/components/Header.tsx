@@ -1,6 +1,10 @@
+import Container from "../ui/Container";
+
 function Header() {
     return (
         <header>
+            <Container>
+
             <div>
                 <a href='/'>
                     <img src='' alt='logo' />
@@ -12,6 +16,7 @@ function Header() {
                 <input type='search' />
                 <button type='submit'>search</button>
             </form>
+            </Container>
         </header>
     );
 }
