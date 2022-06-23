@@ -1,9 +1,13 @@
+import Container from '../ui/Container';
+
 function Footer() {
     return (
         <footer>
-            <img src='' alt='logo' />
+            <Container>
+                <img src='' alt='logo' />
+            </Container>
         </footer>
     );
 }
 
-export default Footer
+export default Footer;

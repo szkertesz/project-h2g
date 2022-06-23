@@ -1,13 +1,16 @@
-import Genres from "./Genres"
-import MovieList from "./MovieList";
+import Container from '../ui/Container';
+import Genres from './Genres';
+import MovieList from './MovieList';
 
 function Main() {
     return (
         <main>
-            <Genres />
-            <MovieList />
+            <Container>
+                <Genres />
+                <MovieList />
+            </Container>
         </main>
     );
 }
 
-export default Main
+export default Main;
