@@ -1,0 +1,64 @@
+{
+    "movies": [
+        {
+            "id": "8a3ec55b-b0a4-4ebd-a56e-ef618f40dffc",
+            "title": "Thor",
+            "release_date": "2011",
+            "genre": "Action, Adventure, Fantasy",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt0800369/",
+            "rating": "7.0",
+            "runtime": "115 min"
+        },
+        {
+            "id": "c756ce95-7ca8-4bbd-8968-6153014af7f8",
+            "title": "Pulp Fiction",
+            "release_date": "1994",
+            "genre": "Crime, Drama",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt0110912/",
+            "rating": "8.9",
+            "runtime": "154 min"
+        },
+        {
+            "id": "9951d425-6f87-4f76-b6cf-063fc15fe2a0",
+            "title": "Stranger Things",
+            "release_date": "2016",
+            "genre": "Drama, Fantasy, Horror",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BODZlYjQ4NzYtZTg1MC00NGY4LTg4NjQtNGE3ZjRkMjk3YjMyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt4574334/",
+            "rating": "8.7",
+            "runtime": "51 min"
+        },
+        {
+            "id": "856aae4a-3593-4571-adc9-d95540498383",
+            "title": "Star Wars",
+            "release_date": "1977",
+            "genre": "Action, Adventure, Fantasy",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNzg4MjQxNTQtZmI5My00YjMwLWJlMjUtMmJlY2U2ZWFlNzY1XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/star-wars/",
+            "rating": "8.6",
+            "runtime": "121 min"
+        },
+        {
+            "id": "318119d2-67ea-4e98-a606-e0916f0bf3dc",
+            "title": "Thor",
+            "release_date": "2011",
+            "genre": "Action, Adventure, Fantasy",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt0800369/",
+            "rating": "7.0",
+            "runtime": "115 min"
+        },
+        {
+            "id": "e67fb515-0b36-4f9d-a7fa-aa38150b66bb",
+            "title": "Pulp Fiction",
+            "release_date": "1994",
+            "genre": "Crime, Drama",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt0110912/",
+            "rating": "8.9",
+            "runtime": "154 min"
+        }
+    ]
+}

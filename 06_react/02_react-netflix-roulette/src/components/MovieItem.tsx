@@ -1,9 +1,11 @@
-function MovieItem() {
+import {Movie} from '../interfaces/Movie'
+
+function MovieItem(props: Movie) {
     return (
         <article>
             <div>
                 <div>
-                    <h3>Title</h3>
+                    <h3>Title {props.title}</h3>
                     <ul>
                         <li>genre x</li>
                         <li>genre y</li>
