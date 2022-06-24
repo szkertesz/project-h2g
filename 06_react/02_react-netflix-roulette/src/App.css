@@ -1,24 +1,36 @@
 /* custom properties */
 :root {
-    --unit: 1rem;
+    --unit: 0.5rem;
+    --length-2: calc(var(--unit) * 2);
+    --length-3: calc(var(--unit) * 3);
+    --length-4: calc(var(--unit) * 4);
+    --length-5: calc(var(--unit) * 5);
+    --length-6: calc(var(--unit) * 6);
+    --height-input: calc(var(--unit) * 7);
 
     --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
     --font-family-primary: Montserrat, var(--font-family-system);
-
     --line-height-base: 1.5;
+    --font-size-large: calc((40 / 16) * 1rem);
+    --font-size-medium: calc((20 / 16) * 1rem);
+    --font-size-base: 1rem;
+    --font-size-small: calc((10 / 16) * 1rem);
+
+    --radius-button: calc(var(--unit) / 2);
 
     --color-accent: #F65261;
     --color-dark: #232323;
     --color-gray-dark: #424242;
     --color-gray-medium: #555;
     --color-light: #fff;
+
 }
 
 @media (min-width: 67.5em) {
     :root {
-        --unit: 1.5rem;
+        --unit: 0.5rem;
     }
 }
 
@@ -31,9 +43,9 @@ html {
 body {
     font-family: var(--font-family-primary);
     line-height: var(--line-height-base);
-    font-size: 20px;
 }
 :focus {
     outline: 3px dashed var(--color-accent);
-    outline-offset: 0.125rem;
+    outline-offset: 0.25rem;
 }
+

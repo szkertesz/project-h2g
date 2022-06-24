@@ -61,6 +61,19 @@ select {
 }
 /* end of reset */
 
+/*
+ * basic button styles
+ */
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 /* fonts */
 @font-face {
     font-family: 'Montserrat';
