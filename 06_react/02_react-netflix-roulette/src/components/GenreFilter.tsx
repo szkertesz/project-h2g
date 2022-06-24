@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import classes from './GenreFilter.module.scss';
+
 
 function GenreFilter() {
     const [value, setValue] = React.useState<string>()
@@ -9,9 +11,9 @@ function GenreFilter() {
         setValue('all');
     }, []);
     return (
-        <fieldset>
-            <legend></legend>
-            <div>
+        <fieldset className={classes['genre-filter']}>
+            <legend className='visually-hidden'>Filter Movies by Genre</legend>
+            <div className={classes['genre-filter__group']}>
                 <input
                     type='radio'
                     name='genre'
@@ -19,10 +21,11 @@ function GenreFilter() {
                     value='all'
                     checked={value === 'all'}
                     onChange={handleChange}
+                    className='visually-hidden'
                 />
                 <label htmlFor='all'>All</label>
             </div>
-            <div>
+            <div className={classes['genre-filter__group']}>
                 <input
                     type='radio'
                     name='genre'
@@ -30,10 +33,11 @@ function GenreFilter() {
                     value='documentary'
                     checked={value === 'documentary'}
                     onChange={handleChange}
+                    className='visually-hidden'
                 />
                 <label htmlFor='documentary'>documentary</label>
             </div>
-            <div>
+            <div className={classes['genre-filter__group']}>
                 <input
                     type='radio'
                     name='genre'
@@ -41,10 +45,11 @@ function GenreFilter() {
                     value='comedy'
                     checked={value === 'comedy'}
                     onChange={handleChange}
+                    className='visually-hidden'
                 />
                 <label htmlFor='comedy'>comedy</label>
             </div>
-            <div>
+            <div className={classes['genre-filter__group']}>
                 <input
                     type='radio'
                     name='genre'
@@ -52,10 +57,11 @@ function GenreFilter() {
                     value='horror'
                     checked={value === 'horror'}
                     onChange={handleChange}
+                    className='visually-hidden'
                 />
                 <label htmlFor='horror'>horror</label>
             </div>
-            <div>
+            <div className={classes['genre-filter__group']}>
                 <input
                     type='radio'
                     name='genre'
@@ -63,6 +69,7 @@ function GenreFilter() {
                     value='crime'
                     checked={value === 'crime'}
                     onChange={handleChange}
+                    className='visually-hidden'
                 />
                 <label htmlFor='crime'>crime</label>
             </div>

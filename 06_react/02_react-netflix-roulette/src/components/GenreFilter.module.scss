@@ -1,0 +1,26 @@
+.genre-filter {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    text-transform: uppercase;
+}
+.genre-filter__group {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    &:not(:last-child) {
+        margin-right: var(--length-4);
+    }
+
+    input:checked + label::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: var(--color-accent);
+    }
+}

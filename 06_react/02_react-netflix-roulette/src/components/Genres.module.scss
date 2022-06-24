@@ -1,0 +1,7 @@
+.genres {
+    display: flex;
+    justify-content: space-between;
+    height: calc(var(--unit) * 8);
+    border-bottom: 2px solid var(--color-gray-dark);
+    box-shadow: 0px 1px 0px #080707;
+}

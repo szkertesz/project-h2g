@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classes from './GenreSorter.module.scss';
 
 function GenreSorter() {
     const [selectedCategory, setSelectedCategory] = useState<string>()
@@ -9,15 +10,15 @@ function GenreSorter() {
     }
 
     return (
-        <div>
+        <div className={classes['genre-sorter']}>
             <label htmlFor='sortingCategories'>sort by</label>
             <select
                 name='sortingCategories'
                 id='sortingCategories'
                 onChange={handleSelectChange}
-                defaultValue={'a'}
+                defaultValue={'release date'}
             >
-                <option value='a'>a</option>
+                <option value='release date'>release date</option>
                 <option value='b'>b</option>
                 <option value='c'>c</option>
             </select>
