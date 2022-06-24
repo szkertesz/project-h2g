@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 
 function GenreFilter() {
-    const [value, setValue] = React.useState('all')
+    const [value, setValue] = React.useState<string>()
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
-   }
+    }
+    useEffect(() => {
+        setValue('all');
+    }, []);
     return (
         <fieldset>
             <legend></legend>
