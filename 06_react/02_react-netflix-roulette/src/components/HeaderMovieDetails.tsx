@@ -1,4 +1,4 @@
-function MovieDetails() {
+function HeaderMovieDetails() {
     return (
         <article>
             <div>
@@ -20,4 +20,4 @@ function MovieDetails() {
     );
 }
 
-export default MovieDetails
+export default HeaderMovieDetails
