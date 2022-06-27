@@ -1,0 +1,15 @@
+.info {
+    padding: var(--length-3) 0;
+    font-size: var(--font-size-medium);
+    line-height: 1.2;
+    font-weight: 300;
+    span {
+        font-weight: 500;
+    }
+}
+
+.results {
+    display: grid;
+    grid-gap: var(--length-7);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

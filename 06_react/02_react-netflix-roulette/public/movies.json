@@ -1,24 +1,24 @@
 {
     "movies": [
         {
-            "id": "8a3ec55b-b0a4-4ebd-a56e-ef618f40dffc",
-            "title": "Thor",
-            "release_date": "2011",
-            "genre": "Action, Adventure, Fantasy",
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
-            "movie_url": "https://www.imdb.com/title/tt0800369/",
+            "id": "8a3ec45b-b0a4-4ebd-a56e-ef618f40dffc",
+            "title": "Martyrs",
+            "release_date": "2008",
+            "genre": "Horror",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BYTY0NTZlZjYtNWRmZi00MGRjLTk4ZDctMjE4NjBiZTUyNGNhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
+            "movie_url": "https://www.imdb.com/title/tt1029234",
             "rating": "7.0",
-            "runtime": "115 min"
+            "runtime": "99 min"
         },
         {
-            "id": "c756ce95-7ca8-4bbd-8968-6153014af7f8",
-            "title": "Pulp Fiction",
-            "release_date": "1994",
-            "genre": "Crime, Drama",
-            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-            "movie_url": "https://www.imdb.com/title/tt0110912/",
-            "rating": "8.9",
-            "runtime": "154 min"
+            "id": "c756ce95-7ca8-4bbd-8968-8296030",
+            "title": "You Won't Be Alone",
+            "release_date": "2022",
+            "genre": "Horror, Drama",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BMmU2MDkyZWMtYjJmNi00YjE1LWIzODctZjNjZmY0OGMzNzQzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+            "movie_url": "https://www.imdb.com/title/tt8296030/",
+            "rating": "6.3",
+            "runtime": "108 min"
         },
         {
             "id": "9951d425-6f87-4f76-b6cf-063fc15fe2a0",
