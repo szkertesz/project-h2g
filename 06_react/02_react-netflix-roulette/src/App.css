@@ -17,7 +17,7 @@
     --font-size-large: calc((40 / 16) * 1rem);
     --font-size-medium: calc((20 / 16) * 1rem);
     --font-size-base: 1rem;
-    --font-size-small: calc((10 / 16) * 1rem);
+    --font-size-small: calc((14 / 16) * 1rem);
 
     --radius-button: calc(var(--unit) / 2);
 

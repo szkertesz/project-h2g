@@ -1,26 +1,39 @@
-import {Movie} from '../interfaces/Movie'
+import { Movie } from '../interfaces/Movie';
+import classes from './MovieItem.module.scss';
 
 type Props = {
     movieInfo: Movie;
 };
 
 const MovieItem: React.FC<Props> = ({ movieInfo }) => {
+    const { genre, release_date, thumbnail, title } = movieInfo;
     return (
-        <article>
-            <div>
+        <article className={classes['movie-item']}>
+            <div className={classes['movie-item__text']}>
                 <div>
-                    <h3>Title {movieInfo.title}</h3>
-                    <ul>
-                        <li>genre x</li>
-                        <li>genre y</li>
-                        <li>genre z</li>
+                    <h3 className={classes['movie-item__title']}>{title}</h3>
+                    <ul className={classes['movie-item__genres']}>
+                        {genre.split(',').map((genreItem, i, genres) => {
+                            return (
+                                <li key={i}>{`${genreItem} ${
+                                    i < genres.length - 1 ? `,` : ``
+                                }`}</li>
+                            );
+                        })}
                     </ul>
                 </div>
-                <time dateTime='year'>year</time>
+                <time
+                    dateTime={String(release_date)}
+                    className={classes['movie-item__release']}
+                >
+                    {release_date}
+                </time>
             </div>
-            <img src='' alt='' />
+            <a href="#" className={classes['movie-item__poster']}>
+                <img src={thumbnail} alt='poster' />
+            </a>
         </article>
     );
 };
 
-export default MovieItem
+export default MovieItem;
