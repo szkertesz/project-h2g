@@ -1,8 +1,8 @@
-import HeaderMovieDetails from "../components/HeaderMovieDetails"
+import MovieDetailsPageTop from "../components/MovieDetailsPageTop"
 
 function MovieDetailsPage() {
     return (
-        <HeaderMovieDetails />
+        <MovieDetailsPageTop />
     )
 }
 

@@ -1,7 +1,7 @@
-import HeaderMovies from '../components/HeaderMovies';
+import MoviesPageTop from '../components/MoviesPageTop';
 
 function MoviesPage() {
-    return <HeaderMovies />;
+    return <MoviesPageTop />;
 }
 
 export default MoviesPage;
