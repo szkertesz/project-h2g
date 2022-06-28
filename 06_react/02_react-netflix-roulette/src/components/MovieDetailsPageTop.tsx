@@ -33,7 +33,7 @@ function MovieDetailsPageTop() {
                                     </h1>
                                     <span
                                         className={
-                                            classes['article__title-bar']
+                                            classes['article__rating']
                                         }
                                     >
                                         8.9

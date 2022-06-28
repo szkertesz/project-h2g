@@ -31,7 +31,7 @@
 
     }
     &__title-bar {
-
+        display: flex;
     }
     &__title {
         margin-bottom: var(--unit);
@@ -41,7 +41,17 @@
         font-weight: 300;
     }
     &__rating {
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--length-6);
+        height: var(--length-6);
+        margin-left: var(--length-4);
+        font-size: var(--font-size-medium);
+        font-weight: 300;
+        border: 1px solid var(--color-light);
+        border-radius: 50%;
+        opacity: 0.75;
     }
     &__genres {
         margin-bottom: var(--length-4);
