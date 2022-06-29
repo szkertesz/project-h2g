@@ -1,0 +1,25 @@
+.genre-sorter {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    select {
+        min-width: 12ch;
+        padding-right: var(--length-2);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+                text-transform: uppercase;
+        color: var(--color-light);
+        background-color:  var(--color-dark);
+        background-image: url(../assets/images/arrow.svg);
+        background-repeat: no-repeat;
+        background-position: 100% 50%;
+        border: none;
+    }
+    label {
+        letter-spacing: 0.888889px;
+        text-transform: uppercase;
+        opacity: 0.6;
+        margin-right: var(--length-4);
+    }
+}
