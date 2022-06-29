@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "../02_react-netflix-roulette/src/interfaces"  ]
 }

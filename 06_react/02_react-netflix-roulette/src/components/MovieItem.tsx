@@ -1,9 +1,15 @@
-function MovieItem() {
+import {Movie} from '../interfaces/Movie'
+
+type Props = {
+    movieInfo: Movie;
+};
+
+const MovieItem: React.FC<Props> = ({ movieInfo }) => {
     return (
         <article>
             <div>
                 <div>
-                    <h3>Title</h3>
+                    <h3>Title {movieInfo.title}</h3>
                     <ul>
                         <li>genre x</li>
                         <li>genre y</li>
@@ -15,6 +21,6 @@ function MovieItem() {
             <img src='' alt='' />
         </article>
     );
-}
+};
 
 export default MovieItem
