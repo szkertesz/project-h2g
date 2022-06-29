@@ -12,4 +12,8 @@
     display: grid;
     grid-gap: var(--length-7);
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: minmax(400px, auto);
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block-start: 0;
 }
