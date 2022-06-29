@@ -1,0 +1,14 @@
+.button {
+    height: calc(var(--unit) * 7);
+    min-width: 180px;
+    border-radius: var(--radius-button);
+}
+.button--default {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+}
+.button--ghost {
+    color: var(--color-accent);
+    background-color: transparent;
+    border: 2px solid var(--color-accent);
+}
