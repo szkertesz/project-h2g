@@ -50,19 +50,19 @@
     &__dialog {
         display: flex;
         align-items: center;
-        justify-content: center;
         position: relative;
         margin-top: 10vh;
         max-height: 80vh;
         width: 100%;
         padding: var(--length-8) var(--length-7);
-        background-color: #282c34;
+        background-color: var(--color-dark);
         color: #fff;
         transition: transform .25s ease;
         transform: scale(0.9);
     }
     
     &__content {
+        width: 100%;
         height: 100%;
         padding: calc(0.25rem + 3px); /* needed for the focus styles to appear properly */
         overflow-y: auto;

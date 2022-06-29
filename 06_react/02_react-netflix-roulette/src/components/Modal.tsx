@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Portal from './Portal';
