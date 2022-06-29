@@ -7,7 +7,7 @@ function ModalPage() {
 
     return (
         <>
-            <button onClick={() => setIsOpen(true)}>modal</button>
+            <Button onClick={() => setIsOpen(true)}>modal</Button>
             <Modal
                 handleClose={() => setIsOpen(false)}
                 isOpen={isOpen}
