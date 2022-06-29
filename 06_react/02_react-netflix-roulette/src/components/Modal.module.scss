@@ -64,6 +64,7 @@
     
     &__content {
         height: 100%;
+        padding: calc(0.25rem + 3px); /* needed for the focus styles to appear properly */
         overflow-y: auto;
     }
 
