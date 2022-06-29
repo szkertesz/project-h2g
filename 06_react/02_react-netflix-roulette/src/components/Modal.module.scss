@@ -1,0 +1,89 @@
+.modal {
+    $this: &;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    inset: 0; /* https://developer.mozilla.org/en-US/docs/Web/CSS/inset */
+    background-color: rgba(35, 35, 35, 0.918051);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    z-index: 999;
+    padding: 40px 20px 20px;
+    opacity: 0;
+    pointer-events: none;
+    font-size: var(--font-size-medium);
+    font-weight: 300;
+    
+    &-enter-done {
+        opacity: 1;
+        pointer-events: auto;
+        .modal__dialog {
+            transform: none;
+        }
+    }
+    &-exit {
+        opacity: 0;
+        .modal__dialog {
+            transform: scale(0.9);
+        }
+    }
+    
+    &--small {
+        .modal__dialog {
+            max-width: calc(480 / 16 * 1rem)
+        }
+    }
+    
+    &--medium {
+        .modal__dialog {
+            max-width: calc(680 / 16 * 1rem)
+        }
+    }
+    
+    &--large {
+        .modal__dialog {
+            max-width: calc(976 / 16 * 1rem)
+        }
+    }
+    
+    &__dialog {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-top: 10vh;
+        max-height: 80vh;
+        width: 100%;
+        padding: var(--length-8) var(--length-7);
+        background-color: #282c34;
+        color: #fff;
+        transition: transform .25s ease;
+        transform: scale(0.9);
+    }
+    
+    &__content {
+        height: 100%;
+        padding: calc(0.25rem + 3px); /* needed for the focus styles to appear properly */
+        overflow-y: auto;
+    }
+
+    &__close {
+        position: absolute;
+        top: var(--length-3);
+        right: var(--length-3);
+        width: var(--length-4);
+        height: var(--length-4);
+        background-color: transparent;
+        img {
+            width: var(--length-3);
+            height: var(--length-3);
+        }
+    }
+    &__title {
+        margin-bottom: var(--length-4);
+        font-size: var(--font-size-large);
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+}

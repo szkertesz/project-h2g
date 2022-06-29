@@ -3,6 +3,7 @@ import LoginPage from './pages/LoginPage'
 import Layout from './ui/Layout'
 import MoviesPage from './pages/MoviesPage';
 import MovieDetailsPage from './pages/MovieDetailsPage';
+import ModalPage from './pages/ModalPage';
 import './App.css';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
                 <Route path='movie' element={<MovieDetailsPage />}></Route>
             </Route>
             <Route path='/login' element={<LoginPage />}></Route>
+            {/* Temporary pages for component demos */}
+            <Route path='modal' element={<ModalPage />}></Route>
         </Routes>
     );
 }
