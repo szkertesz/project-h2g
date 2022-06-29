@@ -1,16 +1,24 @@
-import { useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Portal from './Portal';
 import classes from './Modal.module.scss';
+import closeIcon from '../assets/images/icon-close.svg'
 
 interface Props {
-    children: JSX.Element;
+    children: React.ReactNode;
     isOpen: boolean;
+    size?: 'small' | 'medium' | 'large';
     handleClose: () => void;
+    title?: string;
 }
 
-const Modal: React.FC<Props> = ({ children, isOpen, handleClose }) => {
-    const nodeRef = useRef(null);
+const Modal: React.FC<Props> = ({ children, isOpen, size = 'medium', handleClose, title = '' }) => {
+    const modalRef = useRef(null);
+    const modalDialogRef = useRef<HTMLDivElement>(null!);
+    const modalSize = size === 'small' ? classes['modal--small'] :
+                      size === 'medium' ? classes['modal--medium'] :
+                      classes['modal--large']
 
     useEffect(() => {
         const closeOnEscapeKey = (e: KeyboardEvent) =>
@@ -27,22 +35,32 @@ const Modal: React.FC<Props> = ({ children, isOpen, handleClose }) => {
                 unmountOnExit
                 classNames={{
                     enterDone: classes['modal-enter-done'],
-                    exit: classes['modal-exit']
+                    exit: classes['modal-exit'],
                 }}
-                nodeRef={nodeRef}
+                nodeRef={modalRef}
+                onEntered={() => disableBodyScroll(modalDialogRef.current)}
+                onExited={() => enableBodyScroll(modalDialogRef.current)}
             >
-                <div onClick={handleClose} ref={nodeRef} className={classes.modal}>
+                <div
+                    onClick={handleClose}
+                    ref={modalRef}
+                    className={`${classes.modal} ${modalSize}`}
+                >
                     <div
                         onClick={(e) => e.stopPropagation()}
+                        ref={modalDialogRef}
                         className={classes['modal__dialog']}
                     >
                         <button
                             onClick={handleClose}
                             className={classes['modal__close']}
                         >
-                            Close
+                            <img src={closeIcon} alt='' />
                         </button>
                         <div className={classes['modal__content']}>
+                            {title.length > 0 &&
+                                <h2 className={classes['modal__title']}>{title}</h2>
+                            }
                             {children}
                         </div>
                     </div>
