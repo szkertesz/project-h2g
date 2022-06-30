@@ -44,7 +44,14 @@ const AddMovieForm: React.FC<Props> = ({}) => {
                 </div>
                 <div className={classes['movie-form__group']}>
                     <label htmlFor='react-select-2-input'>Genre</label>
-                    <CustomSelect />
+                    <CustomSelect
+                        options={[
+                            { value: 'crime', label: 'Crime' },
+                            { value: 'documentary', label: 'Documentary' },
+                            { value: 'horror', label: 'Horror' },
+                            { value: 'comedy', label: 'Comedy' },
+                        ]}
+                    />
                 </div>
                 <div className={classes['movie-form__group']}>
                     <label htmlFor='movieRuntime'>Runtime</label>

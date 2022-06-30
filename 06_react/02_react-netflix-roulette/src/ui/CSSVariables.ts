@@ -3,18 +3,18 @@ const backgroundColorInput = String(
         '--color-bg-input'
     )
 );
-export const colorAccent = String(
+const colorAccent = String(
     getComputedStyle(document.documentElement).getPropertyValue(
         '--color-accent'
     )
 );
-export const colorLight = String(
+const colorLight = String(
     getComputedStyle(document.documentElement).getPropertyValue('--color-light')
 );
-export const heightInput = String(
+const heightInput = String(
     getComputedStyle(document.documentElement).getPropertyValue(
         '--height-input'
     )
 );
 
-export default backgroundColorInput
+export {backgroundColorInput, colorLight, colorAccent, heightInput}
