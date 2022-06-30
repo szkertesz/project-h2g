@@ -138,6 +138,7 @@ const AddMovieForm: React.FC<Props> = ({}) => {
                                 background: backgroundColorInput,
                                 color: 'purple',
                                 borderRadius: '4px',
+                                paddingTop: '0',
                             }),
                             option: (base) => ({
                                 ...base,
@@ -150,6 +151,12 @@ const AddMovieForm: React.FC<Props> = ({}) => {
                             menu: (base) => ({
                                 ...base,
                                 backgroundColor: backgroundColorInput,
+                            }),
+                            input: (base) => ({
+                                ...base,
+                                height: heightInput,
+                                margin: '0',
+                                padding: '0',
                             }),
                         }}
                     />
