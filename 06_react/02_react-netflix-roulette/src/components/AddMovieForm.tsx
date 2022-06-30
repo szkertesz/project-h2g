@@ -1,11 +1,53 @@
 import classes from './AddMovieForm.module.scss'
+import Select, {
+    components,
+    DropdownIndicatorProps,
+} from 'react-select';
+import SelectOption from './SelectOption';
 import Button from '../ui/Button';
+import arrowIcon from '../assets/images/icon-arrow.svg'
 
-interface Props {
-
-}
+interface Props {}
 
 const AddMovieForm: React.FC<Props> = ({}) => {
+    const selectOptions = [
+        { value: 'crime', label: 'Crime' },
+        { value: 'documentary', label: 'Documentary' },
+        { value: 'horror', label: 'Horror' },
+        { value: 'comedy', label: 'Comedy' },
+    ];
+    const DropdownIndicator = (
+        props: DropdownIndicatorProps
+    ) => {
+        return (
+            <components.DropdownIndicator {...props}>
+                <img src={arrowIcon} alt="" />
+            </components.DropdownIndicator>
+        );
+    };
+    const IndicatorSeparator = () => {
+        return null;
+    };
+    const backgroundColorInput = String(
+        getComputedStyle(document.documentElement).getPropertyValue(
+            '--color-bg-input'
+        )
+    );
+    const colorAccent = String(
+        getComputedStyle(document.documentElement).getPropertyValue(
+            '--color-accent'
+        )
+    );
+    const colorLight = String(
+        getComputedStyle(document.documentElement).getPropertyValue(
+            '--color-light'
+        )
+    );
+    const heightInput = String(
+        getComputedStyle(document.documentElement).getPropertyValue(
+            '--height-input'
+        )
+    );
     return (
         <form action=''>
             <h2 className={classes['movie-form__title']}>Add movie</h2>
@@ -44,8 +86,73 @@ const AddMovieForm: React.FC<Props> = ({}) => {
                     />
                 </div>
                 <div className={classes['movie-form__group']}>
-                    <label htmlFor='movieGenre'>Genre</label>
-                    <input type='text' id='movieGenre' name='movieGenre' />
+                    <label htmlFor='react-select-2-input'>Genre</label>
+                    {/* <input type='text' id='movieGenre' name='movieGenre' /> */}
+                    <Select
+                        options={selectOptions}
+                        isMulti
+                        isClearable={false}
+                        closeMenuOnSelect={false}
+                        hideSelectedOptions={false}
+                        components={{
+                            Option: SelectOption,
+                            DropdownIndicator,
+                            IndicatorSeparator,
+                        }}
+                        styles={{
+                            multiValue: (base) => ({
+                                ...base,
+                                border: `none`,
+                                backgroundColor: 'transparent',
+                                color: colorAccent,
+                            }),
+                            multiValueLabel: (base) => ({
+                                ...base,
+                                border: `none`,
+                                backgroundColor: 'transparent',
+                                color: colorLight,
+                            }),
+                            control: (base) => ({
+                                ...base,
+                                height: heightInput,
+                                border: `none`,
+                                backgroundColor: backgroundColorInput,
+                                borderRadius: 4,
+                                color: 'white',
+                            }),
+                            container: (base) => ({
+                                ...base,
+                                height: heightInput,
+                                backgroundColor: 'transparent',
+                                padding: 0,
+                            }),
+                            singleValue: (base) => ({
+                                ...base,
+                                color: 'green',
+                            }),
+                            valueContainer: (base) => ({
+                                ...base,
+                                display: 'flex',
+                                alignItems: 'center',
+                                height: heightInput,
+                                background: backgroundColorInput,
+                                color: 'purple',
+                                borderRadius: '4px',
+                            }),
+                            option: (base) => ({
+                                ...base,
+                                backgroundColor: backgroundColorInput,
+                                color: colorLight,
+                                display: 'flex',
+                                alignItems: 'center',
+                                height: '2rem',
+                            }),
+                            menu: (base) => ({
+                                ...base,
+                                backgroundColor: backgroundColorInput,
+                            }),
+                        }}
+                    />
                 </div>
                 <div className={classes['movie-form__group']}>
                     <label htmlFor='movieRuntime'>Runtime</label>
