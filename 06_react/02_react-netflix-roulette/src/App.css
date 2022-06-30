@@ -27,6 +27,7 @@
     --color-gray-dark: #424242;
     --color-gray-medium: #555;
     --color-light: #fff;
+    --color-bg-input: rgba(50, 50, 50, 0.948044)
 }
 
 @media (min-width: 67.5em) {

@@ -4,6 +4,7 @@ import Layout from './ui/Layout'
 import MoviesPage from './pages/MoviesPage';
 import MovieDetailsPage from './pages/MovieDetailsPage';
 import ModalPage from './pages/ModalPage';
+import AddMovieFormPage from './pages/AddMovieFormPage';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path='/login' element={<LoginPage />}></Route>
             {/* Temporary pages for component demos */}
             <Route path='modal' element={<ModalPage />}></Route>
+            <Route path='add-movie' element={<AddMovieFormPage />}></Route>
         </Routes>
     );
 }

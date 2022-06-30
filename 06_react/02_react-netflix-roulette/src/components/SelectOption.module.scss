@@ -1,0 +1,13 @@
+.option {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    &__input {
+        margin-bottom: 1rem;
+        opacity: 0;
+    }
+    &__label {
+        color: var(--color-light) !important;
+    }
+}
