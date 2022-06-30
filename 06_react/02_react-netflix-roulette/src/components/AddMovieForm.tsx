@@ -53,7 +53,7 @@ const AddMovieForm: React.FC<Props> = ({}) => {
                 </div>
                 <div
                     className={`
-                        classes[('movie-form__group')]
+                        ${classes['movie-form__group']} ${classes['movie-form__group--full']}
                     `}
                 >
                     <label htmlFor='movieOverview'>Overview</label>

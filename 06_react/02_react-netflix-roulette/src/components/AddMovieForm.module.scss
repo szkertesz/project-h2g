@@ -48,6 +48,7 @@
         grid-column: span 2;
         display: flex;
         justify-content: flex-end;
+        margin-top: var(--length-7);
 
         & > *:not(:last-child) {
             margin-right: var(--length-2);

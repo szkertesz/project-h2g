@@ -43,7 +43,8 @@
     
     &--large {
         .modal__dialog {
-            max-width: calc(976 / 16 * 1rem)
+            max-width: calc(976 / 16 * 1rem);
+            margin-top: 5vh;
         }
     }
     
@@ -52,7 +53,7 @@
         align-items: center;
         position: relative;
         margin-top: 10vh;
-        max-height: 80vh;
+        max-height: 90vh;
         width: 100%;
         padding: var(--length-8) var(--length-7);
         background-color: var(--color-dark);
