@@ -1,9 +1,9 @@
 import Container from '../ui/Container';
 import Button from '../ui/Button';
-import classes from './Header.module.scss';
+import classes from './MoviesPageTop.module.scss';
 import logo from '../assets/images/logo_netflixroulette.svg';
 
-function Header() {
+function HeaderMovies() {
     return (
         <header className={classes.header}>
             <Container>
@@ -33,4 +33,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default HeaderMovies;
