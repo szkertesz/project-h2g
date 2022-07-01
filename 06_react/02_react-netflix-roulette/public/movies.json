@@ -8,7 +8,8 @@
             "thumbnail": "https://m.media-amazon.com/images/M/MV5BYTY0NTZlZjYtNWRmZi00MGRjLTk4ZDctMjE4NjBiZTUyNGNhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
             "movie_url": "https://www.imdb.com/title/tt1029234",
             "rating": "7.0",
-            "runtime": "99 min"
+            "runtime": "99 min",
+            "description": "A young woman's quest for revenge against the people who kidnapped and tormented her as a child leads her and a friend, who is also a victim of child abuse, on a terrifying journey into a living hell of depravity."
         },
         {
             "id": "c756ce95-7ca8-4bbd-8968-8296030",
@@ -18,7 +19,8 @@
             "thumbnail": "https://m.media-amazon.com/images/M/MV5BMmU2MDkyZWMtYjJmNi00YjE1LWIzODctZjNjZmY0OGMzNzQzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
             "movie_url": "https://www.imdb.com/title/tt8296030/",
             "rating": "6.3",
-            "runtime": "108 min"
+            "runtime": "108 min",
+            "description": "Set in an isolated mountain village in 19th century Macedonia, You Won't Be Alone follows a young girl who is kidnapped and then transformed into a witch by an ancient spirit. Curious about life as a human, the young witch accidentally kills a peasant in the nearby village and then takes her victim's shape to live life in her skin. Her curiosity ignited, she continues to wield this horrific power in order to understand what it means to be human."
         },
         {
             "id": "9951d425-6f87-4f76-b6cf-063fc15fe2a0",
@@ -28,7 +30,8 @@
             "thumbnail": "https://m.media-amazon.com/images/M/MV5BODZlYjQ4NzYtZTg1MC00NGY4LTg4NjQtNGE3ZjRkMjk3YjMyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
             "movie_url": "https://www.imdb.com/title/tt4574334/",
             "rating": "8.7",
-            "runtime": "51 min"
+            "runtime": "51 min",
+            "description": "In a small town where everyone knows everyone, a peculiar incident starts a chain of events that leads to a child's disappearance, which begins to tear at the fabric of an otherwise-peaceful community. Dark government agencies and seemingly malevolent supernatural forces converge on the town, while a few of the locals begin to understand that more is going on than meets the eye."
         },
         {
             "id": "856aae4a-3593-4571-adc9-d95540498383",
@@ -38,7 +41,8 @@
             "thumbnail": "https://m.media-amazon.com/images/M/MV5BNzg4MjQxNTQtZmI5My00YjMwLWJlMjUtMmJlY2U2ZWFlNzY1XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
             "movie_url": "https://www.imdb.com/star-wars/",
             "rating": "8.6",
-            "runtime": "121 min"
+            "runtime": "121 min",
+            "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader."
         },
         {
             "id": "318119d2-67ea-4e98-a606-e0916f0bf3dc",
@@ -48,7 +52,8 @@
             "thumbnail": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
             "movie_url": "https://www.imdb.com/title/tt0800369/",
             "rating": "7.0",
-            "runtime": "115 min"
+            "runtime": "115 min",
+            "description": "The warrior Thor (Chris Hemsworth) is cast out of the fantastic realm of Asgard by his father Odin (Sir Anthony Hopkins) for his arrogance and sent to Earth to live amongst humans. Falling in love with scientist Jane Foster (Natalie Portman) teaches Thor much-needed lessons, and his new-found strength comes into play as a villain from his homeland sends dark forces toward Earth."
         },
         {
             "id": "e67fb515-0b36-4f9d-a7fa-aa38150b66bb",
@@ -58,7 +63,8 @@
             "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
             "movie_url": "https://www.imdb.com/title/tt0110912/",
             "rating": "8.9",
-            "runtime": "154 min"
+            "runtime": "154 min",
+            "description": "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents."
         }
     ]
 }
