@@ -1,6 +1,6 @@
 import Container from '../ui/Container';
 
-function Footer() {
+function HomeAndMovieDetailsPageFooter() {
     return (
         <footer>
             <Container>
@@ -10,4 +10,4 @@ function Footer() {
     );
 }
 
-export default Footer;
+export default HomeAndMovieDetailsPageFooter;

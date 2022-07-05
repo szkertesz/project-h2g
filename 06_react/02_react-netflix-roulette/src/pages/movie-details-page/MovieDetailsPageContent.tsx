@@ -1,22 +1,19 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo_netflixroulette.svg';
-import searchIcon from '../assets/images/icon-search.svg';
-import Container from '../ui/Container';
-import classes from './MovieDetailsPageTop.module.scss';
+import { useParams } from 'react-router-dom';
+import Container from '../../ui/Container';
+import classes from './MovieDetailsPageContent.module.scss';
+import {Movie} from '../../interfaces/Movie'
+import { useGetDataQuery } from '../../features/api/apiSlice';
 
-function MovieDetailsPageTop() {
+
+type Props = {
+    movieData: Movie[]
+}
+const MovieDetailsPageTop: React.FC<Props> = (movieData: Props) => {
+    const { movieId } = useParams()
+    // const currentMovieData = data.filter(movie => movie.id === movieId);
     return (
         <>
-            <header className={classes.header}>
-                <Container>
-                    <div className={classes['header__inner']}>
-                        <img src={logo} alt='logo' />
-                        <Link to='/' className={classes['header__search']}>
-                            <img src={searchIcon} alt='search icon' />
-                        </Link>
-                    </div>
-                </Container>
-            </header>
             <article className={classes.article}>
                 <Container>
                     <div className={classes['article__inner']}>
@@ -29,7 +26,7 @@ function MovieDetailsPageTop() {
                             <header className={classes['article__header']}>
                                 <div className={classes['article__title-bar']}>
                                     <h1 className={classes['article__title']}>
-                                        Movie Title
+                                        {movieId}
                                     </h1>
                                     <span
                                         className={

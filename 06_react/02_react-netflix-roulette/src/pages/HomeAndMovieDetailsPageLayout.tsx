@@ -1,8 +1,8 @@
-import Footer from '../components/Footer';
 import Container from '../ui/Container';
 import Genres from '../components/Genres';
 import MovieList from '../components/MovieList';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import HomeAndMovieDetailsPageFooter from './HomeAndMovieDetailsPageFooter';
 
 function Layout() {
     return (
@@ -10,11 +10,14 @@ function Layout() {
             <Outlet />
             <main>
                 <Container>
+                    <Routes>
+                        <Route path=':movieId'></Route>
+                    </Routes>
                     <Genres />
                     <MovieList />
                 </Container>
             </main>
-            <Footer />
+            <HomeAndMovieDetailsPageFooter />
         </>
     );
 }
