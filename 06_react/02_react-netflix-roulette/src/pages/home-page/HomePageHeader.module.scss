@@ -1,6 +1,6 @@
 .header {
     min-height: calc(var(--unit) * 50);
-    background-image: url('../assets/images/header_bg.jpg');
+    background-image: url('../../assets/images/header_bg.jpg');
     background-size: cover;
     &__top {
         display: flex;

@@ -1,22 +1,3 @@
-.header {
-    padding: var(--length-5) 0 var(--length-4);
-    &__inner {
-        display: flex;
-        justify-content: space-between;
-    }
-    &__search {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: var(--length-4);
-        height: var(--length-4);
-        img {
-            width: var(--length-3);
-            height: var(--length-3);
-        }
-    }
-}
-
 .article {
     &__inner {
         display: grid;

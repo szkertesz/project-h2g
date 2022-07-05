@@ -7,4 +7,5 @@ export interface Movie {
     runtime: string,
     thumbnail: string,
     title: string,
+    description: string
 }
