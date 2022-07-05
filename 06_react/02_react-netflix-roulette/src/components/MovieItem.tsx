@@ -1,12 +1,13 @@
 import { Movie } from '../interfaces/Movie';
 import classes from './MovieItem.module.scss';
+import { Link } from 'react-router-dom'
 
 type Props = {
     movieInfo: Movie;
 };
 
 const MovieItem: React.FC<Props> = ({ movieInfo }) => {
-    const { genre, release_date, thumbnail, title } = movieInfo;
+    const { id, genre, release_date, thumbnail, title } = movieInfo;
     return (
         <article className={classes['movie-item']}>
             <div className={classes['movie-item__text']}>
@@ -29,9 +30,9 @@ const MovieItem: React.FC<Props> = ({ movieInfo }) => {
                     {release_date}
                 </time>
             </div>
-            <a href="#" className={classes['movie-item__poster']}>
+            <Link to={`movie/${id}`} className={classes['movie-item__poster']}>
                 <img src={thumbnail} alt='poster' />
-            </a>
+            </Link>
         </article>
     );
 };
