@@ -1,20 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Movie } from '../../interfaces/Movie';
-interface Api {
-    movies: Movie[]
-}
+
 export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'movies.json',
-        prepareHeaders(headers) {
-            headers.set('Content-Type', 'application/json');
-            return headers;
-        }
+        baseUrl: 'http://localhost:3004',
     }),
-    endpoints(builder){
+    endpoints(builder) {
         return {
-            getData: builder.query<Api, number | void>({
+            getData: builder.query<Movie[], number | void>({
                 // query: () => {
                 //     return {
                 //         url: '',
@@ -22,12 +16,18 @@ export const apiSlice = createApi({
                 //     }
                 // }
                 query() {
-                    return ''
-                }
+                    return '/movies';
+                },
+            }),
+            addNewData: builder.mutation({
+                query: initialData => ({
+                    url: '',
+                    method: 'POST',
+                    body: initialData
+                })
             })
-        }
-    }
+        };
+    },
+});
 
-})
-
-export const { useGetDataQuery } = apiSlice
+export const { useGetDataQuery, useAddNewDataMutation } = apiSlice

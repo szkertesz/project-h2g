@@ -4,10 +4,11 @@ import arrowIcon from '../assets/images/icon-arrow.svg';
 import { backgroundColorInput, colorAccent, colorLight, heightInput} from '../ui/CSSVariables';
 
 interface Props {
-    options: object[]
+    options: object[];
+    handleChange: (e: any) => void;
 }
 
-const CustomSelect: React.FC<Props> = ({options}) => {
+const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
     const selectOptions = options;
     const DropdownIndicator = (props: DropdownIndicatorProps) => {
         return (
@@ -27,6 +28,7 @@ const CustomSelect: React.FC<Props> = ({options}) => {
             isClearable={false}
             closeMenuOnSelect={false}
             hideSelectedOptions={false}
+            onInputChange={handleChange}
             components={{
                 Option: SelectOption,
                 DropdownIndicator,

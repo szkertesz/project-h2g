@@ -8,7 +8,7 @@ type Props = {};
 
 const MovieDetailsPageTop: React.FC<Props> = (Props) => {
     const { data } = useGetDataQuery();
-    const movieData = data?.movies as Movie[];
+    const movieData = data as Movie[];
 
     return (
         <>

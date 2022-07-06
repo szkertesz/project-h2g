@@ -45,7 +45,7 @@ function MovieList() {
     //     )
     // }
     const { data, isFetching } = useGetDataQuery();
-    const movieData = data?.movies;
+    const movieData = data;
 
     if (isFetching) return <section>Loading...</section>;
     if (!data) return <section><p>Can't get any data :-/</p></section>;
