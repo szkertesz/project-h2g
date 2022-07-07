@@ -11,6 +11,7 @@ type Props = {
 
 const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
     const params = useParams()
+    console.log(movieData)
     const {id, title, release_date, genre, thumbnail, description, rating, runtime } = movieData.movieData.find(movie => movie.id === params.movieId) as Movie;
     return (
         <>

@@ -21,7 +21,7 @@ export const apiSlice = createApi({
             }),
             addNewData: builder.mutation({
                 query: initialData => ({
-                    url: '',
+                    url: '/movies',
                     method: 'POST',
                     body: initialData
                 })

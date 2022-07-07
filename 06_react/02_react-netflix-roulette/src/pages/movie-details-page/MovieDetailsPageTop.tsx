@@ -1,7 +1,6 @@
 import MovieDetailsPageHeader from './MovieDetailsPageHeader';
 import MovieDetailsPageContent from './MovieDetailsPageContent';
 import { Routes, Route, Outlet } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { Movie } from '../../interfaces/Movie';
 import { useGetDataQuery } from '../../features/api/apiSlice';
 type Props = {};

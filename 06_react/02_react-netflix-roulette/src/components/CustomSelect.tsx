@@ -5,10 +5,11 @@ import { backgroundColorInput, colorAccent, colorLight, heightInput} from '../ui
 
 interface Props {
     options: object[];
-    handleChange: (e: any) => void;
+    handleChange: (option: any) => void;
 }
 
 const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
+
     const selectOptions = options;
     const DropdownIndicator = (props: DropdownIndicatorProps) => {
         return (
@@ -28,7 +29,9 @@ const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
             isClearable={false}
             closeMenuOnSelect={false}
             hideSelectedOptions={false}
-            onInputChange={handleChange}
+            onChange={(
+                option
+            ) => handleChange(option)}
             components={{
                 Option: SelectOption,
                 DropdownIndicator,
