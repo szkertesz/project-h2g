@@ -173,15 +173,13 @@ const AddMovieForm: React.FC<Props> = () => {
                     <input type='text' id='movieThumbnail' name='movieThumbnail' onChange={onThumbnailChanged}/>
                 </div>
                 <div
-                    className={`
-                        ${classes['movie-form__group']} ${classes['movie-form__group--full']}
-                    `}
+                    className={`${classes['movie-form__group']} ${classes['movie-form__group--full']}`}
                 >
                     <label htmlFor='movieOverview'>Overview</label>
                     <textarea
                         id='movieOverview'
                         name='movieOverview'
-                        rows={5}
+                        rows={3}
                         onChange={onDescriptionChanged}
                     ></textarea>
                 </div>

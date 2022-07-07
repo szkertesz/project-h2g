@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import AddMovieForm from '../components/AddMovieForm';
+import EditMovieForm from '../components/EditMovieForm';
 import Modal from '../components/Modal';
 
 function AddMovieFormPage() {
@@ -16,7 +16,7 @@ function AddMovieFormPage() {
                 isOpen={isOpen}
                 size={'large'}
             >
-                <AddMovieForm />
+                <EditMovieForm />
             </Modal>
         </>
     );

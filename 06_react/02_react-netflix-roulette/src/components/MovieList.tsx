@@ -59,7 +59,7 @@ function MovieList() {
             <p className={classes.info}>
                 <span>{movieData?.length}</span> movies found
             </p>
-            <ul className={classes.results}>
+            <ul className={`${classes.results} ${isFetching ? classes['results--disabled'] : ''}`}>
                 {movieData?.map((movie: Movie) => {
                     return (
                         <li key={movie.id}>

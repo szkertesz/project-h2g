@@ -8,7 +8,6 @@ type Props = {
 
 const MovieItem: React.FC<Props> = ({ movieInfo }) => {
     const { id, genre, release_date, thumbnail, title } = movieInfo;
-    console.warn('genre', movieInfo)
     return (
         <article className={classes['movie-item']}>
             <div className={classes['movie-item__text']}>

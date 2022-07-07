@@ -9,7 +9,9 @@ function MovieDetailsPageHeader() {
         <header className={classes.header}>
             <Container>
                 <div className={classes['header__inner']}>
-                    <img src={logo} alt='logo' />
+                    <Link to='/'>
+                        <img src={logo} alt='logo' />
+                    </Link>
                     <Link to='/' className={classes['header__search']}>
                         <img src={searchIcon} alt='search icon' />
                     </Link>

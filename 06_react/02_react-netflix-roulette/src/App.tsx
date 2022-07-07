@@ -6,8 +6,9 @@ import LoginPage from './pages/LoginPage';
 import './App.css';
 
 /* Temporary pages for component demos */
-import AddMovieFormPage from './pages/AddMovieFormPage';
+import AddMovieFormPage from './pages/EditMovieFormPage';
 import ModalPage from './pages/ModalPage';
+import EditMovieFormPage from './pages/EditMovieFormPage';
 
 function App() {
     return (
@@ -24,7 +25,7 @@ function App() {
                 <Route path='/login' element={<LoginPage />}></Route>
                 {/* Temporary pages for component demos */}
                 <Route path='modal' element={<ModalPage />}></Route>
-                <Route path='add-movie' element={<AddMovieFormPage />}></Route>
+                <Route path='edit-movie' element={<EditMovieFormPage />}></Route>
             </Routes>
         </>
     );
