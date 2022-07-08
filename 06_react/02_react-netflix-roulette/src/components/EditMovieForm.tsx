@@ -1,7 +1,7 @@
 import classes from './AddMovieForm.module.scss';
 import Button from '../ui/Button';
 import CustomSelect from './CustomSelect';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { SetStateAction, useState } from 'react';
 
 import {
@@ -9,12 +9,12 @@ import {
     useEditDataMutation,
 } from '../features/api/apiSlice';
 
-interface Props {}
+interface Props {
+    movieId: any
+}
 
-const EditMovieForm: React.FC<Props> = () => {
-    const params = useParams();
-
-    const { data } = useGetSingleDataQuery(params.movieId);
+const EditMovieForm: React.FC<Props> = ({movieId}) => {
+    const { data } = useGetSingleDataQuery(movieId);
     const [updateMovie] = useEditDataMutation();
 
     const [genre, setGenre] = useState<string>('');
