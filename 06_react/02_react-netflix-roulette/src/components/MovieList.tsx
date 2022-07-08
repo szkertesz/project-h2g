@@ -1,12 +1,15 @@
-// import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import MovieItem from './MovieItem';
 import { Movie } from '../interfaces/Movie';
 import classes from './MovieList.module.scss';
+import { RootState } from '../app/store';
 
 // import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { useGetDataQuery } from '../features/api/apiSlice';
+// RTKQ
+// import { useGetDataQuery } from '../features/api/apiSlice';
 
 function MovieList() {
+    // bare react code
     // const [isLoading, setIsLoading] = useState(false);
     // const [movieData, setMovieData] = useState<Movie[]>([]);
 
@@ -44,11 +47,15 @@ function MovieList() {
     //         </section>
     //     )
     // }
-    const { data, isFetching } = useGetDataQuery();
-    const movieData = data;
 
-    if (isFetching) return <section>Loading...</section>;
-    if (!data) return <section><p>Can't get any data :-/</p></section>;
+    // RTKQ code
+    // const { data, isFetching } = useGetDataQuery();
+    // const movieData = data;
+
+    // if (isFetching) return <section>Loading...</section>;
+    // if (!data) return <section><p>Can't get any data :-/</p></section>;
+
+    const movieData = useSelector((state: RootState) => state.movies);
 
     return (
         <section>
@@ -59,7 +66,8 @@ function MovieList() {
             <p className={classes.info}>
                 <span>{movieData?.length}</span> movies found
             </p>
-            <ul className={`${classes.results} ${isFetching ? classes['results--disabled'] : ''}`}>
+            {/* <ul className={`${classes.results} ${isFetching ? classes['results--disabled'] : ''}`}> */}
+            <ul className={classes.results}>
                 {movieData?.map((movie: Movie) => {
                     return (
                         <li key={movie.id}>

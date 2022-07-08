@@ -1,16 +1,29 @@
 import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import getAll from './services/fetchData';
+import { setMovies } from './features/movies/moviesSlice';
+import { useDispatch } from 'react-redux';
+
 import HomeAndMovieDetailsPageLayout from './pages/HomeAndMovieDetailsPageLayout';
 import HomePageHeader from './pages/home-page/HomePageHeader';
 import MovieDetailsPageTop from './pages/movie-details-page/MovieDetailsPageTop';
 import LoginPage from './pages/LoginPage';
 import './App.css';
 
+
 /* Temporary pages for component demos */
-import AddMovieFormPage from './pages/EditMovieFormPage';
 import ModalPage from './pages/ModalPage';
 import EditMovieFormPage from './pages/EditMovieFormPage';
 
 function App() {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const fetchData = async () => {
+            const movies = await getAll()
+            dispatch(setMovies(movies))
+        }
+        fetchData()
+    }, [dispatch])
     return (
         <>
             <Routes>

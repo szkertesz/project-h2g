@@ -1,16 +1,37 @@
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../app/store';
 import Container from '../../ui/Container';
 import classes from './MovieDetailsPageContent.module.scss';
-import { Movie } from '../../interfaces/Movie'
-
+import { Movie } from '../../interfaces/Movie';
 
 type Props = {
-    movieData: Movie[]
-}
+    movieData: Movie[];
+};
 
 const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
-    const params = useParams()
-    const {id, title, release_date, genre, thumbnail, description, rating, runtime } = movieData.movieData.find(movie => movie.id === params.movieId) as Movie;
+    const params = useParams();
+    const singleMovieData = useSelector((state: RootState) =>
+        state.movies.find((movie) => movie.id === params.movieId)
+    );
+    const {
+        title,
+        release_date,
+        genre,
+        thumbnail,
+        description,
+        rating,
+        runtime,
+    } = singleMovieData as Movie;
+
+    if (!singleMovieData) {
+        return (
+            <section>
+                <h2>Movie not found!</h2>
+            </section>
+        );
+    }
+
     return (
         <>
             <article className={classes.article}>
@@ -56,9 +77,7 @@ const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
                             <section
                                 className={classes['article__description']}
                             >
-                                <p>
-                                    {description}
-                                </p>
+                                <p>{description}</p>
                             </section>
                         </div>
                     </div>
@@ -66,6 +85,6 @@ const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
             </article>
         </>
     );
-}
+};
 
 export default MovieDetailsPageContent;

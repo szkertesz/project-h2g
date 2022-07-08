@@ -2,10 +2,11 @@ import classes from './AddMovieForm.module.scss'
 import Button from '../ui/Button';
 import CustomSelect from './CustomSelect';
 import { SetStateAction, useState } from 'react';
-// import { useDispatch } from 'react-redux';
-import { useAddNewDataMutation } from '../features/api/apiSlice';
+// RTKQ code
+// import { useAddNewDataMutation } from '../features/api/apiSlice';
+import { useDispatch } from 'react-redux';
+import { addMovie } from '../features/movies/moviesSlice';
 import { nanoid } from '@reduxjs/toolkit';
-// import { movieAdded } from '../features/movies/moviesSlice';
 
 interface Props {}
 
@@ -18,9 +19,20 @@ const AddMovieForm: React.FC<Props> = () => {
     const [thumbnail, setThumbnail] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-
-    // const dispatch = useDispatch();
-    const [addNewData, { isLoading }] = useAddNewDataMutation()
+    // RTKQ code
+    // const [addNewData, { isLoading }] = useAddNewDataMutation()
+    const dispatch = useDispatch();
+    // RTKQ code
+    // const canSave = [
+    //     genre,
+    //     url,
+    //     rating,
+    //     release_date,
+    //     runtime,
+    //     thumbnail,
+    //     title,
+    //     description,
+    // ].every(Boolean) && !isLoading
     const canSave = [
         genre,
         url,
@@ -30,24 +42,17 @@ const AddMovieForm: React.FC<Props> = () => {
         thumbnail,
         title,
         description,
-    ].every(Boolean) && !isLoading
+    ].every(Boolean)
 
-    // const onGenreChanged = (e: { target: { value: SetStateAction<string>; }; }) => setGenre(e.target.value)
-    // const onGenreChanged = (e: any) => {
-    //     console.log(e)
-    // }
     const onGenreChanged = (e: [{ value: string, label: string }]) => {
         const genresData = e.map((genre) => genre.value).join();
         setGenre(genresData);
-        console.log(genresData);
     };
     const onUrlChanged = (e: { target: { value: SetStateAction<string>; }; }) => {
         setUrl(e.target.value)
-        console.log(url)
     }
     const onRatingChanged = (e: { target: { value: SetStateAction<string>; }; }) => {
         setRating(e.target.value)
-        console.log(rating)
     }
     const onReleaseChanged = (e: { target: { value: string; }; }) => {
         const year = new Date(e.target.value).getFullYear().toString();
@@ -55,26 +60,34 @@ const AddMovieForm: React.FC<Props> = () => {
     }
     const onRuntimeChanged = (e: { target: { value: SetStateAction<string>; }; }) => {
         setRuntime(e.target.value)
-        console.log(runtime)
     }
     const onThumbnailChanged = (e: { target: { value: SetStateAction<string>; }; }) => {
         setThumbnail(e.target.value)
-        console.log()
     }
     const onTitleChanged = (e: { target: { value: SetStateAction<string>; }; }) => {
         setTitle(e.target.value)
-        console.log(title)
     }
     const onDescriptionChanged = (e: { target: { value: SetStateAction<string>; }; }) => {
         setDescription(e.target.value)
-        console.log(description)
     }
 
-    // const onSubmit = () => console.log(release)
-    const onSubmit = async () => {
+    const onSubmit = () => {
         if (canSave) {
-            try {
-                await addNewData({
+            // RTKQ code
+            // try {
+            //     await addNewData({
+            //         id: nanoid(),
+            //         genre,
+            //         url,
+            //         rating,
+            //         release_date,
+            //         runtime,
+            //         thumbnail,
+            //         title,
+            //         description,
+            //     }).unwrap()
+            dispatch(
+                addMovie({
                     id: nanoid(),
                     genre,
                     url,
@@ -84,20 +97,8 @@ const AddMovieForm: React.FC<Props> = () => {
                     thumbnail,
                     title,
                     description,
-                }).unwrap()
-                // dispatch(
-                    //     movieAdded({
-                        //         id: nanoid(),
-            //         genre,
-            //         url,
-            //         rating,
-            //         release,
-            //         runtime,
-            //         thumbnail,
-            //         title,
-            //         description,
-            //     })
-            // );
+                })
+            );
                 setGenre('');
                 setUrl('');
                 setRating('');
@@ -106,9 +107,10 @@ const AddMovieForm: React.FC<Props> = () => {
                 setThumbnail('');
                 setTitle('');
                 setDescription('');
-            } catch (error) {
-                console.warn('Failed to add movie: ', error)
-            }
+            // RTKQ code
+            // } catch (error) {
+            //     console.warn('Failed to add movie: ', error)
+            // }
         }
     }
 
