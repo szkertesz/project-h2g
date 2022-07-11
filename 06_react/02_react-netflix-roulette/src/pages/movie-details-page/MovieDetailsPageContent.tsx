@@ -6,13 +6,13 @@ import classes from './MovieDetailsPageContent.module.scss';
 import { Movie } from '../../interfaces/Movie';
 
 type Props = {
-    movieData: Movie[];
+    // movieData: Movie[];
 };
 
 const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
     const params = useParams();
     const singleMovieData = useSelector((state: RootState) =>
-        state.movies.find((movie) => movie.id === params.movieId)
+        state.movies.movies.find((movie) => movie.id === params.movieId)
     );
     const {
         title,

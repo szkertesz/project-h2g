@@ -1,191 +1,103 @@
 {
-  "movies": [
-    {
-      "id": "8a3ec45b-b0a4-4ebd-a56e-ef618f40dffc",
-      "title": "Martyrs",
-      "release_date": "2008",
-      "genre": "Horror",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BYTY0NTZlZjYtNWRmZi00MGRjLTk4ZDctMjE4NjBiZTUyNGNhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
-      "movie_url": "https://www.imdb.com/title/tt1029234",
-      "rating": "7.0",
-      "runtime": "99 min",
-      "description": "A young woman's quest for revenge against the people who kidnapped and tormented her as a child leads her and a friend, who is also a victim of child abuse, on a terrifying journey into a living hell of depravity."
-    },
-    {
-      "id": "c756ce95-7ca8-4bbd-8968-8296030",
-      "title": "You Won't Be Alone",
-      "release_date": "2022",
-      "genre": "Horror, Drama",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BMmU2MDkyZWMtYjJmNi00YjE1LWIzODctZjNjZmY0OGMzNzQzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
-      "movie_url": "https://www.imdb.com/title/tt8296030/",
-      "rating": "6.3",
-      "runtime": "108 min",
-      "description": "Set in an isolated mountain village in 19th century Macedonia, You Won't Be Alone follows a young girl who is kidnapped and then transformed into a witch by an ancient spirit. Curious about life as a human, the young witch accidentally kills a peasant in the nearby village and then takes her victim's shape to live life in her skin. Her curiosity ignited, she continues to wield this horrific power in order to understand what it means to be human."
-    },
-    {
-      "id": "9951d425-6f87-4f76-b6cf-063fc15fe2a0",
-      "title": "Stranger Things",
-      "release_date": "2016",
-      "genre": "Drama, Fantasy, Horror",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BODZlYjQ4NzYtZTg1MC00NGY4LTg4NjQtNGE3ZjRkMjk3YjMyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
-      "movie_url": "https://www.imdb.com/title/tt4574334/",
-      "rating": "8.7",
-      "runtime": "51 min",
-      "description": "In a small town where everyone knows everyone, a peculiar incident starts a chain of events that leads to a child's disappearance, which begins to tear at the fabric of an otherwise-peaceful community. Dark government agencies and seemingly malevolent supernatural forces converge on the town, while a few of the locals begin to understand that more is going on than meets the eye."
-    },
-    {
-      "id": "856aae4a-3593-4571-adc9-d95540498383",
-      "title": "Star Wars",
-      "release_date": "1977",
-      "genre": "Action, Adventure, Fantasy",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BNzg4MjQxNTQtZmI5My00YjMwLWJlMjUtMmJlY2U2ZWFlNzY1XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
-      "movie_url": "https://www.imdb.com/star-wars/",
-      "rating": "8.6",
-      "runtime": "121 min",
-      "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader."
-    },
-    {
-      "id": "318119d2-67ea-4e98-a606-e0916f0bf3dc",
-      "title": "Thor",
-      "release_date": "2011",
-      "genre": "Action, Adventure, Fantasy",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
-      "movie_url": "https://www.imdb.com/title/tt0800369/",
-      "rating": "7.0",
-      "runtime": "115 min",
-      "description": "The warrior Thor (Chris Hemsworth) is cast out of the fantastic realm of Asgard by his father Odin (Sir Anthony Hopkins) for his arrogance and sent to Earth to live amongst humans. Falling in love with scientist Jane Foster (Natalie Portman) teaches Thor much-needed lessons, and his new-found strength comes into play as a villain from his homeland sends dark forces toward Earth."
-    },
-    {
-      "id": "e67fb515-0b36-4f9d-a7fa-aa38150b66bb",
-      "title": "Pulp Fiction",
-      "release_date": "1994",
-      "genre": "Crime, Drama",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-      "movie_url": "https://www.imdb.com/title/tt0110912/",
-      "rating": "8.9",
-      "runtime": "154 min",
-      "description": "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents."
-    },
-    {
-      "genre": "documentary,horror",
-      "url": "dsaf",
-      "rating": "1",
-      "release": "2022-07-08",
-      "runtime": "4323",
-      "thumbnail": "",
-      "title": "sadf",
-      "description": "loremview",
-      "id": "KUVGi4y"
-    },
-    {
-      "id": "8LNL6zGFMwKMuVnSF8XvZ",
-      "genre": "crime,horror",
-      "url": "sadffdsa",
-      "rating": "1.2",
-      "release": "2022-07-01",
-      "runtime": "213",
-      "thumbnail": "",
-      "title": "sadffdsa",
-      "description": "1345bvcx"
-    },
-    {
-      "id": "d48fucm4WXXzFYvIp5xe4",
-      "genre": "horror",
-      "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
-      "rating": "8",
-      "release": "2019-06-12",
-      "runtime": "311",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTU3MDUxMDI0MV5BMl5BanBnXkFtZTgwMzk3OTg3MDI@._V1_.jpg",
-      "title": "Raw",
-      "description": "A young woman, studying to be a vet, develops a craving for human flesh."
-    },
-    {
-      "id": "LNeN9WumyhIb6VF72wgc3",
-      "genre": "horror",
-      "url": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_.jpg",
-      "rating": "7",
-      "release": "",
-      "runtime": "150",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_.jpg",
-      "title": "Film",
-      "description": "An aspiring model, Jesse, is new to Los Angeles. However, her beauty and youth, which generate intense fascination and jealousy within the fashion industry, may prove themselves sinister.\n"
-    },
-    {
-      "id": "NLJn_hJIKxt9rs-0vJsu2",
-      "genre": "horror,comedy",
-      "url": "vb",
-      "rating": "1.1",
-      "release": "2022",
-      "runtime": "342",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTU3MDUxMDI0MV5BMl5BanBnXkFtZTgwMzk3OTg3MDI@._V1_.jpg",
-      "title": "sadf",
-      "description": "gsfd"
-    },
-    {
-      "id": "rfKAmFIPPxkbsfePLpDCT",
-      "genre": "documentary",
-      "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
-      "rating": "3.6",
-      "release_date": "2020",
-      "runtime": "213",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTU3MDUxMDI0MV5BMl5BanBnXkFtZTgwMzk3OTg3MDI@._V1_.jpg",
-      "title": "fdsa",
-      "description": "An aspiring model, Jesse, is new to Los Angeles. However, her beauty and youth, which generate intense fascination and jealousy within the fashion industry, may prove themselves sinister.\n"
-    },
-    {
-      "id": "08Rtz0n7jEpfnNiSmpwGC",
-      "genre": "documentary,horror",
-      "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
-      "rating": "1",
-      "release_date": "2021",
-      "runtime": "123",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_.jpg",
-      "title": "sdf",
-      "description": "An aspiring model, Jesse, is new to Los Angeles. However, her beauty and youth, which generate intense fascination and jealousy within the fashion industry, may prove themselves sinister.\n"
-    },
-    {
-      "id": "nmUTn4VoIZOYhdI-td4ru",
-      "genre": "comedy",
-      "url": "fdsa",
-      "rating": "10",
-      "release_date": "2022",
-      "runtime": "123",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTU3MDUxMDI0MV5BMl5BanBnXkFtZTgwMzk3OTg3MDI@._V1_.jpg",
-      "title": "newest film",
-      "description": "An aspiring model, Jesse, is new to Los Angeles. However, her beauty and youth, which generate intense fascination and jealousy within the fashion industry, may prove themselves sinister.\n"
-    },
-    {
-      "id": "Ycdr7LAYJSrz46PtQi03s",
-      "genre": "horror",
-      "url": "https://www.imdb.com/title/tt1974419/?ref_=tt_mv_close",
-      "rating": "6",
-      "release_date": "2013",
-      "runtime": "123",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTU3MDUxMDI0MV5BMl5BanBnXkFtZTgwMzk3OTg3MDI@._V1_.jpg",
-      "title": "Raw",
-      "description": "https://www.imdb.com/title/tt1974419/?ref_=tt_mv_close"
-    },
-    {
-      "id": "hV3Z779-8QW057R8OkWMU",
-      "genre": "crime",
-      "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
-      "rating": "3",
-      "release_date": "2022",
-      "runtime": "234",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_.jpg",
-      "title": "fetching",
-      "description": "sadf"
-    },
-    {
-      "id": "NzVlN8g0MNuluLu22fMxJ",
-      "genre": "crime",
-      "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
-      "rating": "5.9",
-      "release_date": "2021",
-      "runtime": "123",
-      "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_.jpg",
-      "title": "Last film RTKQ",
-      "description": "overyou"
-    }
-  ]
+    "movies": [
+        {
+            "id": "8a3ec45b-b0a4-4ebd-a56e-ef618f40dffc",
+            "title": "Martyrs",
+            "release_date": "2008",
+            "genre": "Horror",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BYTY0NTZlZjYtNWRmZi00MGRjLTk4ZDctMjE4NjBiZTUyNGNhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
+            "movie_url": "https://www.imdb.com/title/tt1029234",
+            "rating": "7.0",
+            "runtime": "99 min",
+            "description": "A young woman's quest for revenge against the people who kidnapped and tormented her as a child leads her and a friend, who is also a victim of child abuse, on a terrifying journey into a living hell of depravity."
+        },
+        {
+            "id": "c756ce95-7ca8-4bbd-8968-8296030",
+            "title": "You Won't Be Alone",
+            "release_date": "2022",
+            "genre": "Horror, Drama",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BMmU2MDkyZWMtYjJmNi00YjE1LWIzODctZjNjZmY0OGMzNzQzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+            "movie_url": "https://www.imdb.com/title/tt8296030/",
+            "rating": "6.3",
+            "runtime": "108 min",
+            "description": "Set in an isolated mountain village in 19th century Macedonia, You Won't Be Alone follows a young girl who is kidnapped and then transformed into a witch by an ancient spirit. Curious about life as a human, the young witch accidentally kills a peasant in the nearby village and then takes her victim's shape to live life in her skin. Her curiosity ignited, she continues to wield this horrific power in order to understand what it means to be human."
+        },
+        {
+            "id": "9951d425-6f87-4f76-b6cf-063fc15fe2a0",
+            "title": "Stranger Things",
+            "release_date": "2016",
+            "genre": "Drama, Fantasy, Horror",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BODZlYjQ4NzYtZTg1MC00NGY4LTg4NjQtNGE3ZjRkMjk3YjMyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt4574334/",
+            "rating": "8.7",
+            "runtime": "51 min",
+            "description": "In a small town where everyone knows everyone, a peculiar incident starts a chain of events that leads to a child's disappearance, which begins to tear at the fabric of an otherwise-peaceful community. Dark government agencies and seemingly malevolent supernatural forces converge on the town, while a few of the locals begin to understand that more is going on than meets the eye."
+        },
+        {
+            "id": "856aae4a-3593-4571-adc9-d95540498383",
+            "title": "Star Wars",
+            "release_date": "1977",
+            "genre": "Action, Adventure, Fantasy",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNzg4MjQxNTQtZmI5My00YjMwLWJlMjUtMmJlY2U2ZWFlNzY1XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/star-wars/",
+            "rating": "8.6",
+            "runtime": "121 min",
+            "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader."
+        },
+        {
+            "id": "318119d2-67ea-4e98-a606-e0916f0bf3dc",
+            "title": "Thor",
+            "release_date": "2011",
+            "genre": "Action, Adventure, Fantasy",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt0800369/",
+            "rating": "7.0",
+            "runtime": "115 min",
+            "description": "The warrior Thor (Chris Hemsworth) is cast out of the fantastic realm of Asgard by his father Odin (Sir Anthony Hopkins) for his arrogance and sent to Earth to live amongst humans. Falling in love with scientist Jane Foster (Natalie Portman) teaches Thor much-needed lessons, and his new-found strength comes into play as a villain from his homeland sends dark forces toward Earth."
+        },
+        {
+            "id": "e67fb515-0b36-4f9d-a7fa-aa38150b66bb",
+            "title": "Pulp Fiction",
+            "release_date": "1994",
+            "genre": "Crime, Drama",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+            "movie_url": "https://www.imdb.com/title/tt0110912/",
+            "rating": "8.9",
+            "runtime": "154 min",
+            "description": "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents."
+        },
+        {
+            "id": "d48fucm4WXXzFYvIp5xe4",
+            "genre": "horror",
+            "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
+            "rating": "7",
+            "release": "2016-06-12",
+            "runtime": "109",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTU3MDUxMDI0MV5BMl5BanBnXkFtZTgwMzk3OTg3MDI@._V1_.jpg",
+            "title": "Raw",
+            "description": "A young woman, studying to be a vet, develops a craving for human flesh."
+        },
+        {
+            "id": "NzVlN8g0MNuluLu22fMxJ",
+            "genre": "drama, horror",
+            "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
+            "rating": "7",
+            "release_date": "2021",
+            "runtime": "109",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_.jpg",
+            "title": "Last film RTKQ",
+            "description": "overyou"
+        },
+        {
+            "description": "Four months after the death of her husband, a woman on the brink of motherhood is tormented in her home by a strange woman who wants her unborn baby.",
+            "genre": "horror",
+            "id": "FqfhzznmTUXOHujssotjI",
+            "rating": "6.7",
+            "release_date": "2007",
+            "runtime": "88 min",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTgyODRlNjQtMGZhNS00ZTA3LTgyNjgtNDYwNWM1ZDI0ODMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX500_.jpg",
+            "title": "À l'intérieur",
+            "url": "https://www.imdb.com/title/tt0856288/?ref_=tt_sims_tt_i_2"
+        }
+    ]
 }

@@ -56,19 +56,17 @@ function MovieList() {
     // if (!data) return <section><p>Can't get any data :-/</p></section>;
 
     const movieData = useSelector((state: RootState) => state.movies);
-
+    const dataToDisplay = movieData?.filteredMovies?.length > 0 ? movieData.filteredMovies : movieData.movies
+    console.log(movieData)
     return (
         <section>
             <h2 className='visually-hidden'>Results</h2>
-            {/* <p className={classes.info}>
-                <span>{movieData.length}</span> movies found
-            </p> */}
             <p className={classes.info}>
-                <span>{movieData?.length}</span> movies found
+                <span>{dataToDisplay.length}</span> movies found
             </p>
             {/* <ul className={`${classes.results} ${isFetching ? classes['results--disabled'] : ''}`}> */}
             <ul className={classes.results}>
-                {movieData?.map((movie: Movie) => {
+                {dataToDisplay.map((movie: Movie) => {
                     return (
                         <li key={movie.id}>
                             <MovieItem movieInfo={movie} />

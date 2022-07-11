@@ -6,6 +6,7 @@ import { SetStateAction, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editMovie } from '../features/movies/moviesSlice'
 import { RootState } from '../app/store'
+import { useNavigate } from 'react-router-dom';
 
 import { Movie } from '../interfaces/Movie'
 
@@ -16,12 +17,11 @@ import { Movie } from '../interfaces/Movie'
 // } from '../features/api/apiSlice';
 
 interface Props {
-    movieId: string
+    movieId: string,
 }
 
 const EditMovieForm: React.FC<Props> = ({movieId}) => {
-    console.log(movieId)
-    const movieToEdit = useSelector((state: RootState) => state.movies.find(movie => movie.id === movieId) as Movie)
+    const movieToEdit = useSelector((state: RootState) => state.movies.movies.find(movie => movie.id === movieId) as Movie)
     // RTKQ code
     // const { data } = useGetSingleDataQuery(movieId);
     // const [updateMovie] = useEditDataMutation();
@@ -29,14 +29,14 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
     const [genre, setGenre] = useState<string>(movieToEdit.genre);
     const [url, setUrl] = useState(movieToEdit.movie_url);
     const [rating, setRating] = useState(Number(movieToEdit.rating));
-    const [release_date, setRelease] = useState(`${movieToEdit.release_date}-01-01`);
+    const [release_date, setRelease] = useState(`${movieToEdit.release_date}`);
     const [runtime, setRuntime] = useState(movieToEdit.runtime);
     const [thumbnail, setThumbnail] = useState(movieToEdit.thumbnail);
     const [title, setTitle] = useState(movieToEdit.title);
     const [description, setDescription] = useState(movieToEdit.description);
 
     const dispatch = useDispatch()
-    // const history = useHistory();
+    let navigate = useNavigate();
 
     const onGenreChanged = (e: [{ value: string; label: string }]) => {
         const genresData = e.map((genre) => genre.value).join();
@@ -67,6 +67,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
     const onTitleChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
+        console.log(e.target.value);
         setTitle(e.target.value);
     };
     const onDescriptionChanged = (e: {
@@ -88,8 +89,9 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
 
     // const onSubmit = () => console.log(release)
     const onSubmit = () => {
-        if (canSave) {
+        // if (canSave) {
             dispatch(editMovie({
+                id: movieId,
                 genre,
                 url,
                 rating,
@@ -99,7 +101,8 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                 title,
                 description,
             }))
-        }
+            // navigate(`movie/${movieId}`)
+        // }
     };
 
     return (
@@ -159,6 +162,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                             { value: 'documentary', label: 'Documentary' },
                             { value: 'horror', label: 'Horror' },
                             { value: 'comedy', label: 'Comedy' },
+                            { value: 'fantasy', label: 'Fantasy' },
                         ]}
                         handleChange={onGenreChanged}
                         // defaultValue={genre.split(',').map(gen => {

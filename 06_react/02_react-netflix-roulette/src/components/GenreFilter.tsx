@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { filterMovies } from "../features/movies/moviesSlice";
 import classes from './GenreFilter.module.scss';
 
 
 function GenreFilter() {
+    const dispatch = useDispatch()
     const [value, setValue] = React.useState<string>()
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
     }
     useEffect(() => {
-        setValue('all');
-    }, []);
+        dispatch(filterMovies(value));
+    }, [value, dispatch]);
     return (
         <fieldset className={classes['genre-filter']}>
             <legend className='visually-hidden'>Filter Movies by Genre</legend>
@@ -72,6 +75,18 @@ function GenreFilter() {
                     className='visually-hidden'
                 />
                 <label htmlFor='crime'>crime</label>
+            </div>
+            <div className={classes['genre-filter__group']}>
+                <input
+                    type='radio'
+                    name='genre'
+                    id='fantasy'
+                    value='fantasy'
+                    checked={value === 'fantasy'}
+                    onChange={handleChange}
+                    className='visually-hidden'
+                />
+                <label htmlFor='fantasy'>fantasy</label>
             </div>
         </fieldset>
     );

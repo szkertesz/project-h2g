@@ -44,9 +44,7 @@ const MovieItem: React.FC<Props> = ({ movieInfo }) => {
                 isOpen={isOpen}
                 size={'large'}
             >
-                <EditMovieForm
-                    movieId={id}
-                />
+                <EditMovieForm movieId={id} />
             </Modal>
         </article>
     );

@@ -162,6 +162,7 @@ const AddMovieForm: React.FC<Props> = () => {
                             { value: 'documentary', label: 'Documentary' },
                             { value: 'horror', label: 'Horror' },
                             { value: 'comedy', label: 'Comedy' },
+                            { value: 'fantasy', label: 'Fantasy' },
                         ]}
                         handleChange={onGenreChanged}
                     />
