@@ -2,7 +2,7 @@ import classes from './AddMovieForm.module.scss';
 import Button from '../ui/Button';
 import CustomSelect from './CustomSelect';
 
-import { SetStateAction, useState } from 'react';
+import { ChangeEvent, SetStateAction, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editMovie } from '../features/movies/moviesSlice'
 import { RootState } from '../app/store'
@@ -17,52 +17,46 @@ import { Movie } from '../interfaces/Movie'
 // } from '../features/api/apiSlice';
 
 interface Props {
-    movieId: string,
+    movieId: number,
 }
 
 const EditMovieForm: React.FC<Props> = ({movieId}) => {
-    const movieToEdit = useSelector((state: RootState) => state.movies.movies.find(movie => movie.id === movieId) as Movie)
+    const movieToEdit = useSelector((state: RootState) => state.movies.find(movie => movie.id === movieId) as Movie)
     // RTKQ code
     // const { data } = useGetSingleDataQuery(movieId);
     // const [updateMovie] = useEditDataMutation();
-    console.log(movieToEdit)
-    const [genre, setGenre] = useState<string>(movieToEdit.genre);
-    const [url, setUrl] = useState(movieToEdit.movie_url);
-    const [rating, setRating] = useState(Number(movieToEdit.rating));
-    const [release_date, setRelease] = useState(`${movieToEdit.release_date}`);
-    const [runtime, setRuntime] = useState(movieToEdit.runtime);
-    const [thumbnail, setThumbnail] = useState(movieToEdit.thumbnail);
     const [title, setTitle] = useState(movieToEdit.title);
-    const [description, setDescription] = useState(movieToEdit.description);
+    const [genres, setGenres] = useState(movieToEdit.genres);
+    const [vote_average, setVoteAverage] = useState(`${movieToEdit.vote_average}`);
+    const [release_date, setReleaseDate] = useState(movieToEdit.release_date);
+    const [runtime, setRuntime] = useState(movieToEdit.runtime);
+    const [poster_path, setPosterPath] = useState(movieToEdit.poster_path);
+    const [overview, setOverview] = useState(movieToEdit.overview);
 
     const dispatch = useDispatch()
     let navigate = useNavigate();
 
     const onGenreChanged = (e: [{ value: string; label: string }]) => {
-        const genresData = e.map((genre) => genre.value).join();
-        setGenre(genresData);
-    };
-    const onUrlChanged = (e: { target: { value: SetStateAction<string> } }) => {
-        setUrl(e.target.value);
+        const genresData = e.map((genre) => genre.value);
+        setGenres(genresData);
     };
     const onRatingChanged = (e: {
         target: { value: any };
     }) => {
-        setRating(e.target.value);
+        setVoteAverage(e.target.value);
     };
     const onReleaseChanged = (e: { target: { value: string } }) => {
         const year = new Date(e.target.value).getFullYear().toString();
-        setRelease(year);
+        setReleaseDate(year);
     };
-    const onRuntimeChanged = (e: {
-        target: { value: SetStateAction<string> };
-    }) => {
-        setRuntime(e.target.value);
+    const onRuntimeChanged = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log(event);
+        setRuntime(event.target.value);
     };
     const onThumbnailChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
-        setThumbnail(e.target.value);
+        setPosterPath(e.target.value);
     };
     const onTitleChanged = (e: {
         target: { value: SetStateAction<string> };
@@ -70,21 +64,20 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
         console.log(e.target.value);
         setTitle(e.target.value);
     };
-    const onDescriptionChanged = (e: {
+    const onOverviewChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
-        setDescription(e.target.value);
+        setOverview(e.target.value);
     };
 
     const canSave = [
-        genre,
-        url,
-        rating,
+        title,
+        genres,
+        vote_average,
         release_date,
         runtime,
-        thumbnail,
-        title,
-        description,
+        poster_path,
+        overview
     ].every(Boolean);
 
     // const onSubmit = () => console.log(release)
@@ -92,14 +85,13 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
         // if (canSave) {
             dispatch(editMovie({
                 id: movieId,
-                genre,
-                url,
-                rating,
+                title,
+                genres,
+                vote_average,
                 release_date,
                 runtime,
-                thumbnail,
-                title,
-                description,
+                poster_path,
+                overview
             }))
             // navigate(`movie/${movieId}`)
         // }
@@ -131,17 +123,6 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                     />
                 </div>
                 <div className={classes['movie-form__group']}>
-                    <label htmlFor='movieUrl'>Movie URL</label>
-                    <input
-                        type='text'
-                        id='movieUrl'
-                        name='movieUrl'
-                        placeholder='https://'
-                        onChange={onUrlChanged}
-                        value={url}
-                    />
-                </div>
-                <div className={classes['movie-form__group']}>
                     <label htmlFor='movieRating'>Rating</label>
                     <input
                         type='number'
@@ -151,7 +132,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                         max='10'
                         step='0.1'
                         onChange={onRatingChanged}
-                        value={rating}
+                        value={vote_average}
                     />
                 </div>
                 <div className={classes['movie-form__group']}>
@@ -173,7 +154,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                 <div className={classes['movie-form__group']}>
                     <label htmlFor='movieRuntime'>Runtime</label>
                     <input
-                        type='text'
+                        type='number'
                         id='movieRuntime'
                         name='movieRuntime'
                         onChange={onRuntimeChanged}
@@ -187,7 +168,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                         id='movieThumbnail'
                         name='movieThumbnail'
                         onChange={onThumbnailChanged}
-                        value={thumbnail}
+                        value={poster_path}
                     />
                 </div>
                 <div
@@ -198,8 +179,8 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                         id='movieOverview'
                         name='movieOverview'
                         rows={3}
-                        onChange={onDescriptionChanged}
-                        value={description}
+                        onChange={onOverviewChanged}
+                        value={overview}
                     ></textarea>
                 </div>
                 <div className={classes['movie-form__actions']}>

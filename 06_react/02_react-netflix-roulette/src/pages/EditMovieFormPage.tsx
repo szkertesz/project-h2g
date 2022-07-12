@@ -16,7 +16,7 @@ function AddMovieFormPage() {
                 isOpen={isOpen}
                 size={'large'}
             >
-                <EditMovieForm movieId={'8a3ec45b-b0a4-4ebd-a56e-ef618f40dffc'} />
+                {/* <EditMovieForm movieId={'8a3ec45b-b0a4-4ebd-a56e-ef618f40dffc'} /> */}
             </Modal>
         </>
     );

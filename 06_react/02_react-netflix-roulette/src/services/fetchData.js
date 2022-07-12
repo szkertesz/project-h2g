@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3004/movies'
+const baseUrl = 'http://localhost:4000/movies'
 
 const getAll = async () => {
     try {

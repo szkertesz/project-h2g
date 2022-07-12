@@ -12,15 +12,18 @@ type Props = {
 const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
     const params = useParams();
     const singleMovieData = useSelector((state: RootState) =>
-        state.movies.movies.find((movie) => movie.id === params.movieId)
+        state.movies.find((movie) => movie.id === Number(params.movieId))
     );
+    const transformReleaseDate = (date: string) => {
+        return new Date(date).getFullYear();
+    };
     const {
         title,
         release_date,
-        genre,
-        thumbnail,
-        description,
-        rating,
+        genres,
+        poster_path,
+        overview,
+        vote_average,
         runtime,
     } = singleMovieData as Movie;
 
@@ -38,7 +41,7 @@ const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
                 <Container>
                     <div className={classes['article__inner']}>
                         <img
-                            src={thumbnail}
+                            src={poster_path}
                             alt='Movie poster'
                             className={classes['article__poster']}
                         />
@@ -51,33 +54,29 @@ const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
                                     <span
                                         className={classes['article__rating']}
                                     >
-                                        {rating}
+                                        {vote_average}
                                     </span>
                                 </div>
                                 <ul className={classes['article__genres']}>
-                                    {genre
-                                        .split(',')
-                                        .map((genreItem, i, genres) => {
-                                            return (
-                                                <li key={i}>{`${genreItem} ${
-                                                    i < genres.length - 1
-                                                        ? `,`
-                                                        : ``
-                                                }`}</li>
-                                            );
-                                        })}
+                                    {genres.map((genreItem, i, genres) => {
+                                        return (
+                                            <li key={i}>{`${genreItem}${
+                                                i < genres.length - 1 ? `, ` : ``
+                                            }`}</li>
+                                        );
+                                    })}
                                 </ul>
                                 <div className={classes['article__info']}>
-                                    <time dateTime={String(release_date)}>
-                                        {release_date}
+                                    <time dateTime={String(transformReleaseDate(release_date))}>
+                                        {transformReleaseDate(release_date)}
                                     </time>
-                                    <span>{runtime}</span>
+                                    <span>{runtime} min</span>
                                 </div>
                             </header>
                             <section
                                 className={classes['article__description']}
                             >
-                                <p>{description}</p>
+                                <p>{overview}</p>
                             </section>
                         </div>
                     </div>

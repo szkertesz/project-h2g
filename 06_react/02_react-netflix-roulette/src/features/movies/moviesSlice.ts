@@ -1,63 +1,53 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Movie } from '../../interfaces/Movie';
 
-// const initialState: {
-
-// };
+const initialState = [] as Movie[];
 const moviesSlice = createSlice({
     name: 'movies',
-    initialState: {
-        movies: [] as Movie[],
-        filteredMovies: [] as Movie[]
-    },
+    initialState,
     reducers: {
         setMovies(state, action) {
-            state.movies = action.payload
+            return action.payload
         },
         addMovie(state, action) { // the action creator
-            state.movies.push(action.payload)
+            state.push(action.payload)
         },
         editMovie(state, action) {
             const {
                 id,
                 title,
+                genres,
+                vote_average,
                 release_date,
-                movie_url,
-                genre,
-                thumbnail,
-                description,
-                rating,
                 runtime,
+                poster_path,
+                overview
             } = action.payload
-            const movieToEdit = state.movies.find(movie => movie.id === id)
+
+            const movieToEdit = state.find(movie => movie.id === id)
             if (movieToEdit) {
+                movieToEdit.id = id
                 movieToEdit.title = title
+                movieToEdit.genres = genres
+                movieToEdit.vote_average = vote_average;
                 movieToEdit.release_date = release_date
-                movieToEdit.genre = genre
-                movieToEdit.movie_url = movie_url;
-                movieToEdit.thumbnail = thumbnail
-                movieToEdit.description = description
-                movieToEdit.rating = rating
                 movieToEdit.runtime = runtime
+                movieToEdit.poster_path = poster_path
+                movieToEdit.overview = overview
             }
         },
-        filterMovies(state, action) {
-            const filteredMovies = state.movies.filter((movie) => {
-                const genres = movie.genre
-                    .split(',')
-                    .map((genre) => genre.trim().toLowerCase());
-                console.log(genres)
-                const selectedGenre = action.payload;
-                return genres.includes(selectedGenre)
-            })
-            return {
-                ...state,
-                filteredMovies: filteredMovies
-            }
-        }
+        // filterMovies(state, action) {
+        //     const filteredMovies = state.filter((movie) => {
+        //         movie.genres.includes(action.payload);
+        //     })
+        //     return {
+        //         ...state,
+        //         filtered: filteredMovies
+        //     }
+        // }
     }
 })
 
-export const { setMovies, addMovie, editMovie, filterMovies } = moviesSlice.actions
+export const { setMovies, addMovie, editMovie } = moviesSlice.actions
 
 export default moviesSlice.reducer

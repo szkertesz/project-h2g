@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { filterMovies } from "../features/movies/moviesSlice";
+import { changeFilter } from "../features/filters/filtersSlice";
 import classes from './GenreFilter.module.scss';
 
 
@@ -11,7 +11,7 @@ function GenreFilter() {
         setValue(event.target.value)
     }
     useEffect(() => {
-        dispatch(filterMovies(value));
+        dispatch(changeFilter(value));
     }, [value, dispatch]);
     return (
         <fieldset className={classes['genre-filter']}>
@@ -21,8 +21,8 @@ function GenreFilter() {
                     type='radio'
                     name='genre'
                     id='all'
-                    value='all'
-                    checked={value === 'all'}
+                    value='All'
+                    checked={value === 'All'}
                     onChange={handleChange}
                     className='visually-hidden'
                 />
@@ -33,7 +33,7 @@ function GenreFilter() {
                     type='radio'
                     name='genre'
                     id='documentary'
-                    value='documentary'
+                    value='Documentary'
                     checked={value === 'documentary'}
                     onChange={handleChange}
                     className='visually-hidden'
@@ -45,8 +45,8 @@ function GenreFilter() {
                     type='radio'
                     name='genre'
                     id='comedy'
-                    value='comedy'
-                    checked={value === 'comedy'}
+                    value='Comedy'
+                    checked={value === 'Comedy'}
                     onChange={handleChange}
                     className='visually-hidden'
                 />
@@ -57,8 +57,8 @@ function GenreFilter() {
                     type='radio'
                     name='genre'
                     id='horror'
-                    value='horror'
-                    checked={value === 'horror'}
+                    value='Horror'
+                    checked={value === 'Horror'}
                     onChange={handleChange}
                     className='visually-hidden'
                 />
@@ -69,8 +69,8 @@ function GenreFilter() {
                     type='radio'
                     name='genre'
                     id='crime'
-                    value='crime'
-                    checked={value === 'crime'}
+                    value='Crime'
+                    checked={value === 'Crime'}
                     onChange={handleChange}
                     className='visually-hidden'
                 />

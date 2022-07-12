@@ -20,7 +20,7 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
             const movies = await getAll()
-            dispatch(setMovies(movies))
+            dispatch(setMovies(movies.data))
         }
         fetchData()
     }, [dispatch])
