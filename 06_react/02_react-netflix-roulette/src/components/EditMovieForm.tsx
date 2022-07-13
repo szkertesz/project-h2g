@@ -21,7 +21,7 @@ interface Props {
 }
 
 const EditMovieForm: React.FC<Props> = ({movieId}) => {
-    const movieToEdit = useSelector((state: RootState) => state.movies.find(movie => movie.id === movieId) as Movie)
+    const movieToEdit = useSelector((state: RootState) => state.movies.data.find(movie => movie.id === movieId) as Movie)
     // RTKQ code
     // const { data } = useGetSingleDataQuery(movieId);
     // const [updateMovie] = useEditDataMutation();

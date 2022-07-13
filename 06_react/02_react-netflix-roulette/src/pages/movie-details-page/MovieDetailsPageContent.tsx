@@ -12,7 +12,7 @@ type Props = {
 const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
     const params = useParams();
     const singleMovieData = useSelector((state: RootState) =>
-        state.movies.find((movie) => movie.id === Number(params.movieId))
+        state.movies.data.find((movie) => movie.id === Number(params.movieId))
     );
     const transformReleaseDate = (date: string) => {
         return new Date(date).getFullYear();

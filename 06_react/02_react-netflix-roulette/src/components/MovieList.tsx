@@ -3,6 +3,10 @@ import MovieItem from './MovieItem';
 import { Movie } from '../interfaces/Movie';
 import classes from './MovieList.module.scss';
 import { RootState } from '../app/store';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { fetchMovies, selectAllMovies } from '../features/movies/moviesSlice';
+import { useEffect } from 'react';
+
 
 // import { useAppDispatch, useAppSelector } from '../app/hooks';
 // RTKQ
@@ -54,15 +58,18 @@ function MovieList() {
 
     // if (isFetching) return <section>Loading...</section>;
     // if (!data) return <section><p>Can't get any data :-/</p></section>;
+    const dispatch = useAppDispatch();
+    const movies = useAppSelector(selectAllMovies);
+    const moviesStatus = useAppSelector(state => state.movies.status);
+    const filterByGenre = useAppSelector((state) => state.filters.genre);
+    // const movieData = useAppSelector(state => state.movies.data.filter(movie => movie.genres.includes(filterByGenre)));
 
-    const filterByGenre = useSelector((state: RootState) => state.filters);
-    const movieData = useSelector(
-        (state: RootState) =>
-            state.movies.filter(movie => {
-                console.log(movie.genres);
-                return movie.genres.includes(filterByGenre.genre);
-            })
-    );
+    useEffect(() => {
+        if (moviesStatus === 'idle') {
+            dispatch(fetchMovies())
+        }
+    }, [moviesStatus, dispatch]);
+    console.log(movies)
     return (
         <section>
             <h2 className='visually-hidden'>Results</h2>
@@ -70,11 +77,11 @@ function MovieList() {
                 <span>{movieData.length}</span> movies found
             </p> */}
             <p className={classes.info}>
-                <span>{movieData?.length}</span> movies found
+                <span>{movies.length}</span> movies found
             </p>
             {/* <ul className={`${classes.results} ${isFetching ? classes['results--disabled'] : ''}`}> */}
             <ul className={classes.results}>
-                {movieData?.map((movie: Movie) => {
+                {movies.map((movie: Movie) => {
                     return (
                         <li key={movie.id}>
                             <MovieItem movieInfo={movie} />
