@@ -13,18 +13,28 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
     const response = await client.get('http://localhost:4000/movies?limit=30');
     return response.data.data;
 });
+export const addMovie = createAsyncThunk(
+    'movies/addMovie',
+    async (newMovieData: object, thunkAPI) => {
+        const response = await client.post(
+            'http://localhost:4000/movies',
+            newMovieData
+        );
+        return response.data;
+    }
+);
 
 const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
-        setMovies(state = initialState, action: AnyAction) {
-            state.data = action.payload;
-        },
-        addMovie(state, action) {
-            // the action creator
-            state.data.push(action.payload);
-        },
+        // setMovies(state = initialState, action: AnyAction) {
+        //     state.data = action.payload;
+        // },
+        // addMovie(state, action) {
+        //     // the action creator
+        //     state.data.push(action.payload);
+        // },
         editMovie(state, action) {
             const {
                 id,
@@ -49,15 +59,6 @@ const moviesSlice = createSlice({
                 movieToEdit.overview = overview;
             }
         },
-        // filterMovies(state, action) {
-        //     const filteredMovies = state.filter((movie) => {
-        //         movie.genres.includes(action.payload);
-        //     })
-        //     return {
-        //         ...state,
-        //         filtered: filteredMovies
-        //     }
-        // }
     },
     extraReducers(builder) {
         builder
@@ -72,11 +73,14 @@ const moviesSlice = createSlice({
             .addCase(fetchMovies.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message;
+            })
+            .addCase(addMovie.fulfilled, (state, action) => {
+                state.data.push(action.payload)
             });
     },
 });
 
-export const { setMovies, addMovie, editMovie } = moviesSlice.actions
+export const { editMovie } = moviesSlice.actions
 
 export default moviesSlice.reducer
 

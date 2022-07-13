@@ -61,6 +61,7 @@ function MovieList() {
     const dispatch = useAppDispatch();
     const movies = useAppSelector(selectAllMovies);
     const moviesStatus = useAppSelector(state => state.movies.status);
+    const moviesError = useAppSelector(state => state.movies.error);
     const filterByGenre = useAppSelector((state) => state.filters.genre);
     // const movieData = useAppSelector(state => state.movies.data.filter(movie => movie.genres.includes(filterByGenre)));
 
@@ -69,28 +70,39 @@ function MovieList() {
             dispatch(fetchMovies())
         }
     }, [moviesStatus, dispatch]);
-    console.log(movies)
-    return (
-        <section>
-            <h2 className='visually-hidden'>Results</h2>
-            {/* <p className={classes.info}>
-                <span>{movieData.length}</span> movies found
-            </p> */}
-            <p className={classes.info}>
-                <span>{movies.length}</span> movies found
-            </p>
-            {/* <ul className={`${classes.results} ${isFetching ? classes['results--disabled'] : ''}`}> */}
-            <ul className={classes.results}>
-                {movies.map((movie: Movie) => {
-                    return (
-                        <li key={movie.id}>
-                            <MovieItem movieInfo={movie} />
-                        </li>
-                    );
-                })}
-            </ul>
+
+    let content = null
+    if (moviesStatus === 'loading') {
+        return (
+            <section>
+                <p>Loading...</p>
         </section>
-    );
+            )
+    } else if (moviesStatus === 'succeeded') {
+        return (
+            <section>
+                <h2 className='visually-hidden'>Results</h2>
+                <p className={classes.info}>
+                    <span>{movies.length}</span> movies found
+                </p>
+                <ul className={classes.results}>
+                    {movies.map((movie: Movie) => {
+                        return (
+                            <li key={movie.id}>
+                                <MovieItem movieInfo={movie} />
+                            </li>
+                        );
+                    })}
+                </ul>
+            </section>
+        );
+    } else {
+        return (
+            <section>
+                <p>{ moviesError }</p>
+            </section>
+        )
+    }
 }
 
 export default MovieList;
