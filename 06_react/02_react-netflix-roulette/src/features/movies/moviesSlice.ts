@@ -33,6 +33,15 @@ export const filterMoviesByGenre = createAsyncThunk(
     }
 );
 
+export const sortMoviesByCriterion = createAsyncThunk<Movie[], {selectedCriterion: string, direction: string}>(
+    'movies/sortMoviesByCriterion',
+    async ({selectedCriterion, direction}) => {
+        const response = await client.get(
+            `http://localhost:4000/movies?sortBy=${selectedCriterion}&sortOrder=${direction}`
+        );
+        return response.data.data;
+    }
+);
 const moviesSlice = createSlice({
     name: 'movies',
     initialState,
@@ -80,6 +89,9 @@ const moviesSlice = createSlice({
                 state.data.push(action.payload)
             })
             .addCase(filterMoviesByGenre.fulfilled, (state, action) => {
+                state.data = action.payload
+            })
+            .addCase(sortMoviesByCriterion.fulfilled, (state, action) => {
                 state.data = action.payload
             })
     },

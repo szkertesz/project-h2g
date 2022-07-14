@@ -244,11 +244,11 @@ const AddMovieForm: React.FC<Props> = () => {
                 title={modalTitle}
             >
                 {modalIcon ? 
-                <img
-                    src={IconCheck}
-                    alt=''
-                    className={modalClasses['modal__icon']}
-                /> : ''
+                    <img
+                        src={IconCheck}
+                        alt=''
+                        className={modalClasses['modal__icon']}
+                    /> : ''
                 }
                 <p>{modalContent}</p>
             </Modal>

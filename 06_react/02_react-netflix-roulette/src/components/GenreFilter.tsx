@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch } from '../app/hooks';
-import {
-    filterMoviesByGenre
-} from '../features/movies/moviesSlice';
+import { filterMoviesByGenre } from '../features/movies/moviesSlice';
 // import { changeFilter } from "../features/filters/filtersSlice";
 import classes from './GenreFilter.module.scss';
 
