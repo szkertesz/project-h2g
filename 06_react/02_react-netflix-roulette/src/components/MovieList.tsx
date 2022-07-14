@@ -60,8 +60,6 @@ function MovieList() {
     const movies = useAppSelector(selectAllMovies);
     const moviesStatus = useAppSelector(state => state.movies.status);
     const moviesError = useAppSelector(state => state.movies.error);
-    const filterByGenre = useAppSelector((state) => state.filters.genre);
-    // const movieData = useAppSelector(state => state.movies.data.filter(movie => movie.genres.includes(filterByGenre)));
 
     useEffect(() => {
         if (moviesStatus === 'idle') {
@@ -69,7 +67,6 @@ function MovieList() {
         }
     }, [moviesStatus, dispatch]);
 
-    let content = null
     if (moviesStatus === 'loading') {
         return (
             <section>

@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { useAppDispatch } from '../app/hooks';
 import {
-    fetchMovies,
-    filterMoviesByGenre,
-    selectAllMovies,
+    filterMoviesByGenre
 } from '../features/movies/moviesSlice';
 // import { changeFilter } from "../features/filters/filtersSlice";
 import classes from './GenreFilter.module.scss';
 
 function GenreFilter() {
     const dispatch = useAppDispatch();
-    const selectAll = useAppSelector(selectAllMovies);
     const [value, setValue] = React.useState<string>();
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);

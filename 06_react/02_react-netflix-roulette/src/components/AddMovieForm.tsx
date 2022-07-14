@@ -1,14 +1,18 @@
+import { useAppDispatch } from '../app/hooks';
+import { addMovie } from '../features/movies/moviesSlice';
+import { SetStateAction, useState } from 'react';
+
 import classes from './AddMovieForm.module.scss';
+import modalClasses from './Modal.module.scss';
 import Button from '../ui/Button';
 import CustomSelect from './CustomSelect';
-import { SetStateAction, useState } from 'react';
+import Modal from '../components/Modal';
+import IconCheck from '../assets/images/icon-check.svg';
 // RTKQ code
 // import { useAddNewDataMutation } from '../features/api/apiSlice';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { addMovie } from '../features/movies/moviesSlice';
 
 interface Props {}
-type Genres = string[]
+type Genres = string[];
 const AddMovieForm: React.FC<Props> = () => {
     const [genres, setGenre] = useState<Genres>([]);
     const [vote_average, setRating] = useState(1);
@@ -17,7 +21,12 @@ const AddMovieForm: React.FC<Props> = () => {
     const [poster_path, setThumbnail] = useState('');
     const [title, setTitle] = useState('');
     const [overview, setDescription] = useState('');
+
     const [addRequestStatus, setAddRequestStatus] = useState('idle');
+    const [isOpen, setIsOpen] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalContent, setModalContent] = useState('');
+    const [modalIcon, setModalIcon] = useState(false);
     // RTKQ code
     // const [addNewData, { isLoading }] = useAddNewDataMutation()
     const dispatch = useAppDispatch();
@@ -43,9 +52,9 @@ const AddMovieForm: React.FC<Props> = () => {
             overview,
         ].every(Boolean) && addRequestStatus === 'idle';
 
-    const onGenreChanged = (e: [{ value: string, label: string }]) => {
-        const genresData = e.map(genre => genre.value);
-        console.log(genresData)
+    const onGenreChanged = (e: [{ value: string; label: string }]) => {
+        const genresData = e.map((genre) => genre.value);
+        console.log(genresData);
         setGenre(genresData);
     };
     const onRatingChanged = (e: {
@@ -96,6 +105,12 @@ const AddMovieForm: React.FC<Props> = () => {
                         runtime,
                     })
                 ).unwrap();
+                setModalTitle('Congratulations!');
+                setModalIcon(true)
+                setModalContent(
+                    `The movie has been added to database successfully`
+                );
+                setIsOpen(true);
                 setGenre([]);
                 setRating(0);
                 setRelease('');
@@ -104,7 +119,11 @@ const AddMovieForm: React.FC<Props> = () => {
                 setTitle('');
                 setDescription('');
             } catch (err) {
-                console.error('Failed to save the new movie: ', err);
+                setModalTitle('Failure!');
+                setModalContent(
+                    `The movie has been failed to add to database :(`
+                );
+                setIsOpen(true);
             } finally {
                 setAddRequestStatus('idle');
             }
@@ -125,94 +144,115 @@ const AddMovieForm: React.FC<Props> = () => {
             // } catch (error) {
             //     console.warn('Failed to add movie: ', error)
             // }
+        } else {
+            setModalTitle('Can\'t save movie');
+            setModalContent(`Please, fill all the required fields`);
+            setIsOpen(true);
         }
     };
 
     return (
-        <form action=''>
-            <h2 className={classes['movie-form__title']}>Add movie</h2>
-            <div className={classes['movie-form__fieldset']}>
-                <div className={classes['movie-form__group']}>
-                    <label htmlFor='movieTitle'>Title</label>
-                    <input
-                        type='text'
-                        id='movieTitle'
-                        name='movieTitle'
-                        onChange={onTitleChanged}
-                    />
+        <>
+            <form action=''>
+                <h2 className={classes['movie-form__title']}>Add movie</h2>
+                <div className={classes['movie-form__fieldset']}>
+                    <div className={classes['movie-form__group']}>
+                        <label htmlFor='movieTitle'>Title</label>
+                        <input
+                            type='text'
+                            id='movieTitle'
+                            name='movieTitle'
+                            onChange={onTitleChanged}
+                        />
+                    </div>
+                    <div className={classes['movie-form__group']}>
+                        <label htmlFor='movieRelease'>Release date</label>
+                        <input
+                            type='date'
+                            id='movieRelease'
+                            name='movieRelease'
+                            placeholder='Select Date'
+                            onChange={onReleaseChanged}
+                        />
+                    </div>
+                    <div className={classes['movie-form__group']}>
+                        <label htmlFor='movieRating'>Rating</label>
+                        <input
+                            type='number'
+                            id='movieRating'
+                            name='movieRating'
+                            min='1'
+                            max='10'
+                            step='0.1'
+                            onChange={onRatingChanged}
+                        />
+                    </div>
+                    <div className={classes['movie-form__group']}>
+                        <label htmlFor='react-select-2-input'>Genre</label>
+                        <CustomSelect
+                            options={[
+                                { value: 'crime', label: 'Crime' },
+                                { value: 'documentary', label: 'Documentary' },
+                                { value: 'horror', label: 'Horror' },
+                                { value: 'comedy', label: 'Comedy' },
+                                { value: 'fantasy', label: 'Fantasy' },
+                            ]}
+                            handleChange={onGenreChanged}
+                        />
+                    </div>
+                    <div className={classes['movie-form__group']}>
+                        <label htmlFor='movieRuntime'>Runtime</label>
+                        <input
+                            type='text'
+                            id='movieRuntime'
+                            name='movieRuntime'
+                            onChange={onRuntimeChanged}
+                        />
+                    </div>
+                    <div className={classes['movie-form__group']}>
+                        <label htmlFor='movieThumbnail'>Poster image URL</label>
+                        <input
+                            type='text'
+                            id='movieThumbnail'
+                            name='movieThumbnail'
+                            onChange={onThumbnailChanged}
+                        />
+                    </div>
+                    <div
+                        className={`${classes['movie-form__group']} ${classes['movie-form__group--full']}`}
+                    >
+                        <label htmlFor='movieOverview'>Overview</label>
+                        <textarea
+                            id='movieOverview'
+                            name='movieOverview'
+                            rows={3}
+                            onChange={onDescriptionChanged}
+                        ></textarea>
+                    </div>
+                    <div className={classes['movie-form__actions']}>
+                        <Button isGhost={true}>reset</Button>
+                        <Button type='button' onClick={onSubmit}>
+                            submit
+                        </Button>
+                    </div>
                 </div>
-                <div className={classes['movie-form__group']}>
-                    <label htmlFor='movieRelease'>Release date</label>
-                    <input
-                        type='date'
-                        id='movieRelease'
-                        name='movieRelease'
-                        placeholder='Select Date'
-                        onChange={onReleaseChanged}
-                    />
-                </div>
-                <div className={classes['movie-form__group']}>
-                    <label htmlFor='movieRating'>Rating</label>
-                    <input
-                        type='number'
-                        id='movieRating'
-                        name='movieRating'
-                        min='1'
-                        max='10'
-                        step='0.1'
-                        onChange={onRatingChanged}
-                    />
-                </div>
-                <div className={classes['movie-form__group']}>
-                    <label htmlFor='react-select-2-input'>Genre</label>
-                    <CustomSelect
-                        options={[
-                            { value: 'crime', label: 'Crime' },
-                            { value: 'documentary', label: 'Documentary' },
-                            { value: 'horror', label: 'Horror' },
-                            { value: 'comedy', label: 'Comedy' },
-                            { value: 'fantasy', label: 'Fantasy' },
-                        ]}
-                        handleChange={onGenreChanged}
-                    />
-                </div>
-                <div className={classes['movie-form__group']}>
-                    <label htmlFor='movieRuntime'>Runtime</label>
-                    <input
-                        type='text'
-                        id='movieRuntime'
-                        name='movieRuntime'
-                        onChange={onRuntimeChanged}
-                    />
-                </div>
-                <div className={classes['movie-form__group']}>
-                    <label htmlFor='movieThumbnail'>Poster image URL</label>
-                    <input
-                        type='text'
-                        id='movieThumbnail'
-                        name='movieThumbnail'
-                        onChange={onThumbnailChanged}
-                    />
-                </div>
-                <div
-                    className={`${classes['movie-form__group']} ${classes['movie-form__group--full']}`}
-                >
-                    <label htmlFor='movieOverview'>Overview</label>
-                    <textarea
-                        id='movieOverview'
-                        name='movieOverview'
-                        rows={3}
-                        onChange={onDescriptionChanged}
-                    ></textarea>
-                </div>
-                <div className={classes['movie-form__actions']}>
-                    <Button isGhost={true}>reset</Button>
-                    <Button type='button' onClick={onSubmit}>
-                        submit
-                    </Button>
-                </div>
-            </div>
-        </form>
+            </form>
+            <Modal
+                handleClose={() => setIsOpen(false)}
+                isOpen={isOpen}
+                size={'medium'}
+                title={modalTitle}
+            >
+                {modalIcon ? 
+                <img
+                    src={IconCheck}
+                    alt=''
+                    className={modalClasses['modal__icon']}
+                /> : ''
+                }
+                <p>{modalContent}</p>
+            </Modal>
+        </>
     );
 };
 

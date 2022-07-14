@@ -1,4 +1,4 @@
-import { AnyAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { client } from '../../services/client'
 import { Movie } from '../../interfaces/Movie';
 import type { RootState } from '../../app/store';

@@ -6,8 +6,6 @@ import { ChangeEvent, SetStateAction, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editMovie } from '../features/movies/moviesSlice'
 import { RootState } from '../app/store'
-import { useNavigate } from 'react-router-dom';
-
 import { Movie } from '../interfaces/Movie'
 
 // RTKQ
@@ -34,7 +32,6 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
     const [overview, setOverview] = useState(movieToEdit.overview);
 
     const dispatch = useDispatch()
-    let navigate = useNavigate();
 
     const onGenreChanged = (e: [{ value: string; label: string }]) => {
         const genresData = e.map((genre) => genre.value);
@@ -82,7 +79,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
 
     // const onSubmit = () => console.log(release)
     const onSubmit = () => {
-        // if (canSave) {
+        if (canSave) {
             dispatch(editMovie({
                 id: movieId,
                 title,
@@ -94,7 +91,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
                 overview
             }))
             // navigate(`movie/${movieId}`)
-        // }
+        }
     };
 
     return (
