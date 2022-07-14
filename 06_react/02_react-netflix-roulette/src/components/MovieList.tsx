@@ -1,11 +1,9 @@
-import { useSelector } from 'react-redux';
-import MovieItem from './MovieItem';
-import { Movie } from '../interfaces/Movie';
-import classes from './MovieList.module.scss';
-import { RootState } from '../app/store';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { fetchMovies, selectAllMovies } from '../features/movies/moviesSlice';
 import { useEffect } from 'react';
+import MovieItem from './MovieItem';
+import { Movie } from '../interfaces/Movie';
+import classes from './MovieList.module.scss';
 
 
 // import { useAppDispatch, useAppSelector } from '../app/hooks';

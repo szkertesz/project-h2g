@@ -1,17 +1,22 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { changeFilter } from "../features/filters/filtersSlice";
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import {
+    fetchMovies,
+    filterMoviesByGenre,
+    selectAllMovies,
+} from '../features/movies/moviesSlice';
+// import { changeFilter } from "../features/filters/filtersSlice";
 import classes from './GenreFilter.module.scss';
 
-
 function GenreFilter() {
-    const dispatch = useDispatch()
-    const [value, setValue] = React.useState<string>()
+    const dispatch = useAppDispatch();
+    const selectAll = useAppSelector(selectAllMovies);
+    const [value, setValue] = React.useState<string>();
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value)
-    }
+        setValue(event.target.value);
+    };
     useEffect(() => {
-        dispatch(changeFilter(value));
+        dispatch(filterMoviesByGenre(value as string));
     }, [value, dispatch]);
     return (
         <fieldset className={classes['genre-filter']}>
@@ -21,8 +26,8 @@ function GenreFilter() {
                     type='radio'
                     name='genre'
                     id='all'
-                    value='All'
-                    checked={value === 'All'}
+                    value=''
+                    checked={value === ''}
                     onChange={handleChange}
                     className='visually-hidden'
                 />
@@ -32,13 +37,13 @@ function GenreFilter() {
                 <input
                     type='radio'
                     name='genre'
-                    id='documentary'
-                    value='Documentary'
-                    checked={value === 'documentary'}
+                    id='action'
+                    value='Action'
+                    checked={value === 'Action'}
                     onChange={handleChange}
                     className='visually-hidden'
                 />
-                <label htmlFor='documentary'>documentary</label>
+                <label htmlFor='action'>Action</label>
             </div>
             <div className={classes['genre-filter__group']}>
                 <input

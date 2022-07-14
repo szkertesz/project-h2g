@@ -23,18 +23,20 @@ export const addMovie = createAsyncThunk(
         return response.data;
     }
 );
+export const filterMoviesByGenre = createAsyncThunk(
+    'movies/filterMoviesByGenre',
+    async (genres: string, thunkAPI) => {
+        const response = await client.get(
+            `http://localhost:4000/movies?filter=${genres}`
+        );
+        return response.data.data;
+    }
+);
 
 const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
-        // setMovies(state = initialState, action: AnyAction) {
-        //     state.data = action.payload;
-        // },
-        // addMovie(state, action) {
-        //     // the action creator
-        //     state.data.push(action.payload);
-        // },
         editMovie(state, action) {
             const {
                 id,
@@ -76,7 +78,10 @@ const moviesSlice = createSlice({
             })
             .addCase(addMovie.fulfilled, (state, action) => {
                 state.data.push(action.payload)
-            });
+            })
+            .addCase(filterMoviesByGenre.fulfilled, (state, action) => {
+                state.data = action.payload
+            })
     },
 });
 
