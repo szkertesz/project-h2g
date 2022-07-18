@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch } from '../app/hooks';
-import { filterMoviesByGenre } from '../features/movies/moviesSlice';
+import { setGenreFilter } from '../features/movies/moviesSlice';
 // import { changeFilter } from "../features/filters/filtersSlice";
 import classes from './GenreFilter.module.scss';
 
 function GenreFilter() {
     const dispatch = useAppDispatch();
-    const [value, setValue] = React.useState<string>();
+    const [value, setValue] = React.useState<string>('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     };
     useEffect(() => {
-        dispatch(filterMoviesByGenre(value as string));
+        dispatch(setGenreFilter(value?.toLowerCase() as string));
     }, [value, dispatch]);
     return (
         <fieldset className={classes['genre-filter']}>

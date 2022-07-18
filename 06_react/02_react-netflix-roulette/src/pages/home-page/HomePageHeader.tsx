@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { ChangeEvent, SetStateAction, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { setSearchedMovie } from '../../features/movies/moviesSlice';
+
 import Container from '../../ui/Container';
 import Button from '../../ui/Button';
 import classes from './HomePageHeader.module.scss';
@@ -8,7 +11,21 @@ import Modal from '../../components/Modal';
 import AddMovieForm from '../../components/AddMovieForm';
 
 function HeaderMovies() {
+    const dispatch = useAppDispatch()
     const [isOpen, setIsOpen] = useState(false);
+    const [movieToSearch, setMovieToSearch] = useState<string>('');
+
+    const searchInputChange = (
+        event: React.FormEvent<HTMLInputElement>
+    ) => {
+        setMovieToSearch(event.currentTarget.value);
+        // dispatch(setSearchedMovie(movieToSearch));
+    };
+
+    const searchMovie = () => {
+        dispatch(setSearchedMovie(movieToSearch));
+    };
+
     return (
         <header className={classes.header}>
             <Container>
@@ -16,7 +33,10 @@ function HeaderMovies() {
                     <Link to='/' className={classes.header__logo}>
                         <img src={logo} alt='logo' />
                     </Link>
-                    <button onClick={() => setIsOpen(true)} className={classes.header__button}>
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        className={classes.header__button}
+                    >
                         + add movie
                     </button>
                 </div>
@@ -27,8 +47,9 @@ function HeaderMovies() {
                             type='search'
                             className={classes.header__search}
                             placeholder='What do you want to watch?'
+                            onChange={searchInputChange}
                         />
-                        <Button type={'submit'} isGhost={false}>
+                        <Button type={'button'} isGhost={false} onClick={searchMovie}>
                             search
                         </Button>
                     </form>

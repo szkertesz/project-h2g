@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { fetchMovies, selectAllMovies } from '../features/movies/moviesSlice';
 import { useEffect } from 'react';
+import { useMovies } from '../features/movies/movies.hook';
 import MovieItem from './MovieItem';
 import { Movie } from '../interfaces/Movie';
 import classes from './MovieList.module.scss';
@@ -57,9 +58,9 @@ function MovieList() {
     // if (isFetching) return <section>Loading...</section>;
     // if (!data) return <section><p>Can't get any data :-/</p></section>;
     const dispatch = useAppDispatch();
-    const movies = useAppSelector(selectAllMovies);
     const moviesStatus = useAppSelector(state => state.movies.status);
     const moviesError = useAppSelector(state => state.movies.error);
+    const movies = useMovies();
 
     useEffect(() => {
         if (moviesStatus === 'idle') {

@@ -3,7 +3,7 @@ import Button from '../ui/Button';
 import CustomSelect from './CustomSelect';
 
 import { ChangeEvent, SetStateAction, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { editMovie } from '../features/movies/moviesSlice'
 import { RootState } from '../app/store'
 import { Movie } from '../interfaces/Movie'
@@ -19,19 +19,19 @@ interface Props {
 }
 
 const EditMovieForm: React.FC<Props> = ({movieId}) => {
-    const movieToEdit = useSelector((state: RootState) => state.movies.data.find(movie => movie.id === movieId) as Movie)
+    const movieToEdit = useAppSelector(state => state.movies.data.find(movie => movie.id === movieId) as Movie)
     // RTKQ code
     // const { data } = useGetSingleDataQuery(movieId);
     // const [updateMovie] = useEditDataMutation();
     const [title, setTitle] = useState(movieToEdit.title);
     const [genres, setGenres] = useState(movieToEdit.genres);
-    const [vote_average, setVoteAverage] = useState(`${movieToEdit.vote_average}`);
+    const [vote_average, setVoteAverage] = useState(movieToEdit.vote_average);
     const [release_date, setReleaseDate] = useState(movieToEdit.release_date);
     const [runtime, setRuntime] = useState(movieToEdit.runtime);
     const [poster_path, setPosterPath] = useState(movieToEdit.poster_path);
     const [overview, setOverview] = useState(movieToEdit.overview);
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const onGenreChanged = (e: [{ value: string; label: string }]) => {
         const genresData = e.map((genre) => genre.value);
@@ -40,7 +40,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
     const onRatingChanged = (e: {
         target: { value: any };
     }) => {
-        setVoteAverage(e.target.value);
+        setVoteAverage(Number(e.target.value));
     };
     const onReleaseChanged = (e: { target: { value: string } }) => {
         const year = new Date(e.target.value).getFullYear().toString();
@@ -48,7 +48,7 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
     };
     const onRuntimeChanged = (event: ChangeEvent<HTMLInputElement>) => {
         console.log(event);
-        setRuntime(event.target.value);
+        setRuntime(Number(event.target.value));
     };
     const onThumbnailChanged = (e: {
         target: { value: SetStateAction<string> };
@@ -58,7 +58,6 @@ const EditMovieForm: React.FC<Props> = ({movieId}) => {
     const onTitleChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
-        console.log(e.target.value);
         setTitle(e.target.value);
     };
     const onOverviewChanged = (e: {

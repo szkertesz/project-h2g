@@ -4,7 +4,7 @@ export interface Movie {
     genres: string[],
     vote_average: number,
     release_date: string,
-    runtime: string,
+    runtime: number,
     poster_path: string,
     overview: string
 }

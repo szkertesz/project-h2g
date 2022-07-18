@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import classes from './GenreSorter.module.scss';
-import { filterMoviesByGenre, sortMoviesByCriterion } from '../features/movies/moviesSlice';
+// import { filterMoviesByGenre, sortMoviesByCriterion } from '../features/movies/moviesSlice';
 import { useAppDispatch } from "../app/hooks";
+import { setSortParams } from "../features/movies/moviesSlice";
 
 function GenreSorter() {
     const dispatch = useAppDispatch();
-    const [selectedCriterion, setSelectedCriterion] = useState<string>('')
-    const [direction, setDirection] = useState<string>('')
+    const [selectedCriterion, setSelectedCriterion] = useState<string>('releaseDate')
+    const [order, setOrder] = useState<string>('ascending')
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCriterion(event.target.value)
+        console.log(selectedCriterion)
     }
-    const handleDirectionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDirection(event.target.value)
+    const handleorderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setOrder(event.target.value)
+        console.log(order)
     }
     useEffect(() => {
-        dispatch(sortMoviesByCriterion({selectedCriterion, direction}));
-    }, [selectedCriterion, direction, dispatch]);
+        // dispatch(sortMoviesByCriterion({selectedCriterion, order}));
+        dispatch(setSortParams({criterion: selectedCriterion, order: order}))
+    }, [selectedCriterion, order, dispatch]);
     return (
         <div className={classes['genre-sorter']}>
             <label htmlFor='sortingCriteria'>sort by</label>
@@ -23,33 +27,34 @@ function GenreSorter() {
                 name='sortingCriteria'
                 id='sortingCriteria'
                 onChange={handleSelectChange}
-                defaultValue={'title'}
+                defaultValue={'releaseDate'}
             >
-                <option value='id'>ID</option>
-                <option value='title' selected>
-                    Title
-                </option>
-                <option value='vote_average'>Rating</option>
-                <option value='release_date'>Release date</option>
+                <option value='releaseDate'>Release date</option>
+                <option value='rating'>Rating</option>
                 <option value='runtime'>Duration</option>
             </select>
             <fieldset>
                 <input
                     type='radio'
                     id='asc'
-                    name='direction'
-                    value='asc'
-                    onChange={handleDirectionChange}
+                    name='order'
+                    value='ascending'
+                    onChange={handleorderChange}
+                    defaultChecked
                 />
-                <label htmlFor='asc'>ascending</label>
+                <label htmlFor='asc' title='ascending order'>
+                    &uarr;
+                </label>
                 <input
                     type='radio'
                     id='desc'
-                    name='direction'
-                    value='desc'
-                    onChange={handleDirectionChange}
+                    name='order'
+                    value='descending'
+                    onChange={handleorderChange}
                 />
-                <label htmlFor='desc'>descending</label>
+                <label htmlFor='desc' title='descending order'>
+                    &darr;
+                </label>
             </fieldset>
         </div>
     );
