@@ -87,6 +87,7 @@ const EditMovieForm: React.FC<Props> = ({ movieId }) => {
     const onSubmit = async () => {
         if (canSave) {
             try {
+                setAddRequestStatus('pending');
                 await dispatch(
                     editMovie({
                         id: movieId,

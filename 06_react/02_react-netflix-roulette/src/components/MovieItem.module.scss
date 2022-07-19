@@ -1,6 +1,7 @@
 .movie-item {
     display: flex;
     flex-direction: column;
+    position: relative;
     height: 100%;
 
     &__text {
@@ -33,10 +34,25 @@
     }
     &__release {
         align-self: flex-start;
-        padding: calc(var(--unit) * 0.5)  calc(var(--unit) * 1.5);
+        padding: calc(var(--unit) * 0.5) calc(var(--unit) * 1.5);
         font-size: var(--font-size-small);
         line-height: 1;
         border: 1px solid rgba($color: #979797, $alpha: 0.5);
         border-radius: 4px;
+    }
+    &__actions {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: calc(100%);
+        padding: var(--length-2);
+        & > * {
+            min-width: auto;
+            flex-grow: 1;
+            &:not(:last-child) {
+            margin-right: var(--length-2);
+        }
+        }
     }
 }

@@ -57,6 +57,17 @@ export const addMovie = createAsyncThunk(
         }
     }
 );
+export const deleteMovie = createAsyncThunk(
+    'movies/deleteMovie',
+    async (movieId: number, { rejectWithValue }) => {
+        try {
+            const response = await client.delete(`http://localhost:4000/movies/${movieId}`);
+                return response.data;
+        } catch (error) {
+            return rejectWithValue(error)
+        }
+    }
+);
 export const editMovie = createAsyncThunk(
     'movies/editMovie',
     async (newMovieData: Movie, { rejectWithValue }) => {
@@ -144,6 +155,11 @@ const moviesSlice = createSlice({
             })
             .addCase(addMovie.fulfilled, (state, action) => {
                 state.data.push(action.payload);
+            })
+            .addCase(deleteMovie.fulfilled, (state, action) => {
+                state.data = state.data.filter(
+                    movie => movie.id !== action.payload.id
+                );
             })
             .addCase(editMovie.fulfilled, (state, action) => {
                 console.warn(action.payload);

@@ -12,7 +12,9 @@ import IconCheck from '../assets/images/icon-check.svg';
 // import { useAddNewDataMutation } from '../features/api/apiSlice';
 
 interface Props {}
+
 type Genres = string[];
+
 const AddMovieForm: React.FC<Props> = () => {
     const [genres, setGenre] = useState<Genres>([]);
     const [vote_average, setRating] = useState(1);

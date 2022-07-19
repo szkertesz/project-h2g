@@ -17,10 +17,6 @@ export const moviesSelector = (state: any) => {
                     .includes(state.movies.filterOptions.genre)
         )
         .sort((a: any, b: any) => {
-            console.log(
-                // new Date(a.release_date).getTime(), new Date(b.release_date).getTime()
-                // a.vote_average > b.vote_average
-            );
             if (state.movies.sortOptions.sortOrder === 'ascending') {
                 switch (state.movies.sortOptions.sortCriterion) {
                     case 'releaseDate':
