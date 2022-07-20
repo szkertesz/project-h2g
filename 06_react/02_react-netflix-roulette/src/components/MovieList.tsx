@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { fetchMovies, selectAllMovies } from '../features/movies/moviesSlice';
+import { fetchMovies } from '../features/movies/moviesSlice';
 import { useEffect } from 'react';
 import { useMovies } from '../features/movies/movies.hook';
 import MovieItem from './MovieItem';

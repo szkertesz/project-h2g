@@ -1,7 +1,7 @@
-import {ReactNode} from 'react'
+import { ReactNode } from 'react'
 import classes from './Button.module.scss';
 
-interface Button {
+interface IButton {
     children: ReactNode,
     onClick?: () => void;
     disabled?: boolean;
@@ -9,7 +9,7 @@ interface Button {
     type?: 'button' | 'reset' | 'submit'
 }
 
-function Button(props: Button) {
+function Button(props: IButton) {
     return (
         <button
             type={props.type}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ChangeEvent, SetStateAction, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useState } from 'react';
+import { useAppDispatch } from '../../app/hooks';
 import { setSearchedMovie } from '../../features/movies/moviesSlice';
 
 import Container from '../../ui/Container';
