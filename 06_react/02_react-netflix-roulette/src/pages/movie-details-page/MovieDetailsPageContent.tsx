@@ -2,14 +2,11 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
 import Container from '../../ui/Container';
+import GenreList from '../../components/GenreList';
 import classes from './MovieDetailsPageContent.module.scss';
 import { Movie } from '../../interfaces/Movie';
 
-type Props = {
-    // movieData: Movie[];
-};
-
-const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
+const MovieDetailsPageContent: React.FC = () => {
     const params = useParams();
     const singleMovieData = useSelector((state: RootState) =>
         state.movies.data.find((movie) => movie.id === Number(params.movieId))
@@ -57,15 +54,7 @@ const MovieDetailsPageContent: React.FC<Props> = (movieData: Props) => {
                                         {vote_average}
                                     </span>
                                 </div>
-                                <ul className={classes['article__genres']}>
-                                    {genres.map((genreItem, i, genres) => {
-                                        return (
-                                            <li key={i}>{`${genreItem}${
-                                                i < genres.length - 1 ? `, ` : ``
-                                            }`}</li>
-                                        );
-                                    })}
-                                </ul>
+                                <GenreList genres={genres} />
                                 <div className={classes['article__info']}>
                                     <time dateTime={String(transformReleaseDate(release_date))}>
                                         {transformReleaseDate(release_date)}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import classes from './GenreSorter.module.scss';
-// import { filterMoviesByGenre, sortMoviesByCriterion } from '../features/movies/moviesSlice';
 import { useAppDispatch } from "../app/hooks";
 import { setSortParams } from "../features/movies/moviesSlice";
 
@@ -10,14 +9,11 @@ function GenreSorter() {
     const [order, setOrder] = useState<string>('ascending')
     const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCriterion(event.target.value)
-        console.log(selectedCriterion)
     }
     const handleorderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setOrder(event.target.value)
-        console.log(order)
     }
     useEffect(() => {
-        // dispatch(sortMoviesByCriterion({selectedCriterion, order}));
         dispatch(setSortParams({criterion: selectedCriterion, order: order}))
     }, [selectedCriterion, order, dispatch]);
     return (

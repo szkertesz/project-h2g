@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Movie } from '../interfaces/Movie';
 import Button from '../ui/Button';
 import Modal from './Modal';
+import GenreList from './GenreList';
 import EditMovieForm from './EditMovieForm';
 import { deleteMovie } from '../features/movies/moviesSlice';
 import classes from './MovieItem.module.scss';
@@ -61,15 +62,7 @@ const MovieItem: React.FC<Props> = ({ movieInfo }) => {
             <div className={classes['movie-item__text']}>
                 <div>
                     <h3 className={classes['movie-item__title']}>{title}</h3>
-                    <ul className={classes['movie-item__genres']}>
-                        {genres.map((genreItem, i, genres) => {
-                            return (
-                                <li key={i}>{`${genreItem}${
-                                    i < genres.length - 1 ? `, ` : ``
-                                }`}</li>
-                            );
-                        })}
-                    </ul>
+                    <GenreList genres={genres} />
                 </div>
                 <time
                     dateTime={transformReleaseDate(release_date).toString()}
