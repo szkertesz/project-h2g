@@ -1,4 +1,4 @@
-import { backgroundColorInput, colorAccent, colorLight, heightInput} from '../ui/CSSVariables';
+import { colorAccent, heightInput} from '../ui/CSSVariables';
 import Select, { components, DropdownIndicatorProps } from 'react-select';
 import SelectOption from './SelectOption';
 import arrowIcon from '../assets/images/icon-arrow.svg';
@@ -9,7 +9,6 @@ interface Props {
 }
 
 const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
-
     const selectOptions = options;
     const DropdownIndicator = (props: DropdownIndicatorProps) => {
         return (
@@ -21,7 +20,6 @@ const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
     const IndicatorSeparator = () => {
         return null;
     };
-
     const backgroundColorInput = 'rgba(50, 50, 50, 0.948044)';
     const colorLight = '#fff'
 
