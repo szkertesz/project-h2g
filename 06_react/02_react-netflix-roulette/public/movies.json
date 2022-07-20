@@ -65,6 +65,39 @@
             "rating": "8.9",
             "runtime": "154 min",
             "description": "Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames). Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents."
+        },
+        {
+            "id": "d48fucm4WXXzFYvIp5xe4",
+            "genre": "horror",
+            "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
+            "rating": "7",
+            "release": "2016-06-12",
+            "runtime": "109",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTU3MDUxMDI0MV5BMl5BanBnXkFtZTgwMzk3OTg3MDI@._V1_.jpg",
+            "title": "Raw",
+            "description": "A young woman, studying to be a vet, develops a craving for human flesh."
+        },
+        {
+            "id": "NzVlN8g0MNuluLu22fMxJ",
+            "genre": "drama, horror",
+            "url": "https://www.imdb.com/title/tt4954522/?ref_=tt_mv_close",
+            "rating": "7",
+            "release_date": "2021",
+            "runtime": "109",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTAyOTkxNTQ3NV5BMl5BanBnXkFtZTgwMjQ1NzQxOTE@._V1_.jpg",
+            "title": "Last film RTKQ",
+            "description": "overyou"
+        },
+        {
+            "description": "Four months after the death of her husband, a woman on the brink of motherhood is tormented in her home by a strange woman who wants her unborn baby.",
+            "genre": "horror",
+            "id": "FqfhzznmTUXOHujssotjI",
+            "rating": "6.7",
+            "release_date": "2007",
+            "runtime": "88 min",
+            "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTgyODRlNjQtMGZhNS00ZTA3LTgyNjgtNDYwNWM1ZDI0ODMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX500_.jpg",
+            "title": "À l'intérieur",
+            "url": "https://www.imdb.com/title/tt0856288/?ref_=tt_sims_tt_i_2"
         }
     ]
 }

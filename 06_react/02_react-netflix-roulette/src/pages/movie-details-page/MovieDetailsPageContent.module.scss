@@ -8,9 +8,6 @@
             grid-column: span 2;
         }
     }
-    &__header {
-
-    }
     &__title-bar {
         display: flex;
     }
@@ -35,9 +32,15 @@
         opacity: 0.75;
     }
     &__genres {
+        list-style: none;
+        padding: 0;
         margin-bottom: var(--length-4);
         font-weight: 300;
         opacity: 0.5;
+
+        li {
+            display: inline;
+        }
     }
     &__info {
         margin-bottom: var(--length-4);

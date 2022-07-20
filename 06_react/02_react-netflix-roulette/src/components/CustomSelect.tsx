@@ -1,13 +1,14 @@
+import { colorAccent, heightInput} from '../ui/CSSVariables';
 import Select, { components, DropdownIndicatorProps } from 'react-select';
 import SelectOption from './SelectOption';
 import arrowIcon from '../assets/images/icon-arrow.svg';
-import { backgroundColorInput, colorAccent, colorLight, heightInput} from '../ui/CSSVariables';
 
 interface Props {
-    options: object[]
+    options: object[];
+    handleChange: (option: any) => void;
 }
 
-const CustomSelect: React.FC<Props> = ({options}) => {
+const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
     const selectOptions = options;
     const DropdownIndicator = (props: DropdownIndicatorProps) => {
         return (
@@ -19,6 +20,8 @@ const CustomSelect: React.FC<Props> = ({options}) => {
     const IndicatorSeparator = () => {
         return null;
     };
+    const backgroundColorInput = 'rgba(50, 50, 50, 0.948044)';
+    const colorLight = '#fff'
 
     return (
         <Select
@@ -27,6 +30,9 @@ const CustomSelect: React.FC<Props> = ({options}) => {
             isClearable={false}
             closeMenuOnSelect={false}
             hideSelectedOptions={false}
+            onChange={(
+                option
+            ) => handleChange(option)}
             components={{
                 Option: SelectOption,
                 DropdownIndicator,
@@ -69,7 +75,7 @@ const CustomSelect: React.FC<Props> = ({options}) => {
                     alignItems: 'center',
                     height: heightInput,
                     background: backgroundColorInput,
-                    color: 'purple',
+                    color: colorLight,
                     borderRadius: '4px',
                     paddingTop: '0',
                 }),

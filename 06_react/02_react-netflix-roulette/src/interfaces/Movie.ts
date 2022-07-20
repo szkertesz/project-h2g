@@ -1,11 +1,10 @@
 export interface Movie {
-    genre: string,
-    id: string,
-    movie_url: string,
-    rating: number,
-    release_date: number,
-    runtime: string,
-    thumbnail: string,
+    id: number,
     title: string,
-    description: string
+    genres: string[],
+    vote_average: number,
+    release_date: string,
+    runtime: number,
+    poster_path: string,
+    overview: string
 }

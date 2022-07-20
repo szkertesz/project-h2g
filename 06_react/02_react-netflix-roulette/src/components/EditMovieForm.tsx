@@ -1,162 +1,123 @@
-import { useAppDispatch } from '../app/hooks';
-import { addMovie } from '../features/movies/moviesSlice';
-import { SetStateAction, useState } from 'react';
-
 import classes from './AddMovieForm.module.scss';
 import modalClasses from './Modal.module.scss';
 import Button from '../ui/Button';
 import CustomSelect from './CustomSelect';
+
+import { ChangeEvent, SetStateAction, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { editMovie } from '../features/movies/moviesSlice';
+import { Movie } from '../interfaces/Movie';
 import Modal from '../components/Modal';
 import IconCheck from '../assets/images/icon-check.svg';
-// RTKQ code
-// import { useAddNewDataMutation } from '../features/api/apiSlice';
 
-interface Props {}
+// RTKQ
+// import {
+//     useGetSingleDataQuery,
+//     useEditDataMutation,
+// } from '../features/api/apiSlice';
 
-type Genres = string[];
+interface Props {
+    movieId: number;
+}
 
-const AddMovieForm: React.FC<Props> = () => {
-    const [genres, setGenre] = useState<Genres>([]);
-    const [vote_average, setRating] = useState(1);
-    const [release_date, setRelease] = useState('');
-    const [runtime, setRuntime] = useState(1);
-    const [poster_path, setThumbnail] = useState('');
-    const [title, setTitle] = useState('');
-    const [overview, setDescription] = useState('');
+const EditMovieForm: React.FC<Props> = ({ movieId }) => {
+    const dispatch = useAppDispatch();
+    const movieToEdit = useAppSelector(state => state.movies.data.find((movie) => movie.id === movieId) as Movie);
+    // RTKQ code
+    // const { data } = useGetSingleDataQuery(movieId);
+    // const [updateMovie] = useEditDataMutation();
+    const [title, setTitle] = useState(movieToEdit.title);
+    const [genres, setGenres] = useState(movieToEdit.genres);
+    const [vote_average, setVoteAverage] = useState(movieToEdit.vote_average);
+    const [release_date, setReleaseDate] = useState(movieToEdit.release_date);
+    const [runtime, setRuntime] = useState(movieToEdit.runtime);
+    const [poster_path, setPosterPath] = useState(movieToEdit.poster_path);
+    const [overview, setOverview] = useState(movieToEdit.overview);
 
     const [addRequestStatus, setAddRequestStatus] = useState('idle');
     const [isOpen, setIsOpen] = useState(false);
     const [modalTitle, setModalTitle] = useState('');
     const [modalContent, setModalContent] = useState('');
     const [modalIcon, setModalIcon] = useState(false);
-    // RTKQ code
-    // const [addNewData, { isLoading }] = useAddNewDataMutation()
-    const dispatch = useAppDispatch();
-    // RTKQ code
-    // const canSave = [
-    //     genre,
-    //     url,
-    //     rating,
-    //     release_date,
-    //     runtime,
-    //     thumbnail,
-    //     title,
-    //     description,
-    // ].every(Boolean) && !isLoading
-    const canSave =
-        [
-            genres,
-            vote_average,
-            release_date,
-            runtime,
-            poster_path,
-            title,
-            overview,
-        ].every(Boolean) && addRequestStatus === 'idle';
+
 
     const onGenreChanged = (e: [{ value: string; label: string }]) => {
         const genresData = e.map((genre) => genre.value);
-        console.log(genresData);
-        setGenre(genresData);
+        setGenres(genresData);
     };
-    const onRatingChanged = (e: {
-        target: { value: SetStateAction<string> };
-    }) => {
-        setRating(Number(e.target.value));
+    const onRatingChanged = (e: { target: { value: any } }) => {
+        setVoteAverage(Number(e.target.value));
     };
     const onReleaseChanged = (e: { target: { value: string } }) => {
         const year = new Date(e.target.value).getFullYear().toString();
-        setRelease(year);
+        setReleaseDate(year);
     };
-    const onRuntimeChanged = (e: {
-        target: { value: SetStateAction<string> };
-    }) => {
-        setRuntime(Number(e.target.value));
+    const onRuntimeChanged = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log(event);
+        setRuntime(Number(event.target.value));
     };
     const onThumbnailChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
-        setThumbnail(e.target.value);
+        setPosterPath(e.target.value);
     };
     const onTitleChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
         setTitle(e.target.value);
     };
-    const onDescriptionChanged = (e: {
+    const onOverviewChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
-        setDescription(e.target.value);
+        setOverview(e.target.value);
     };
 
+    const canSave =
+        [
+            title,
+            genres,
+            vote_average,
+            release_date,
+            runtime,
+            poster_path,
+            overview,
+        ].every(Boolean) && addRequestStatus === 'idle';
+
+    // const onSubmit = () => console.log(release)
     const onSubmit = async () => {
         if (canSave) {
             try {
                 setAddRequestStatus('pending');
                 await dispatch(
-                    addMovie({
+                    editMovie({
+                        id: movieId,
                         title,
-                        tagline: 'tagline',
+                        genres,
                         vote_average,
-                        vote_count: 0,
                         release_date,
+                        runtime,
                         poster_path,
                         overview,
-                        budget: 0,
-                        genres,
-                        runtime,
                     })
-                ).unwrap();
-                setModalTitle('Congratulations!');
-                setModalIcon(true)
-                setModalContent(
-                    `The movie has been added to database successfully`
                 );
+                setModalTitle('Congratulations!');
+                setModalIcon(true);
+                setModalContent(`The movie has been edited successfully`);
                 setIsOpen(true);
-                setGenre([]);
-                setRating(0);
-                setRelease('');
-                setRuntime(0);
-                setThumbnail('');
-                setTitle('');
-                setDescription('');
             } catch (err) {
                 setModalTitle('Failure!');
-                setModalContent(
-                    `The movie has been failed to add to database :(`
-                );
+                setModalContent(`The movie has been failed to edit :(`);
                 setIsOpen(true);
             } finally {
                 setAddRequestStatus('idle');
             }
-            // RTKQ code
-            // try {
-            //     await addNewData({
-            //         id: nanoid(),
-            //         genre,
-            //         url,
-            //         rating,
-            //         release_date,
-            //         runtime,
-            //         thumbnail,
-            //         title,
-            //         description,
-            //     }).unwrap()
-            // RTKQ code
-            // } catch (error) {
-            //     console.warn('Failed to add movie: ', error)
-            // }
-        } else {
-            setModalTitle('Can\'t save movie');
-            setModalContent(`Please, fill all the required fields`);
-            setIsOpen(true);
         }
     };
 
     return (
         <>
             <form action=''>
-                <h2 className={classes['movie-form__title']}>Add movie</h2>
+                <h2 className={classes['movie-form__title']}>Edit movie</h2>
                 <div className={classes['movie-form__fieldset']}>
                     <div className={classes['movie-form__group']}>
                         <label htmlFor='movieTitle'>Title</label>
@@ -165,6 +126,7 @@ const AddMovieForm: React.FC<Props> = () => {
                             id='movieTitle'
                             name='movieTitle'
                             onChange={onTitleChanged}
+                            value={title}
                         />
                     </div>
                     <div className={classes['movie-form__group']}>
@@ -175,6 +137,7 @@ const AddMovieForm: React.FC<Props> = () => {
                             name='movieRelease'
                             placeholder='Select Date'
                             onChange={onReleaseChanged}
+                            value={release_date}
                         />
                     </div>
                     <div className={classes['movie-form__group']}>
@@ -187,6 +150,7 @@ const AddMovieForm: React.FC<Props> = () => {
                             max='10'
                             step='0.1'
                             onChange={onRatingChanged}
+                            value={vote_average}
                         />
                     </div>
                     <div className={classes['movie-form__group']}>
@@ -200,15 +164,19 @@ const AddMovieForm: React.FC<Props> = () => {
                                 { value: 'fantasy', label: 'Fantasy' },
                             ]}
                             handleChange={onGenreChanged}
+                            // defaultValue={genre.split(',').map(gen => {
+                            //     return {label: gen, value: gen}
+                            // })}
                         />
                     </div>
                     <div className={classes['movie-form__group']}>
                         <label htmlFor='movieRuntime'>Runtime</label>
                         <input
-                            type='text'
+                            type='number'
                             id='movieRuntime'
                             name='movieRuntime'
                             onChange={onRuntimeChanged}
+                            value={runtime}
                         />
                     </div>
                     <div className={classes['movie-form__group']}>
@@ -218,6 +186,7 @@ const AddMovieForm: React.FC<Props> = () => {
                             id='movieThumbnail'
                             name='movieThumbnail'
                             onChange={onThumbnailChanged}
+                            value={poster_path}
                         />
                     </div>
                     <div
@@ -228,7 +197,8 @@ const AddMovieForm: React.FC<Props> = () => {
                             id='movieOverview'
                             name='movieOverview'
                             rows={3}
-                            onChange={onDescriptionChanged}
+                            onChange={onOverviewChanged}
+                            value={overview}
                         ></textarea>
                     </div>
                     <div className={classes['movie-form__actions']}>
@@ -245,17 +215,19 @@ const AddMovieForm: React.FC<Props> = () => {
                 size={'medium'}
                 title={modalTitle}
             >
-                {modalIcon ? 
+                {modalIcon ? (
                     <img
                         src={IconCheck}
                         alt=''
                         className={modalClasses['modal__icon']}
-                    /> : ''
-                }
+                    />
+                ) : (
+                    ''
+                )}
                 <p>{modalContent}</p>
             </Modal>
         </>
     );
 };
 
-export default AddMovieForm;
+export default EditMovieForm;

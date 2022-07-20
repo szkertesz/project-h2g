@@ -15,10 +15,6 @@
         display: flex;
         flex-direction: column;
 
-        &:last-child {
-            grid-column: span 2;
-        }
-
         input,
         textarea {
             padding: var(--unit) var(--length-2);
@@ -43,12 +39,15 @@
             color: var(--color-accent);
             text-transform: uppercase;
         }
+        &--full {
+            grid-column: span 2;
+        }
     }
     &__actions {
         grid-column: span 2;
         display: flex;
         justify-content: flex-end;
-        margin-top: var(--length-7);
+        margin-top: var(--unit);
 
         & > *:not(:last-child) {
             margin-right: var(--length-2);

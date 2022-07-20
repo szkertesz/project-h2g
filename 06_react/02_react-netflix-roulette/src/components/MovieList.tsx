@@ -1,12 +1,18 @@
-// import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { fetchMovies } from '../features/movies/moviesSlice';
+import { useEffect } from 'react';
+import { useMovies } from '../features/movies/movies.hook';
 import MovieItem from './MovieItem';
 import { Movie } from '../interfaces/Movie';
 import classes from './MovieList.module.scss';
 
+
 // import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { useGetDataQuery } from '../features/api/apiSlice';
+// RTKQ
+// import { useGetDataQuery } from '../features/api/apiSlice';
 
 function MovieList() {
+    // bare react code
     // const [isLoading, setIsLoading] = useState(false);
     // const [movieData, setMovieData] = useState<Movie[]>([]);
 
@@ -44,32 +50,55 @@ function MovieList() {
     //         </section>
     //     )
     // }
-    const { data, isFetching } = useGetDataQuery();
-    const movieData = data?.movies;
 
-    if (isFetching) return <section>Loading...</section>;
-    if (!data) return <section><p>Can't get any data :-/</p></section>;
+    // RTKQ code
+    // const { data, isFetching } = useGetDataQuery();
+    // const movieData = data;
 
-    return (
-        <section>
-            <h2 className='visually-hidden'>Results</h2>
-            {/* <p className={classes.info}>
-                <span>{movieData.length}</span> movies found
-            </p> */}
-            <p className={classes.info}>
-                <span>{movieData?.length}</span> movies found
-            </p>
-            <ul className={classes.results}>
-                {movieData?.map((movie: Movie) => {
-                    return (
-                        <li key={movie.id}>
-                            <MovieItem movieInfo={movie} />
-                        </li>
-                    );
-                })}
-            </ul>
+    // if (isFetching) return <section>Loading...</section>;
+    // if (!data) return <section><p>Can't get any data :-/</p></section>;
+    const dispatch = useAppDispatch();
+    const moviesStatus = useAppSelector(state => state.movies.status);
+    const moviesError = useAppSelector(state => state.movies.error);
+    const movies = useMovies();
+
+    useEffect(() => {
+        if (moviesStatus === 'idle') {
+            dispatch(fetchMovies())
+        }
+    }, [moviesStatus, dispatch]);
+
+    if (moviesStatus === 'loading') {
+        return (
+            <section>
+                <p>Loading...</p>
         </section>
-    );
+            )
+    } else if (moviesStatus === 'succeeded') {
+        return (
+            <section>
+                <h2 className='visually-hidden'>Results</h2>
+                <p className={classes.info}>
+                    <span>{movies.length}</span> movies found
+                </p>
+                <ul className={classes.results}>
+                    {movies.map((movie: Movie) => {
+                        return (
+                            <li key={movie.id}>
+                                <MovieItem movieInfo={movie} />
+                            </li>
+                        );
+                    })}
+                </ul>
+            </section>
+        );
+    } else {
+        return (
+            <section>
+                <p>{ moviesError }</p>
+            </section>
+        )
+    }
 }
 
 export default MovieList;
