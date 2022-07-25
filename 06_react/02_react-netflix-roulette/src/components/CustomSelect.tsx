@@ -3,7 +3,7 @@ import Select, { components, DropdownIndicatorProps } from 'react-select';
 import SelectOption from './SelectOption';
 import arrowIcon from '../assets/images/icon-arrow.svg';
 
-interface Props {
+export interface Props {
     options: object[];
     handleChange: (option: any) => void;
 }

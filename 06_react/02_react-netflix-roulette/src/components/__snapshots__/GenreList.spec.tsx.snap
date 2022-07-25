@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenreList should render component 1`] = `
+<div>
+  <ul
+    class="genre-list"
+  >
+    <li>
+      a, 
+    </li>
+    <li>
+      b, 
+    </li>
+    <li>
+      c
+    </li>
+  </ul>
+</div>
+`;

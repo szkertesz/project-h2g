@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenreList isFullWidth is false should render component 1`] = `
+<div>
+  <div
+    class="
+                input-field
+                
+            "
+  >
+    <label
+      for="test id"
+    >
+      label text
+    </label>
+    <input
+      id="test id"
+      name="test id"
+      type="text"
+      value="3"
+    />
+  </div>
+</div>
+`;
+
+exports[`GenreList isFullWidth is true should render component 1`] = `
+<div>
+  <div
+    class="
+                input-field
+                input-field--full
+            "
+  >
+    <label
+      for="test id"
+    >
+      label text
+    </label>
+    <input
+      id="test id"
+      name="test id"
+      type="text"
+      value="3"
+    />
+  </div>
+</div>
+`;

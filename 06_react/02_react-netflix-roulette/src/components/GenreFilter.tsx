@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch } from '../app/hooks';
 import { setGenreFilter } from '../features/movies/moviesSlice';
-// import { changeFilter } from "../features/filters/filtersSlice";
 import classes from './GenreFilter.module.scss';
 
 function GenreFilter() {
@@ -11,7 +10,7 @@ function GenreFilter() {
         setValue(event.target.value);
     };
     useEffect(() => {
-        dispatch(setGenreFilter(value?.toLowerCase() as string));
+        dispatch(setGenreFilter(value.toLowerCase() as string));
     }, [value, dispatch]);
     return (
         <fieldset className={classes['genre-filter']}>
@@ -61,6 +60,7 @@ function GenreFilter() {
                     checked={value === 'Horror'}
                     onChange={handleChange}
                     className='visually-hidden'
+                    data-testid="radio-input-horror"
                 />
                 <label htmlFor='horror'>horror</label>
             </div>

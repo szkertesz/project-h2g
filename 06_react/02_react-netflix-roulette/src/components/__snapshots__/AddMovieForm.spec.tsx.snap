@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddMovieForm should render AddMovieForm component 1`] = `
+<form
+  action=""
+>
+  <h2
+    className="movie-form__title"
+  >
+    Add movie
+  </h2>
+  <div
+    className="movie-form__fieldset"
+  >
+    <div
+      className="movie-form__group"
+    >
+      <label
+        htmlFor="movieTitle"
+      >
+        Title
+      </label>
+      <input
+        id="movieTitle"
+        name="movieTitle"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="movie-form__group"
+    >
+      <label
+        htmlFor="movieRelease"
+      >
+        Release date
+      </label>
+      <input
+        id="movieRelease"
+        name="movieRelease"
+        onChange={[Function]}
+        placeholder="Select Date"
+        type="date"
+      />
+    </div>
+    <div
+      className="movie-form__group"
+    >
+      <label
+        htmlFor="movieRating"
+      >
+        Rating
+      </label>
+      <input
+        id="movieRating"
+        max="10"
+        min="1"
+        name="movieRating"
+        onChange={[Function]}
+        step="0.1"
+        type="number"
+      />
+    </div>
+    <div
+      className="movie-form__group"
+    >
+      <label
+        htmlFor="react-select-2-input"
+      >
+        Genre
+      </label>
+      <div
+        className=" css-1plhcwh-container"
+        onKeyDown={[Function]}
+      >
+        <span
+          className="css-1f43avz-a11yText-A11yText"
+          id="react-select-2-live-region"
+        />
+        <span
+          aria-atomic="false"
+          aria-live="polite"
+          aria-relevant="additions text"
+          className="css-1f43avz-a11yText-A11yText"
+        />
+        <div
+          className=" css-on302j-control"
+          onMouseDown={[Function]}
+          onTouchEnd={[Function]}
+        >
+          <div
+            className=" css-k4907d-ValueContainer"
+          >
+            <div
+              className=" css-14el2xx-placeholder"
+              id="react-select-2-placeholder"
+            >
+              Select...
+            </div>
+            <div
+              className=" css-14msk06-Input"
+              data-value=""
+            >
+              <input
+                aria-autocomplete="list"
+                aria-describedby="react-select-2-placeholder"
+                aria-expanded={false}
+                aria-haspopup={true}
+                autoCapitalize="none"
+                autoComplete="off"
+                autoCorrect="off"
+                className=""
+                disabled={false}
+                id="react-select-2-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                role="combobox"
+                spellCheck="false"
+                style={
+                  Object {
+                    "background": 0,
+                    "border": 0,
+                    "color": "inherit",
+                    "font": "inherit",
+                    "gridArea": "1 / 2",
+                    "label": "input",
+                    "margin": 0,
+                    "minWidth": "2px",
+                    "opacity": 1,
+                    "outline": 0,
+                    "padding": 0,
+                    "width": "100%",
+                  }
+                }
+                tabIndex={0}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            className=" css-1hb7zxy-IndicatorsContainer"
+          >
+            <div
+              aria-hidden="true"
+              className=" css-tlfecz-indicatorContainer"
+              onMouseDown={[Function]}
+              onTouchEnd={[Function]}
+            >
+              <img
+                alt=""
+                src="icon-arrow.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="movie-form__group"
+    >
+      <label
+        htmlFor="movieRuntime"
+      >
+        Runtime
+      </label>
+      <input
+        id="movieRuntime"
+        name="movieRuntime"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="movie-form__group"
+    >
+      <label
+        htmlFor="movieThumbnail"
+      >
+        Poster image URL
+      </label>
+      <input
+        id="movieThumbnail"
+        name="movieThumbnail"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="movie-form__group movie-form__group--full"
+    >
+      <label
+        htmlFor="movieOverview"
+      >
+        Overview
+      </label>
+      <textarea
+        id="movieOverview"
+        name="movieOverview"
+        onChange={[Function]}
+        rows={3}
+      />
+    </div>
+    <div
+      className="movie-form__actions"
+    >
+      <button
+        className="button 
+            button--ghost
+            "
+      >
+        reset
+      </button>
+      <button
+        className="button 
+            button--default
+            "
+        onClick={[Function]}
+        type="button"
+      >
+        submit
+      </button>
+    </div>
+  </div>
+</form>
+`;

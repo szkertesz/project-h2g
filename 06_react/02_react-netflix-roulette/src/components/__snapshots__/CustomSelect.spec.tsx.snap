@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomSelect component should render a customized Select component 1`] = `
+<div>
+  <div
+    class=" css-1plhcwh-container"
+  >
+    <span
+      class="css-1f43avz-a11yText-A11yText"
+      id="react-select-2-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="css-1f43avz-a11yText-A11yText"
+    />
+    <div
+      class=" css-on302j-control"
+    >
+      <div
+        class=" css-k4907d-ValueContainer"
+      >
+        <div
+          class=" css-14el2xx-placeholder"
+          id="react-select-2-placeholder"
+        >
+          Select...
+        </div>
+        <div
+          class=" css-14msk06-Input"
+          data-value=""
+        >
+          <input
+            aria-autocomplete="list"
+            aria-describedby="react-select-2-placeholder"
+            aria-expanded="false"
+            aria-haspopup="true"
+            autocapitalize="none"
+            autocomplete="off"
+            autocorrect="off"
+            class=""
+            id="react-select-2-input"
+            role="combobox"
+            spellcheck="false"
+            style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+            tabindex="0"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class=" css-1hb7zxy-IndicatorsContainer"
+      >
+        <div
+          aria-hidden="true"
+          class=" css-tlfecz-indicatorContainer"
+        >
+          <img
+            alt=""
+            src="icon-arrow.svg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -3,7 +3,7 @@ import { client } from '../../services/client'
 import { Movie } from '../../interfaces/Movie';
 import type { RootState } from '../../app/store';
 
-interface moviesState {
+export interface moviesState {
     data: Movie[],
     status: 'idle' | 'loading' | 'succeeded' | 'failed',
     error: string | null | undefined,
@@ -25,7 +25,7 @@ interface MovieToAddWithId extends Movie {
 
 type MovieToAdd = Omit<MovieToAddWithId, 'id'>
 
-const initialState: moviesState = {
+export const initialState: moviesState = {
     data: [],
     status: 'idle',
     error: null,

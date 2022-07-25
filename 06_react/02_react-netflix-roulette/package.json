@@ -6,7 +6,6 @@
         "@reduxjs/toolkit": "^1.8.3",
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^13.3.0",
-        "@testing-library/user-event": "^13.5.0",
         "@types/jest": "^27.5.2",
         "@types/node": "^16.11.41",
         "@types/react": "^18.0.14",
@@ -29,6 +28,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
+        "test:nowatch": "react-scripts test --watchAll=false",
         "test:coverage": "react-scripts test --coverage",
         "eject": "react-scripts eject"
     },
@@ -51,8 +51,12 @@
         ]
     },
     "devDependencies": {
+        "@testing-library/user-event": "^14.3.0",
         "@types/body-scroll-lock": "^3.1.0",
+        "@types/react-test-renderer": "^18.0.0",
         "@types/react-transition-group": "^4.4.5",
-        "react-test-renderer": "^18.2.0"
+        "@types/redux-mock-store": "^1.0.3",
+        "react-test-renderer": "^18.2.0",
+        "redux-mock-store": "^1.5.4"
     }
 }

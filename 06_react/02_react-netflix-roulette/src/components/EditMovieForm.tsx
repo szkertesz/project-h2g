@@ -3,11 +3,12 @@ import modalClasses from './Modal.module.scss';
 import Button from '../ui/Button';
 import CustomSelect from './CustomSelect';
 
-import { ChangeEvent, SetStateAction, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { editMovie } from '../features/movies/moviesSlice';
 import { Movie } from '../interfaces/Movie';
 import Modal from '../components/Modal';
+import InputField from './InputField';
 import IconCheck from '../assets/images/icon-check.svg';
 
 // RTKQ
@@ -45,10 +46,10 @@ const EditMovieForm: React.FC<Props> = ({ movieId }) => {
         const genresData = e.map((genre) => genre.value);
         setGenres(genresData);
     };
-    const onRatingChanged = (e: { target: { value: any } }) => {
+    const onRatingChanged = (e: ChangeEvent<HTMLInputElement>) => {
         setVoteAverage(Number(e.target.value));
     };
-    const onReleaseChanged = (e: { target: { value: string } }) => {
+    const onReleaseChanged = (e: ChangeEvent<HTMLInputElement>) => {
         const year = new Date(e.target.value).getFullYear().toString();
         setReleaseDate(year);
     };
@@ -56,19 +57,13 @@ const EditMovieForm: React.FC<Props> = ({ movieId }) => {
         console.log(event);
         setRuntime(Number(event.target.value));
     };
-    const onThumbnailChanged = (e: {
-        target: { value: SetStateAction<string> };
-    }) => {
+    const onThumbnailChanged = (e: ChangeEvent<HTMLInputElement>) => {
         setPosterPath(e.target.value);
     };
-    const onTitleChanged = (e: {
-        target: { value: SetStateAction<string> };
-    }) => {
+    const onTitleChanged = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
     };
-    const onOverviewChanged = (e: {
-        target: { value: SetStateAction<string> };
-    }) => {
+    const onOverviewChanged = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setOverview(e.target.value);
     };
 
@@ -119,27 +114,20 @@ const EditMovieForm: React.FC<Props> = ({ movieId }) => {
             <form action=''>
                 <h2 className={classes['movie-form__title']}>Edit movie</h2>
                 <div className={classes['movie-form__fieldset']}>
-                    <div className={classes['movie-form__group']}>
-                        <label htmlFor='movieTitle'>Title</label>
-                        <input
-                            type='text'
-                            id='movieTitle'
-                            name='movieTitle'
-                            onChange={onTitleChanged}
-                            value={title}
-                        />
-                    </div>
-                    <div className={classes['movie-form__group']}>
-                        <label htmlFor='movieRelease'>Release date</label>
-                        <input
-                            type='date'
-                            id='movieRelease'
-                            name='movieRelease'
-                            placeholder='Select Date'
+                    <InputField
+                        type={'text'}
+                        id={'movieTitle'}
+                        onChange={onTitleChanged}
+                        value={title}
+                        labelText={'Title'}
+                    />
+                    <InputField
+                            type={'date'}
+                            id={'movieRelease'}
+                            placeholder={'Select Date'}
                             onChange={onReleaseChanged}
                             value={release_date}
-                        />
-                    </div>
+                    />
                     <div className={classes['movie-form__group']}>
                         <label htmlFor='movieRating'>Rating</label>
                         <input
@@ -169,16 +157,12 @@ const EditMovieForm: React.FC<Props> = ({ movieId }) => {
                             // })}
                         />
                     </div>
-                    <div className={classes['movie-form__group']}>
-                        <label htmlFor='movieRuntime'>Runtime</label>
-                        <input
-                            type='number'
-                            id='movieRuntime'
-                            name='movieRuntime'
+                    <InputField
+                            type={'number'}
+                            id={'movieRuntime'}
                             onChange={onRuntimeChanged}
                             value={runtime}
-                        />
-                    </div>
+                    />
                     <div className={classes['movie-form__group']}>
                         <label htmlFor='movieThumbnail'>Poster image URL</label>
                         <input
