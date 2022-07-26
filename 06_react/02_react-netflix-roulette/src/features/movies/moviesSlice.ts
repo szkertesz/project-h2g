@@ -40,7 +40,7 @@ export const initialState: moviesState = {
 };
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
-    const response = await client.get('http://localhost:4000/movies?limit=50');
+    const response = await client.get('http://localhost:4000/movies?limit=30');
     return response.data.data;
 });
 export const addMovie = createAsyncThunk(

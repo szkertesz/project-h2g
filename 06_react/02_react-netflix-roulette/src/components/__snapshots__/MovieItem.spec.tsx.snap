@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieItem should render MovieItem component with given movie info 1`] = `
+<article
+  className="movie-item"
+>
+  <div
+    className="movie-item__text"
+  >
+    <div>
+      <h3
+        className="movie-item__title"
+      >
+        Fifty Shades Freed
+      </h3>
+      <ul
+        className="genre-list"
+      >
+        <li>
+          Drama, 
+        </li>
+        <li>
+          Romance
+        </li>
+      </ul>
+    </div>
+    <time
+      className="movie-item__release"
+      dateTime="2018"
+    >
+      2018
+    </time>
+  </div>
+  <a
+    className="movie-item__poster"
+    href="/movie/337167"
+    onClick={[Function]}
+  >
+    <img
+      alt="poster"
+      src="https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg"
+    />
+  </a>
+  <div
+    className="movie-item__actions"
+  >
+    <button
+      className="button 
+            button--default
+            "
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+    <button
+      className="button 
+            button--default
+            "
+      onClick={[Function]}
+    >
+      Edit
+    </button>
+  </div>
+</article>
+`;

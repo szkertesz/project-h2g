@@ -1,0 +1,16 @@
+import { render, screen } from '@testing-library/react';
+import SelectOption from './SelectOption';
+import { components, GroupBase, OptionProps } from 'react-select';
+
+describe('SelectOption component', () => {
+    // the test suite
+    it('should render an input /w a label element as a CustomSelect option', () => {
+        // the test case
+        const properties: OptionProps = components.Option;
+        const { container } = render(
+            <SelectOption props={properties} />
+        );
+        expect(container).toMatchSnapshot(); // the assertion
+    });
+});
+

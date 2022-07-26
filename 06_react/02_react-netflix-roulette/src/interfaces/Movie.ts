@@ -6,5 +6,9 @@ export interface Movie {
     release_date: string,
     runtime: number,
     poster_path: string,
-    overview: string
+    overview: string,
+    tagline?: string,
+    vote_count?: number,
+    budget?: number,
+    revenue?: number
 }

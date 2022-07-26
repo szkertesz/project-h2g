@@ -3,10 +3,10 @@ import { createPortal } from 'react-dom';
 
 interface Props {
     children?: JSX.Element;
-    containerId: string;
+    containerId?: string;
 }
 
-function createContainerAndAppendToBody(containerId: string) {
+export const createContainerAndAppendToBody = (containerId: string) =>{
     const containerElement = document.createElement('div');
     containerElement.setAttribute('id', containerId);
     document.body.appendChild(containerElement);

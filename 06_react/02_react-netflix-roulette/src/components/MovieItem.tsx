@@ -19,9 +19,9 @@ const MovieItem: React.FC<Props> = ({ movieInfo }) => {
     const dispatch = useAppDispatch();
     const { id, genres, release_date, poster_path, title } = movieInfo;
     const [isOpen, setIsOpen] = useState(false);
+    const [addRequestStatus, setAddRequestStatus] = useState('idle');
     const imgEl = useRef<HTMLImageElement>(null);
     const [posterUrl, setPosterUrl] = useState(poster_path);
-    const [addRequestStatus, setAddRequestStatus] = useState('idle');
 
     const transformReleaseDate = (date: string) => {
         return new Date(date).getFullYear();
@@ -57,6 +57,7 @@ const MovieItem: React.FC<Props> = ({ movieInfo }) => {
             }
         }
     };
+
     return (
         <article className={classes['movie-item']}>
             <div className={classes['movie-item__text']}>
