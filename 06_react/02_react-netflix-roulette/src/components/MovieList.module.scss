@@ -13,9 +13,10 @@
     grid-gap: var(--length-7);
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: minmax(400px, auto);
-    list-style: none;
+    margin-bottom: var(--length-4);
     padding-inline-start: 0;
     margin-block-start: 0;
+    list-style: none;
 
     &--disabled {
         opacity: 0.5;

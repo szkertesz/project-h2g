@@ -6,7 +6,9 @@ interface IButton {
     onClick?: () => void;
     disabled?: boolean;
     isGhost?: boolean;
-    type?: 'button' | 'reset' | 'submit'
+    type?: 'button' | 'reset' | 'submit';
+    dataTestId?: string;
+    id?: string;
 }
 
 function Button(props: IButton) {
@@ -20,6 +22,8 @@ function Button(props: IButton) {
             `}
             onClick={props.onClick}
             disabled={props.disabled}
+            data-testid={props.dataTestId}
+            id={props.id}
         >
             {props.children}
         </button>

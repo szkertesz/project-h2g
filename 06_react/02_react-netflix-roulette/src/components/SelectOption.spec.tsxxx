@@ -6,9 +6,12 @@ describe('SelectOption component', () => {
     // the test suite
     it('should render an input /w a label element as a CustomSelect option', () => {
         // the test case
-        const properties: OptionProps = components.Option;
+        const select = document.createElement('select');
+        const props: OptionProps = components.Option;
         const { container } = render(
-            <SelectOption props={properties} />
+            <SelectOption {...props} />, {
+                container: document.body.appendChild(select)
+            }
         );
         expect(container).toMatchSnapshot(); // the assertion
     });

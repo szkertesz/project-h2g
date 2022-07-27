@@ -11,11 +11,13 @@ import IconCheck from '../assets/images/icon-check.svg';
 // RTKQ code
 // import { useAddNewDataMutation } from '../features/api/apiSlice';
 
-interface Props {}
+interface Props {
+    hasModalFeedback: boolean
+}
 
 type Genres = string[];
 
-const AddMovieForm: React.FC<Props> = () => {
+const AddMovieForm: React.FC<Props> = ({hasModalFeedback}) => {
     const [genres, setGenre] = useState<Genres>([]);
     const [vote_average, setRating] = useState(1);
     const [release_date, setRelease] = useState('');
@@ -45,7 +47,7 @@ const AddMovieForm: React.FC<Props> = () => {
     // ].every(Boolean) && !isLoading
     const canSave =
         [
-            genres,
+            // genres,
             vote_average,
             release_date,
             runtime,
@@ -53,20 +55,19 @@ const AddMovieForm: React.FC<Props> = () => {
             title,
             overview,
         ].every(Boolean) && addRequestStatus === 'idle';
-
-    const onGenreChanged = (e: [{ value: string; label: string }]) => {
-        const genresData = e.map((genre) => genre.value);
-        console.log(genresData);
-        setGenre(genresData);
+    const onTitleChanged = (e: {
+        target: { value: SetStateAction<string> };
+    }) => {
+        setTitle(e.target.value);
+    };
+    const onReleaseChanged = (e: { target: { value: string } }) => {
+        const year = new Date(e.target.value).getFullYear().toString();
+        setRelease(year);
     };
     const onRatingChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
         setRating(Number(e.target.value));
-    };
-    const onReleaseChanged = (e: { target: { value: string } }) => {
-        const year = new Date(e.target.value).getFullYear().toString();
-        setRelease(year);
     };
     const onRuntimeChanged = (e: {
         target: { value: SetStateAction<string> };
@@ -78,15 +79,14 @@ const AddMovieForm: React.FC<Props> = () => {
     }) => {
         setThumbnail(e.target.value);
     };
-    const onTitleChanged = (e: {
-        target: { value: SetStateAction<string> };
-    }) => {
-        setTitle(e.target.value);
-    };
     const onDescriptionChanged = (e: {
         target: { value: SetStateAction<string> };
     }) => {
         setDescription(e.target.value);
+    };
+    const onGenreChanged = (e: [{ value: string; label: string }]) => {
+        const genresData = e.map((genre) => genre.value);
+        setGenre(genresData);
     };
 
     const onSubmit = async () => {
@@ -107,12 +107,14 @@ const AddMovieForm: React.FC<Props> = () => {
                         runtime,
                     })
                 ).unwrap();
-                setModalTitle('Congratulations!');
-                setModalIcon(true)
-                setModalContent(
-                    `The movie has been added to database successfully`
-                );
-                setIsOpen(true);
+                if (hasModalFeedback) {
+                    setModalTitle('Congratulations!');
+                    setModalIcon(true)
+                    setModalContent(
+                        `The movie has been added to database successfully`
+                    );
+                    setIsOpen(true);
+                }
                 setGenre([]);
                 setRating(0);
                 setRelease('');
@@ -121,11 +123,13 @@ const AddMovieForm: React.FC<Props> = () => {
                 setTitle('');
                 setDescription('');
             } catch (err) {
-                setModalTitle('Failure!');
-                setModalContent(
-                    `The movie has been failed to add to database :(`
-                );
-                setIsOpen(true);
+                if (hasModalFeedback) {
+                    setModalTitle('Failure!');
+                    setModalContent(
+                        `The movie has been failed to add to database :(`
+                    );
+                    setIsOpen(true);
+                }
             } finally {
                 setAddRequestStatus('idle');
             }
@@ -147,9 +151,11 @@ const AddMovieForm: React.FC<Props> = () => {
             //     console.warn('Failed to add movie: ', error)
             // }
         } else {
-            setModalTitle('Can\'t save movie');
-            setModalContent(`Please, fill all the required fields`);
-            setIsOpen(true);
+            if (hasModalFeedback) {
+                setModalTitle('Can\'t save movie');
+                setModalContent(`Please, fill all the required fields`);
+                setIsOpen(true);
+            }
         }
     };
 
@@ -233,7 +239,12 @@ const AddMovieForm: React.FC<Props> = () => {
                     </div>
                     <div className={classes['movie-form__actions']}>
                         <Button isGhost={true}>reset</Button>
-                        <Button type='button' onClick={onSubmit}>
+                        <Button
+                            type='button'
+                            onClick={onSubmit}
+                            dataTestId={'add-movie-submit'}
+                            id={'add-movie-submit'}
+                        >
                             submit
                         </Button>
                     </div>
@@ -245,13 +256,15 @@ const AddMovieForm: React.FC<Props> = () => {
                 size={'medium'}
                 title={modalTitle}
             >
-                {modalIcon ? 
+                {modalIcon ? (
                     <img
                         src={IconCheck}
                         alt=''
                         className={modalClasses['modal__icon']}
-                    /> : ''
-                }
+                    />
+                ) : (
+                    ''
+                )}
                 <p>{modalContent}</p>
             </Modal>
         </>

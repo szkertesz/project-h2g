@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal sholud render component 1`] = `<div />`;
-
 exports[`Modal should render component 1`] = `<div />`;

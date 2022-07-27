@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render component 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container footer__inner"
+  >
+    <img
+      alt="logo"
+      className="footer__logo"
+      src="logo_netflixroulette.svg"
+    />
+  </div>
+</footer>
+`;

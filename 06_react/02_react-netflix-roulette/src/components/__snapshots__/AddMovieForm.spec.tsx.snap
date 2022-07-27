@@ -216,6 +216,8 @@ exports[`AddMovieForm should render AddMovieForm component 1`] = `
         className="button 
             button--default
             "
+        data-testid="add-movie-submit"
+        id="add-movie-submit"
         onClick={[Function]}
         type="button"
       >

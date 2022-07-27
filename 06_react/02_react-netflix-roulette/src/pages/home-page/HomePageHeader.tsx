@@ -60,7 +60,7 @@ function HeaderMovies() {
                 isOpen={isOpen}
                 size={'large'}
             >
-                <AddMovieForm />
+                <AddMovieForm hasModalFeedback={true}/>
             </Modal>
         </header>
     );

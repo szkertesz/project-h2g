@@ -2,7 +2,6 @@ import { useAppSelector } from '../../app/hooks';
 import { Movie } from '../../interfaces/Movie';
 
 export const moviesSelector = (state: any) => {
-    console.log(state)
     return state.movies.data
         .filter((movie: Movie) =>
             movie.title

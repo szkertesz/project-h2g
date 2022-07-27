@@ -8,6 +8,7 @@
     --length-6: calc(var(--unit) * 6);
     --length-7: calc(var(--unit) * 7);
     --length-8: calc(var(--unit) * 8);
+    --length-9: calc(var(--unit) * 9);
     --height-input: var(--length-7);
 
     --font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
