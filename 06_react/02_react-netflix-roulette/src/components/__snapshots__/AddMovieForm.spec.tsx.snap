@@ -65,7 +65,7 @@ exports[`AddMovieForm should render AddMovieForm component 1`] = `
       className="movie-form__group"
     >
       <label
-        htmlFor="react-select-2-input"
+        htmlFor="selectId"
       >
         Genre
       </label>
@@ -111,7 +111,7 @@ exports[`AddMovieForm should render AddMovieForm component 1`] = `
                 autoCorrect="off"
                 className=""
                 disabled={false}
-                id="react-select-2-input"
+                id="selectId"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}

@@ -23,7 +23,7 @@ interface MovieToAddWithId extends Movie {
     budget: number
 };
 
-type MovieToAdd = Omit<MovieToAddWithId, 'id'>
+export type MovieToAdd = Omit<MovieToAddWithId, 'id'>
 
 export const initialState: moviesState = {
     data: [],

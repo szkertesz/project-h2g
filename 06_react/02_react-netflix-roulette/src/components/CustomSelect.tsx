@@ -6,9 +6,10 @@ import arrowIcon from '../assets/images/icon-arrow.svg';
 export interface Props {
     options: object[];
     handleChange: (option: any) => void;
+    id?: string
 }
 
-const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
+const CustomSelect: React.FC<Props> = ({options, handleChange, id}) => {
     const selectOptions = options;
     const DropdownIndicator = (props: DropdownIndicatorProps) => {
         return (
@@ -38,6 +39,7 @@ const CustomSelect: React.FC<Props> = ({options, handleChange}) => {
                 DropdownIndicator,
                 IndicatorSeparator,
             }}
+            inputId={id}
             styles={{
                 multiValue: (base) => ({
                     ...base,

@@ -84,7 +84,7 @@ const AddMovieForm: React.FC<Props> = ({hasModalFeedback}) => {
     }) => {
         setDescription(e.target.value);
     };
-    const onGenreChanged = (e: [{ value: string; label: string }]) => {
+    const onGenreChanged = (e: [{ value: string, label: string }]) => {
         const genresData = e.map((genre) => genre.value);
         setGenre(genresData);
     };
@@ -196,7 +196,11 @@ const AddMovieForm: React.FC<Props> = ({hasModalFeedback}) => {
                         />
                     </div>
                     <div className={classes['movie-form__group']}>
-                        <label htmlFor='react-select-2-input'>Genre</label>
+                        <label
+                            htmlFor='selectId'
+                        >
+                            Genre
+                        </label>
                         <CustomSelect
                             options={[
                                 { value: 'crime', label: 'Crime' },
@@ -206,6 +210,7 @@ const AddMovieForm: React.FC<Props> = ({hasModalFeedback}) => {
                                 { value: 'fantasy', label: 'Fantasy' },
                             ]}
                             handleChange={onGenreChanged}
+                            id={'selectId'}
                         />
                     </div>
                     <div className={classes['movie-form__group']}>
