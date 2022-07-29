@@ -5,7 +5,7 @@ import type { RootState } from '../../app/store';
 
 export interface moviesState {
     data: Movie[],
-    status: 'idle' | 'loading' | 'succeeded' | 'failed',
+    status: 'idle' | 'loading' | 'succeeded' | 'failed' | string,
     error: string | null | undefined,
     searchedMovie: string;
     sortOptions: {
@@ -162,7 +162,6 @@ const moviesSlice = createSlice({
                 );
             })
             .addCase(editMovie.fulfilled, (state, action) => {
-                console.warn(action.payload);
                 const index = state.data.findIndex(
                     (movie) => movie.id === action.payload.id
                 );

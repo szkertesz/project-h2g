@@ -72,7 +72,7 @@ function MovieList() {
         return (
             <section>
                 <p>Loading...</p>
-        </section>
+            </section>
             )
     } else if (moviesStatus === 'succeeded') {
         return (

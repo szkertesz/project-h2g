@@ -4,7 +4,7 @@ import renderer, {
     ReactTestInstance,
     ReactTestRenderer,
 } from 'react-test-renderer';
-import { findByText, fireEvent, getByText, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 
 import AddMovieForm from './AddMovieForm';
@@ -48,9 +48,7 @@ describe('AddMovieForm', () => {
                 },
             },
         });
-
         // store.dispatch = jest.fn().mockName('addMovie');
-
         component = renderer.create(
             <Provider store={store}>
                 <AddMovieForm hasModalFeedback={false} />
@@ -68,7 +66,8 @@ describe('AddMovieForm', () => {
                 <AddMovieForm hasModalFeedback={true} />
             </Provider>
         );
-        fireEvent.click(screen.getByTestId('add-movie-submit'));
+        // fireEvent.click(screen.getByTestId('add-movie-submit'));
+        fireEvent.click(screen.getByRole('button', {name: /submit/i}));
 
         expect(
             await screen.findByText(/fill all the required fields/)
@@ -122,7 +121,7 @@ describe('AddMovieForm', () => {
 
         await waitFor(() => {
             const actions = store.getActions();
-            console.log(actions)
+            // console.log(actions)
             expect(actions).toHaveLength(2);
             expect(actions[0].type).toEqual('movies/addMovie/pending');
             expect(actions[1].type).toEqual('movies/addMovie/rejected');
